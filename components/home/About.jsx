@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import waveTop from '../../public/waves/wave-top.svg'
 import waveBottom from '../../public/waves/wave-bottom.svg'
-import subwave from '../../public/waves/subwave.svg'
+// import subwave from '../../public/waves/subwave.svg'
 
 import s from './home.module.scss'
 import Container from '../container/Container'
