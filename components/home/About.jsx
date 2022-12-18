@@ -4,13 +4,13 @@ import Image from 'next/image'
 
 import waveTop from '../../public/waves/wave-top.svg'
 import waveBottom from '../../public/waves/wave-bottom.svg'
-// import subwave from '../../public/waves/subwave.svg'
+import waveSub from '../../public/waves/wave-sub.svg'
 
 import s from './home.module.scss'
 import Container from '../container/Container'
 import Title from '../title/title'
-import Bubble from '../bubble/bubble'
-import BubbleGroup from '../bubble/bubbleGroup'
+// import Bubble from '../bubble/bubble'
+// import BubbleGroup from '../bubble/bubbleGroup'
 
 
 const About = () => {
@@ -37,7 +37,7 @@ const About = () => {
         style={{ width: '100%', height: 'auto' }}
       />
       <Image
-        src={subwave}
+        src={waveSub}
         alt="waveBottom"
         style={{ width: '100%', height: 'auto', position: 'relative', top: '-10px' }}
       />
