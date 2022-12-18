@@ -1,0 +1,372 @@
+.bubbleGroup {
+    position: absolute;
+}
+
+.bubble {
+    position: relative;
+    // animation: animateBubble 4s ease-out, sideWays 2s ease-in-out infinite alternate;
+    // opacity: 0;
+}
+
+
+
+.first {
+    .bubbles{
+        .bubbleGroup:nth-child(1) {
+            top: 20%;
+            left: 8%;
+    
+            .bubble:nth-child(1) {
+                left: 20%;
+            }
+    
+            .bubble:nth-child(2) {
+                left: 130%;
+            }
+    
+            .bubble:nth-child(3) {
+                top: -12px;
+            }
+        }
+    
+        .bubbleGroup:nth-child(2) {
+            top: 16%;
+            left: 40%;
+    
+            .bubble:nth-child(1) {
+                left: 20%;
+                top: 20px;
+            }
+    
+            .bubble:nth-child(2) {
+                left: 180%;
+                top: -20px;
+            }
+    
+            .bubble:nth-child(3) {
+                left: 110%;
+                top: -10px;
+            }
+        }
+    
+        .bubbleGroup:nth-child(3) {
+            top: 60%;
+            left: 0%;
+    
+            .bubble:nth-child(1) {
+                left: -20px;
+            }
+    
+            .bubble:nth-child(2) {
+                left: 110%;
+                top: -25px;
+            }
+    
+            .bubble:nth-child(3) {
+                left: 70%;
+                top: 0px;
+            }
+        }
+    
+        .bubbleGroup:nth-child(4) {
+            top: 68%;
+            left: 20%;
+            @media (min-width:1280px) {
+                top: 72%;
+            }
+        }
+    
+        .bubbleGroup:nth-child(5) {
+            top: 62%;
+            left: 45%;
+    
+            .bubble:nth-child(1) {
+                left: 50px;
+            }
+    
+            .bubble:nth-child(3) {
+                left: -5px;
+                top: 15px;
+    
+            }
+    
+            .bubble:nth-child(4) {
+                left: 50px;
+                top: -30px;
+            }
+    
+            .bubble:nth-child(5) {
+                left: 150px;
+                top: -90px;
+            }
+        }
+    }
+   
+}
+
+.about {
+    position: relative;
+    .bubbles{
+        .bubbleGroup:nth-child(1) {
+            top: 17%;
+            left: 15%;
+            @media (min-width:1280px) {
+                top: 22%;
+            }
+            .bubble:nth-child(1) {
+                left: 141%;
+                top: 25px;
+            }
+        }
+    
+        .bubbleGroup:nth-child(2) {
+            top: 7%;
+            left: 80%;
+    
+            .bubble:nth-child(1) {
+                left: 0%;
+                top: 0px;
+            }
+    
+            .bubble:nth-child(2) {
+                left: 123%;
+                top: -70px;
+            }
+    
+            .bubble:nth-child(3) {
+                left: 92%;
+                top: -66px;
+            }
+    
+            .bubble:nth-child(4) {
+                left: 177%;
+                top: -73px;
+            }
+    
+            .bubble:nth-child(5) {
+                left: 200%;
+                top: -150px;
+            }
+            @media (max-width:1000px) {
+                display: none;
+            }
+        }
+    
+        .bubbleGroup:nth-child(3) {
+            top: 20%;
+            left: 60%;
+    
+            .bubble:nth-child(1) {
+                left: -60%;
+                top: 43px;
+            }
+    
+            .bubble:nth-child(2) {
+                left: 0%;
+                top: 44px;
+            }
+    
+            .bubble:nth-child(3) {
+                left: -121%;
+                top: 27px;
+            }
+        }
+    
+        .bubbleGroup:nth-child(4) {
+            top: 57%;
+            left: 29%;
+    
+            .bubble:nth-child(2) {
+                left: 94%;
+                top: 5px;
+            }
+        }
+    
+        .bubbleGroup:nth-child(5) {
+            top: 55%;
+            left: 85%;
+    
+            .bubble:nth-child(1) {
+                left: 116%;
+                top: 21px;
+            }
+            @media (max-width:1000px) {
+                display: none; 
+            }
+        }
+    
+        .bubbleGroup:nth-child(6) {
+            top: 66%;
+            left: 54%;
+    
+            .bubble:nth-child(1) {
+                left: 0%;
+                top: 0px;
+            }
+    
+            .bubble:nth-child(2) {
+                left: 64%;
+                top: -43px;
+            }
+    
+            .bubble:nth-child(3) {
+                left: -55%;
+                top: -54px;
+            }
+        }
+    
+        .bubbleGroup:nth-child(7) {
+            top: 69%;
+            left: 24%;
+    
+            .bubble:nth-child(1) {
+                left: 0%;
+                top: 0px;
+            }
+    
+            .bubble:nth-child(2) {
+                left: 0%;
+                top: 9px;
+            }
+    
+            .bubble:nth-child(3) {
+                left: -90%;
+                top: -61px;
+            }
+        }
+    
+        .bubbleGroup:nth-child(8) {
+            top: 62%;
+            left: 67%;
+        }
+    }
+    
+}
+
+.flavour {
+    position: relative;
+    .bubbles{
+        .bubbleGroup:nth-child(1) {
+            top: 11%;
+            left: 7%;
+    
+            .bubble:nth-child(1) {
+                left: 71%;
+            }
+        }
+    
+        .bubbleGroup:nth-child(2) {
+            top: 11%;
+            left: 32%;
+    
+            .bubble:nth-child(1) {
+                left: -20px;
+            }
+    
+            .bubble:nth-child(3) {
+                top: -73px;
+                left: 122%;
+            }
+        }
+    
+        .bubbleGroup:nth-child(3) {
+            top: 2%;
+            left: 62%;
+            .bubble:nth-child(1) {
+                left: 0px;
+                top: 21px;
+            }
+            .bubble:nth-child(2) {
+                left: 30px;
+            }
+            .bubble:nth-child(3) {}
+    
+            .bubble:nth-child(4) {
+                top: -26px;
+                left: 52px;
+            }
+        }
+        .bubbleGroup:nth-child(4) {
+            top: 7%;
+            left: 90%;
+            .bubble:nth-child(1) {
+                left: 0%;
+                top: 0px;
+            }
+            .bubble:nth-child(2) {
+                left: 28px;
+            }
+            .bubble:nth-child(3) {
+                left: 58px;
+                top: -21px;
+            }
+            @media (max-width:1000px) {
+                display: none; 
+            }
+        }
+        .bubbleGroup:nth-child(5) {
+            left: 5%;
+            top: 50%;
+        }
+        .bubbleGroup:nth-child(6) {
+            left: 23%;
+            top: 57%;
+            .bubble:nth-child(1) {
+                left: 0%;
+                top: 0px;
+            }
+            .bubble:nth-child(2) {
+                left: -57%;
+            }
+            .bubble:nth-child(3) {
+                left: 23%;
+                top: -15px;
+            }
+        }
+        .bubbleGroup:nth-child(7) {
+            left: 36%;
+            top: 32%;
+            .bubble:nth-child(1) {
+                left: 0%;
+                top: 0px;
+            }
+            .bubble:nth-child(2) {
+                top: 20px;
+            }
+        }
+        .bubbleGroup:nth-child(8) {
+            left: 61%;
+            top: 38%;
+            .bubble:nth-child(2) {
+                left: 86%;
+            }
+        }
+        .bubbleGroup:nth-child(9) {
+            left: 92%;
+            top: 40%;
+    
+            .bubble:nth-child(2) {
+                left: -37%;
+            }
+            .bubble:nth-child(3) {
+                top: -27px;
+                left: 32px;
+            }
+            @media (max-width:1000px) {
+                display: none; 
+            }
+        }
+        .bubbleGroup:nth-child(10) {
+            left: 67%;
+            top: 59%;
+            .bubble:nth-child(2) {
+                left: -70%;
+            }
+            .bubble:nth-child(3) {
+                left: 29%;
+                top: -37px;
+            }
+        }
+    }
+   
+}

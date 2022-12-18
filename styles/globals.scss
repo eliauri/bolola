@@ -1,0 +1,78 @@
+:root{
+  @media (max-width:1280px) {
+    --content-width: 1080px;
+  }
+  --content-width: 1380px;
+  --container-offset: 15px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --color-pink: #E62154;
+  --color-green: #05AD69;
+  --color-yellow: #FFED00;
+  --color-blue: #4BBBFC;
+  --color-black: #000;
+  --color-white: #fff;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Ubuntu-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Ubuntu-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Ubuntu-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/Ubuntu-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Rounds";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/RoundsBlack.woff") format("woff");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Ubuntu';
+}
+body{
+  min-width: 320px;
+  min-height: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header{
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+.container {
+
+  margin: 0 auto;
+  padding: 0 var(--container-offset);
+  max-width: var(--container-width);
+  position: relative;
+  z-index: 1;
+  
+}
