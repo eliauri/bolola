@@ -34,7 +34,7 @@ const News = () => {
         <section className={cl(s.news, "news")}>
         
             <Container>
-                <Title type='medium' color='black' className={s.news__title}>Новости</Title>
+                <Title type='medium' color='black' >Новости</Title>
                 <div className={s.news__list}>
                     {news.map((post) =>
                         <Link  href={`/news/${post.title}`} key={post.id} className={s.news__new}>
