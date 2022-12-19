@@ -6,11 +6,11 @@ import waveTop from '../../public/waves/wave-top.svg'
 import waveBottom from '../../public/waves/wave-bottom.svg'
 import waveSub from '../../public/waves/wave-sub.svg'
 
-import s from './home.module.scss'
+import s from '../../styles/home.module.scss'
 import Container from '../container/Container'
 import Title from '../title/title'
-// import Bubble from '../bubble/bubble'
-// import BubbleGroup from '../bubble/bubbleGroup'
+import Bubble from '../bubble/bubble'
+import BubbleGroup from '../bubble/bubbleGroup'
 
 
 const About = () => {
@@ -42,7 +42,7 @@ const About = () => {
         style={{ width: '100%', height: 'auto', position: 'relative', top: '-10px' }}
       />
       <div className='bubbles'>
-      {/* <BubbleGroup>
+      <BubbleGroup>
         <Bubble size='medium' color="white" />
         <Bubble size='big' color="white" />
       </BubbleGroup>
@@ -78,7 +78,7 @@ const About = () => {
       </BubbleGroup>
       <BubbleGroup>
         <Bubble size='medium' color="white" />
-      </BubbleGroup> */}
+      </BubbleGroup>
       </div>
       
     </section>

@@ -42,10 +42,10 @@ const Bubble = ({size, color}) => {
     }
 
     useLayoutEffect(() => {
-        let ctx = gsap.context(() => {
-            gsap.current = gsap
-            .fromTo(".bubble", { x: -25, }, { x: 0, ease: "power1.inOut", duration: 2,stagger: {each:0.1, from: "random", repeat:-1, yoyo: true} , })
-        })
+        // let ctx = gsap.context(() => {
+        //     gsap.current = gsap
+        //     .fromTo(".bubble", { x: -25, }, { x: 0, ease: "power1.inOut", duration: 2,stagger: {each:0.1, from: "random", repeat:-1, yoyo: true} , })
+        // })
       }, [])
 
   return (

@@ -1,3 +1,4 @@
+@import "../../styles/breakpoint";
 
 .header {
     display: flex;
@@ -42,6 +43,9 @@
                 color: rgba(230, 33, 84, 0.83);
             }
         }
+    }
+    @include small-tablet{
+        display: none;
     }
 }
 

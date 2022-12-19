@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import cl from 'classnames'
 
-import s from './home.module.scss'
+import s from '../../styles/home.module.scss'
 import Container from '../container/Container'
 import Title from '../title/title'
 import Bubble from '../bubble/bubble'
@@ -44,16 +44,17 @@ const Flavour = () => {
         <div className={s.flavour__list} >
           {flavours.map((flavour) =>
             <div key={flavour.id} className={s.flavour__element}>
-              <Image
+              <div className={s.flavour__image}>
+                <Image
                 src={flavour.image}
                 alt={flavour.text}
-              />
+              /></div>
               <p className={s.flavour__text} style={{ color: `var(--color-${flavour.color})` }}>{flavour.text}</p>
             </div>
           )}
         </div>
       </Container>
-      {/* <div className='bubbles'>
+      <div className='bubbles'>
       <BubbleGroup>
         <Bubble size='medium' color="blue" />
         <Bubble size='small' color="blue" />
@@ -100,7 +101,7 @@ const Flavour = () => {
         <Bubble size='small' color="blue" />
         <Bubble size='medium' color="blue" />
       </BubbleGroup>
-      </div> */}
+      </div>
       
     </section>
   )
