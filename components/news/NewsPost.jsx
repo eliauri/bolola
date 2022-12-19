@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import s from '../../styles/news.module.scss'
+import s from '../../styles/home.module.scss'
 
 const NewsPost = ({ post }) => {
     return (
