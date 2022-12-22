@@ -1,3 +1,6 @@
+@import "../../styles/breakpoint";
+
+
 .title{
     font-family: 'Rounds';
     text-transform: uppercase;
@@ -9,4 +12,7 @@ h1.title{
 }
 h2.title{
     font-size: 40px;
+    @include mobile{
+        font-size: 32px;
+    }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import cl from 'classnames'
 import Image from 'next/image'
 
+
 import waveTop from '../../public/waves/wave-top.svg'
 import waveBottom from '../../public/waves/wave-bottom.svg'
 import waveSub from '../../public/waves/wave-sub.svg'
@@ -14,6 +15,8 @@ import BubbleGroup from '../bubble/bubbleGroup'
 
 
 const About = () => {
+
+
   return (
     <section className={cl(s.about, `about`)}>
       <Image

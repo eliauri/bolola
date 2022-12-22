@@ -39,7 +39,7 @@ const Flavour = () => {
   return (
     <section className={cl(s.flavour, 'flavour')} style={{ backgroundImage: `url(${bluewave.src})` }}>
       <Container>
-        <Title type='medium' color='blue' className={s.flavour__title}>ВЫБери свой вкус!</Title>
+        <Title type='medium' color='pink' className={s.flavour__title}>ВЫБери свой вкус!</Title>
 
         <div className={s.flavour__list} >
           {flavours.map((flavour) =>
@@ -48,6 +48,8 @@ const Flavour = () => {
                 <Image
                 src={flavour.image}
                 alt={flavour.text}
+                width={300}
+                height={300}
               /></div>
               <p className={s.flavour__text} style={{ color: `var(--color-${flavour.color})` }}>{flavour.text}</p>
             </div>
@@ -56,24 +58,24 @@ const Flavour = () => {
       </Container>
       <div className='bubbles'>
       <BubbleGroup>
-        <Bubble size='medium' color="blue" />
-        <Bubble size='small' color="blue" />
+        <Bubble size='medium' color="pink" />
+        <Bubble size='small' color="pink" />
       </BubbleGroup>
       <BubbleGroup>
-        <Bubble size='small' color="blue" />
-        <Bubble size='medium' color="blue" />
-        <Bubble size='tiny' color="blue" />
+        <Bubble size='small' color="pink" />
+        <Bubble size='medium' color="pink" />
+        <Bubble size='tiny' color="pink" />
       </BubbleGroup>
       <BubbleGroup>
-        <Bubble size='tiny' color="blue" />
-        <Bubble size='small' color="blue" />
-        <Bubble size='small' color="blue" />
-        <Bubble size='tiny' color="blue" />
+        <Bubble size='tiny' color="pink" />
+        <Bubble size='small' color="pink" />
+        <Bubble size='small' color="pink" />
+        <Bubble size='tiny' color="pink" />
       </BubbleGroup>
       <BubbleGroup>
-        <Bubble size='small' color="blue" />
-        <Bubble size='tiny' color="blue" />
-        <Bubble size='small' color="blue" />
+        <Bubble size='small' color="pink" />
+        <Bubble size='tiny' color="pink" />
+        <Bubble size='small' color="pink" />
       </BubbleGroup>
       <BubbleGroup>
         <Bubble size='medium' color="white" />
@@ -97,9 +99,9 @@ const Flavour = () => {
         <Bubble size='medium' color="white" />
       </BubbleGroup>
       <BubbleGroup>
-        <Bubble size='tiny' color="blue" />
-        <Bubble size='small' color="blue" />
-        <Bubble size='medium' color="blue" />
+        <Bubble size='tiny' color="pink" />
+        <Bubble size='small' color="pink" />
+        <Bubble size='medium' color="pink" />
       </BubbleGroup>
       </div>
       

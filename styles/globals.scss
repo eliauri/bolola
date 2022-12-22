@@ -54,6 +54,10 @@ body {
 body{
   min-width: 320px;
   min-height: 100%;
+  overflow-x: hidden;
+}
+.noscroll {
+  overflow: hidden;
 }
 a {
   color: inherit;
@@ -62,17 +66,21 @@ a {
 
 * {
   box-sizing: border-box;
+  
 }
 
 header{
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 }
 .container {
-
   margin: 0 auto;
   padding: 0 var(--container-offset);
   max-width: var(--container-width);
   position: relative;
   z-index: 1;
-  
+}
+
+.container--noIndex{
+  position: initial;
+  z-index: auto;
 }

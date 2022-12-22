@@ -13,7 +13,7 @@ const Collection = () => {
   return (
     <section className={cl(s.collection, 'collection')}>
         <Container>
-          <Title className={s.collection__title}>Собери полную коллекцию боликов и получи приз!</Title>
+          <Title className={s.collection__title} type='medium'>Собери полную коллекцию боликов и получи приз!</Title>
           <div className={s.collection__wrapper}>
             <ul className={s.collection__list}>
               <li><span className={s.collection__order}>1</span>Купи лимонад в магазине</li>
@@ -25,6 +25,8 @@ const Collection = () => {
               <Image
                 src={gavs}
                 alt="Генерал Гавс"
+                width={360}
+                height={500}
               />
             </div>
           </div>
