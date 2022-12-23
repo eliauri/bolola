@@ -1,7 +1,8 @@
 import React from 'react'
 import cl from 'classnames'
 import Image from 'next/image'
-
+import { useEffect, useRef } from 'react'
+import { gsap } from "gsap";
 
 import waveTop from '../../public/waves/wave-top.svg'
 import waveBottom from '../../public/waves/wave-bottom.svg'
@@ -15,10 +16,18 @@ import BubbleGroup from '../bubble/bubbleGroup'
 
 
 const About = () => {
+  const app = useRef();
 
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.current = gsap.timeline()
+        .fromTo(".bubble", { x: -25, }, { x: 0, ease: "power1.inOut", duration: 2,stagger: {each:0.1, from: "random", repeat:-1, yoyo: true} , })
+    }, app)
+
+  }, [])
 
   return (
-    <section className={cl(s.about, `about`)}>
+    <section ref={app}  className={cl(s.about, `about`)}>
       <Image
         src={waveTop}
         alt="waveTop"

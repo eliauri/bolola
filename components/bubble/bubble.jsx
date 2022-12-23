@@ -1,9 +1,9 @@
 import React from 'react'
 import { useLayoutEffect, useRef } from 'react'
-import { gsap } from "gsap";
+import  gsap  from "gsap";
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// gsap.registerPlugin(ScrollTrigger);
+
 
 
 const Bubble = ({size, color}) => {
@@ -45,12 +45,14 @@ const Bubble = ({size, color}) => {
         height: `${sizes[size].glare/2}px`
     }
 
-    useLayoutEffect(() => {
-        // let ctx = gsap.context(() => {
-        //     gsap.current = gsap
-        //     .fromTo(".bubble", { x: -25, }, { x: 0, ease: "power1.inOut", duration: 2,stagger: {each:0.1, from: "random", repeat:-1, yoyo: true} , })
-        // })
-      }, [])
+    gsap.registerPlugin(ScrollTrigger);
+
+    // useLayoutEffect(() => {
+    //     let ctx = gsap.context(() => {
+    //         gsap.current = gsap
+    //         .fromTo(".bubble", { scrollTrigger: ".bubble", x: -25, }, { x: 0, ease: "power1.inOut", duration: 2,stagger: {each:0.1, from: "random", repeat:-1, yoyo: true} , })
+    //     })
+    //   }, [])
 
   return (
     <div className='bubble' style = {bubbleStyle}>

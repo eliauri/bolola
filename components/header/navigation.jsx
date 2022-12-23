@@ -3,7 +3,7 @@ import s from './header.module.scss';
 import Link from 'next/link';
 
 
-const navigation = () => {
+const navigation = ({gamburgerActive, setGamburgerActive}) => {
  
     const links = [
         {
@@ -32,11 +32,15 @@ const navigation = () => {
             href: '/about',
         },
     ]
+
+    const closeGamburger = () => {
+        setGamburgerActive(!gamburgerActive);
+    }
     return (
         <nav className={s.navigation}>
             <ul>
                 {links.map((link) => (
-                    <li key={link.id} ><Link href={link.href}>{link.title}</Link></li>
+                    <li key={link.id} onClick={closeGamburger}><Link href={link.href}>{link.title}</Link></li>
                 ))}
             </ul>
         </nav>

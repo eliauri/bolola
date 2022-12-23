@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import cl from 'classnames'
+import { useEffect, useRef } from 'react'
+import { gsap } from "gsap";
 
 import s from '../../styles/home.module.scss'
 import Container from '../container/Container'
@@ -36,8 +38,17 @@ const flavours = [
 ]
 
 const Flavour = () => {
+  const app = useRef();
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.current = gsap.timeline()
+        .fromTo(".bubble", { x: -25, }, { x: 0, ease: "power1.inOut", duration: 2,stagger: {each:0.1, from: "random", repeat:-1, yoyo: true} , })
+    }, app)
+
+  }, [])
   return (
-    <section className={cl(s.flavour, 'flavour')} style={{ backgroundImage: `url(${bluewave.src})` }}>
+    <section ref={app}  className={cl(s.flavour, 'flavour')} style={{ backgroundImage: `url(${bluewave.src})` }}>
       <Container>
         <Title type='medium' color='pink' className={s.flavour__title}>ВЫБери свой вкус!</Title>
 

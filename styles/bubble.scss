@@ -1,3 +1,5 @@
+@import "breakpoint";
+
 .bubbleGroup {
     position: absolute;
 }
@@ -11,362 +13,540 @@
 
 
 .first {
-    .bubbles{
+    .bubbles {
         .bubbleGroup:nth-child(1) {
             top: 20%;
             left: 8%;
-    
+
+            @include small-tablet {
+                top: 10%;
+            }
+
             .bubble:nth-child(1) {
                 left: 20%;
             }
-    
+
             .bubble:nth-child(2) {
                 left: 130%;
             }
-    
+
             .bubble:nth-child(3) {
                 top: -12px;
             }
         }
-    
+
         .bubbleGroup:nth-child(2) {
             top: 16%;
             left: 40%;
-    
+
+            @include small-tablet {
+                top: 40%;
+                left: 77%;
+            }
+
+            @include mobile {
+                top: 41%;
+                left: 65%;
+            }
+
             .bubble:nth-child(1) {
                 left: 20%;
                 top: 20px;
             }
-    
+
             .bubble:nth-child(2) {
                 left: 180%;
                 top: -20px;
             }
-    
+
             .bubble:nth-child(3) {
                 left: 110%;
                 top: -10px;
             }
         }
-    
+
         .bubbleGroup:nth-child(3) {
             top: 60%;
             left: 0%;
-    
+
+            @include small-tablet {
+                top: 47%;
+                left: 0%;
+            }
+
             .bubble:nth-child(1) {
                 left: -20px;
+
+                @include small-tablet {
+                    display: none;
+                }
             }
-    
+
             .bubble:nth-child(2) {
                 left: 110%;
                 top: -25px;
             }
-    
+
             .bubble:nth-child(3) {
                 left: 70%;
                 top: 0px;
             }
         }
-    
+
         .bubbleGroup:nth-child(4) {
             top: 68%;
             left: 20%;
+
+            @include small-tablet {
+                top: 91%;
+                left: 5%;
+            }
+
+            @include mobile {
+                top: 93%;
+                left: 5%;
+            }
+
             @media (min-width:1280px) {
                 top: 72%;
             }
         }
-    
+
         .bubbleGroup:nth-child(5) {
             top: 62%;
             left: 45%;
-    
+
+            @include small-tablet {
+                top: 85%;
+                left: 80%;
+            }
+
+            @include mobile {
+                display: none;
+            }
+
             .bubble:nth-child(1) {
                 left: 50px;
+
+                @include small-tablet {
+                    left: 26px;
+                }
             }
-    
+
             .bubble:nth-child(3) {
                 left: -5px;
                 top: 15px;
-    
+
+                @include small-tablet {
+                    left: 50px;
+                    top: -10px;
+                }
+
             }
-    
+
             .bubble:nth-child(4) {
                 left: 50px;
                 top: -30px;
+
+                @include small-tablet {
+                    display: none;
+                }
             }
-    
+
             .bubble:nth-child(5) {
                 left: 150px;
                 top: -90px;
+
+                @include small-tablet {
+                    display: none;
+                }
             }
         }
     }
-   
+
 }
 
 .about {
     position: relative;
-    .bubbles{
+
+    .bubbles {
         .bubbleGroup:nth-child(1) {
             top: 17%;
             left: 15%;
+
             @media (min-width:1280px) {
                 top: 22%;
             }
+
+            @include small-tablet {
+                display: none;
+            }
+
             .bubble:nth-child(1) {
                 left: 141%;
                 top: 25px;
             }
         }
-    
+
         .bubbleGroup:nth-child(2) {
             top: 7%;
             left: 80%;
-    
+
+            @include small-tablet {
+                display: none;
+            }
+
             .bubble:nth-child(1) {
                 left: 0%;
                 top: 0px;
             }
-    
+
             .bubble:nth-child(2) {
                 left: 123%;
                 top: -70px;
             }
-    
+
             .bubble:nth-child(3) {
                 left: 92%;
                 top: -66px;
             }
-    
+
             .bubble:nth-child(4) {
                 left: 177%;
                 top: -73px;
             }
-    
+
             .bubble:nth-child(5) {
                 left: 200%;
                 top: -150px;
             }
+
             @media (max-width:1000px) {
                 display: none;
             }
         }
-    
+
         .bubbleGroup:nth-child(3) {
             top: 20%;
             left: 60%;
-    
+
+            @include small-tablet {
+                top: 13%;
+                left: 71%;
+            }
+
+            @include mobile {
+                top: 29%;
+                left: 86%;
+            }
+
             .bubble:nth-child(1) {
                 left: -60%;
                 top: 43px;
             }
-    
+
             .bubble:nth-child(2) {
                 left: 0%;
                 top: 44px;
             }
-    
+
             .bubble:nth-child(3) {
                 left: -121%;
                 top: 27px;
             }
         }
-    
+
         .bubbleGroup:nth-child(4) {
             top: 57%;
             left: 29%;
-    
+
             .bubble:nth-child(2) {
                 left: 94%;
                 top: 5px;
             }
+
+            @include mobile {
+                top: 57%;
+                left: 6%;
+            }
         }
-    
+
         .bubbleGroup:nth-child(5) {
             top: 55%;
             left: 85%;
-    
+
             .bubble:nth-child(1) {
                 left: 116%;
                 top: 21px;
             }
+
             @media (max-width:1000px) {
-                display: none; 
+                display: none;
             }
         }
-    
+
         .bubbleGroup:nth-child(6) {
             top: 66%;
             left: 54%;
-    
+
+            @include small-tablet {
+                display: none;
+            }
+
             .bubble:nth-child(1) {
                 left: 0%;
                 top: 0px;
             }
-    
+
             .bubble:nth-child(2) {
                 left: 64%;
                 top: -43px;
             }
-    
+
             .bubble:nth-child(3) {
                 left: -55%;
                 top: -54px;
             }
         }
-    
+
         .bubbleGroup:nth-child(7) {
             top: 69%;
             left: 24%;
-    
+
+            @include small-tablet {
+                display: none;
+            }
+
             .bubble:nth-child(1) {
                 left: 0%;
                 top: 0px;
             }
-    
+
             .bubble:nth-child(2) {
                 left: 0%;
                 top: 9px;
             }
-    
+
             .bubble:nth-child(3) {
                 left: -90%;
                 top: -61px;
             }
         }
-    
+
         .bubbleGroup:nth-child(8) {
             top: 62%;
             left: 67%;
+
+            @include small-tablet {
+                display: none;
+            }
         }
     }
-    
+
 }
 
 .flavour {
     position: relative;
-    .bubbles{
+
+    .bubbles {
         .bubbleGroup:nth-child(1) {
             top: 11%;
             left: 7%;
-    
+            @media (min-width:1400px) {
+                top: 0%;
+                 left: 7%;
+            }
+            @include small-tablet {
+                top: 0%;
+                left: 70%;
+            }
+            @include  mobile {
+                display: none;
+            }
             .bubble:nth-child(1) {
                 left: 71%;
             }
         }
-    
+
         .bubbleGroup:nth-child(2) {
-            top: 11%;
-            left: 32%;
-    
+            top: 22%;
+            left: 28%;
+            @media (min-width:1400px) {
+                top: 8%;
+                
+            }
+            @include small-tablet {
+                display: none;
+            }
+
             .bubble:nth-child(1) {
                 left: -20px;
             }
-    
+
             .bubble:nth-child(3) {
                 top: -73px;
                 left: 122%;
             }
         }
-    
+
         .bubbleGroup:nth-child(3) {
-            top: 2%;
-            left: 62%;
+            top: 8%;
+            left: 57%;
+            @media (min-width:1400px) {
+                top:-10%;
+                
+            }
+            @include small-tablet {
+                top: 97%;
+                left: 76%;
+            }
+
             .bubble:nth-child(1) {
                 left: 0px;
                 top: 21px;
             }
+
             .bubble:nth-child(2) {
                 left: 30px;
             }
+
             .bubble:nth-child(3) {}
-    
+
             .bubble:nth-child(4) {
                 top: -26px;
                 left: 52px;
             }
         }
+
         .bubbleGroup:nth-child(4) {
-            top: 7%;
-            left: 90%;
+            top: 16%;
+            left: 86%;
+            @media (min-width:1400px) {
+                top: 6%;
+            }
             .bubble:nth-child(1) {
                 left: 0%;
                 top: 0px;
             }
+
             .bubble:nth-child(2) {
                 left: 28px;
             }
+
             .bubble:nth-child(3) {
                 left: 58px;
                 top: -21px;
             }
+
             @media (max-width:1000px) {
-                display: none; 
+                display: none;
             }
         }
+
         .bubbleGroup:nth-child(5) {
             left: 5%;
-            top: 50%;
+            top: 72%;
+            @media (min-width:1400px) {
+                top: 52%;
+            }
+            @include mobile{
+                left: 1%;
+                top: 59%;
+            }
         }
+
         .bubbleGroup:nth-child(6) {
-            left: 23%;
-            top: 57%;
+            left: 26%;
+            top: 80%;
+         
+            @include mobile {
+                left: 81%;
+                top: 68%;
+            }
+
             .bubble:nth-child(1) {
                 left: 0%;
                 top: 0px;
             }
+
             .bubble:nth-child(2) {
                 left: -57%;
             }
+
             .bubble:nth-child(3) {
                 left: 23%;
                 top: -15px;
             }
         }
+
         .bubbleGroup:nth-child(7) {
             left: 36%;
-            top: 32%;
+            top: 53%;
+            @media (min-width:1400px) {
+                top: 33%;
+            }
+            @include mobile {
+                left: 9%;
+                top: 29%;
+            }
+
             .bubble:nth-child(1) {
                 left: 0%;
                 top: 0px;
             }
+
             .bubble:nth-child(2) {
                 top: 20px;
             }
         }
+
         .bubbleGroup:nth-child(8) {
-            left: 61%;
-            top: 38%;
+            left: 64%;
+            top: 58%;
+
+            @include mobile {
+                left: 78%;
+                top: 38%;
+            }
+
             .bubble:nth-child(2) {
                 left: 86%;
             }
         }
+
         .bubbleGroup:nth-child(9) {
             left: 92%;
-            top: 40%;
-    
+            top: 66%;
+            @media (min-width:1400px) {
+                top: 33%;
+            }
             .bubble:nth-child(2) {
                 left: -37%;
             }
+
             .bubble:nth-child(3) {
                 top: -27px;
                 left: 32px;
             }
+
             @media (max-width:1000px) {
-                display: none; 
+                display: none;
             }
         }
+
         .bubbleGroup:nth-child(10) {
             left: 67%;
-            top: 59%;
+            top: 84%;
+
             .bubble:nth-child(2) {
                 left: -70%;
             }
+
             .bubble:nth-child(3) {
                 left: 29%;
                 top: -37px;
             }
         }
     }
-   
+
 }

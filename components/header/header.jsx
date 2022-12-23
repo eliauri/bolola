@@ -17,7 +17,9 @@ const Header = () => {
   const [gamburgerActive, setGamburgerActive] = useState(false);
 
   useEffect(() => {
-    document.querySelector("body").classList.toggle("noscroll");
+    gamburgerActive ? 
+    document.querySelector("body").classList.add("noscroll") :
+    document.querySelector("body").classList.remove("noscroll");
   }, [gamburgerActive])
   
   const gamburgerToggle = () => {
@@ -45,7 +47,7 @@ const Header = () => {
             </button>
             <div className={cl(s.menu, { [s.menuActive]: gamburgerActive })}>
               <div className={s.menu__content}>
-                <Navigation />
+                <Navigation gamburgerActive setGamburgerActive={setGamburgerActive}/>
               </div>
             </div>
           </div>
