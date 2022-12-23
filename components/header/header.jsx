@@ -21,7 +21,7 @@ const Header = () => {
   }, [gamburgerActive])
 
   const gamburgerToggle = () => {
-    // setGamburgerActive(!gamburgerActive)
+    setGamburgerActive(!gamburgerActive)
   }
   return (
     <header>
