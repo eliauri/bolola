@@ -19,7 +19,7 @@ const Header = () => {
   useEffect(() => {
     document.querySelector("body").classList.toggle("noscroll");
   }, [gamburgerActive])
-
+  
   const gamburgerToggle = () => {
     setGamburgerActive(!gamburgerActive)
   }
@@ -39,7 +39,7 @@ const Header = () => {
             <AddBolik />
             <button
               className={cl(s.burger, { [s.burgerActive]: gamburgerActive })}
-              onClick={gamburgerToggle()}
+              onClick={gamburgerToggle}
             >
               <span className={s.burger__line}></span>
             </button>
