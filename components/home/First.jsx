@@ -31,7 +31,7 @@ const First = () => {
       <Container className={s.container}>
         <div className={s.first__wrapper}>
           <div className={s.first__left}>
-            <h1 className={s.first__title}>Шипучий лимонад Болола</h1>
+            <h1 className={s.first__title}>Шипучий лимонад <span>Болола</span></h1>
             <p className={s.first__description}>Собери свою коллекцию Боликов с твоими любимыми персонажами</p>
             <button className={s.first__button}>
               Добавить болик

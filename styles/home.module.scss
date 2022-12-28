@@ -4,10 +4,12 @@
     background-color: var(--color-pink);
     color: #fff;
     height: 100vh;
-    position: relative;
-    @include small-tablet{
-        height: 92vh;
+    min-height: 100vh;
+    overflow: hidden;
+    @include tablet {
+        height: auto;
     }
+
     .container {
         height: 100%;
     }
@@ -16,15 +18,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
         height: 100%;
         padding: 0 40px;
-        @include tablet{
+
+        @include tablet {
             justify-content: space-around;
-            flex-direction:column-reverse;
-            text-align: center;
+            flex-direction: column-reverse;
+            text-align: center; 
         }
-        @include mobile{
+
+        @include mobile {
+            justify-content: start;
             padding: 0;
         }
     }
@@ -35,25 +40,40 @@
         justify-content: space-between;
         align-items: baseline;
         max-width: 555px;
-        @include tablet{
+
+        @include tablet {
             align-items: center;
+            margin-bottom: 140px;
         }
     }
-    &__right{
-        @include mobile{
-            img{
+
+    &__right {
+        @include tablet {
+            margin-top: 80px;
+            margin-bottom: 85px;
+            img {
                 width: 250px;
                 height: 250px;
             }
 
         }
     }
+
     &__title {
         font-family: 'Rounds';
         font-size: 48px;
         margin-bottom: 20px;
-        @include mobile{
+        line-height: 70px;
+        span{
+            font-size: 62px;
+            display: block;
+        }
+        @include mobile {
             font-size: 28px;
+            line-height: 43px;
+            span{
+                font-size:36px;
+            }
         }
     }
 
@@ -63,7 +83,8 @@
         line-height: 28px;
         color: rgba(255, 255, 255, 0.7);
         margin-bottom: 24px;
-        @include mobile{
+
+        @include mobile {
             font-size: 20px;
         }
     }
@@ -83,7 +104,8 @@
         &:hover {
             transform: scale(1.02);
         }
-        @include mobile{
+
+        @include mobile {
             padding: 10px 30px;
             font-size: 20px;
             width: 83%;
@@ -93,81 +115,157 @@
 
 .about {
     position: relative;
-    top: -1px;
-
+    overflow: clip;
+    min-height: 100vh;
     &__title {
-        position: relative;
-        top: -193px;
-        @include small-tablet{
-            top: -143px;
+        text-align: center;
+
+        @include small-tablet {}
+
+        @include mobile {
+        }
+    }
+
+    &__wrapper {
+        margin: 115px 0;
+        @include mobile{
+            margin-top: 45px;
+            margin-bottom: 120px;
+        }
+    }
+
+    &__numbers {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 80px;
+        gap: 20px;
+        @include mobile {
+            flex-direction: column;
+            margin-top: 30px;
+            gap:0;
+        }
+    }
+
+    &__number {
+        font-size: 24px;
+        line-height: 28px;
+        color: var(--color-gray);
+        font-weight: 500;
+        text-align: center;
+        span {
+            font-size: 42px;
+            line-height: 50px;
+            color: var(--color-pink);
+            font-family: 'Rounds';
+            display: block;
+            text-align: center;
+            margin-top: 5px;
         }
         @include mobile{
-            top: 0px;
-            color: var(--color-pink)!important;
+            &:not(:last-child){
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    &__info {
+        margin-top: 170px;
+        @include mobile {
             margin-top: 25px;
         }
-    }
-
-    &__list {
-        display: flex;
-        justify-content: space-between;
-        @include mobile{
-            flex-direction: column;
-            align-items: center;
-            margin-top: 35px;
-        }
-    }
-
-    &__element {
-        display: flex;
-        align-items: center;
-        padding: 0 14px;
-        background-color: var(--color-blue);
-        color: #fff;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 16px;
-        text-transform: uppercase;
-        text-align: center;
-        height: 220px;
-        width: 220px;
-        border-radius: 50%;
-        @include small-tablet{
-            width: 180px;
-            height: 180px;
-        }
-        @include mobile{
-            height: 140px;
-            width: 140px;
-            font-size: 12px;
-            &:nth-child(2){
-                width: 180px;
-                height: 180px;
-            }
-            &:not(:last-child){
-                margin-bottom: 25px;
+        h3 {
+            text-align: center;
+            font-size: 32px;
+            text-transform: uppercase;
+            text-align: center;
+            font-family: 'Rounds';
+            color: var(--color-pink);
+            @include mobile {
+                font-size: 20px;
+                line-height: 24px;
             }
         }
-        // @for $i from 2 through 3 {
-        //     &:nth-child(3n + #{$i}) {
-        //       position: relative;
-        //       top: -25 * ($i - 1)+px;
-        //     }
-        //   }
+
+        p {
+            font-size: 24px;
+            line-height: 28px;
+            text-align: center;
+            color: var(--color-gray);
+            margin: auto;
+            margin-top: 20px;
+            @include mobile{
+                font-size: 20px;
+                line-height: 23px;
+                max-width: 360px;
+            }
+            // max-width: 1015px;
+           
+        }
     }
+
+    // &__list {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     @include mobile{
+    //         flex-direction: column;
+    //         align-items: center;
+    //         margin-top: 35px;
+    //     }
+    // }
+
+    // &__element {
+    //     display: flex;
+    //     align-items: center;
+    //     padding: 0 14px;
+    //     background-color: var(--color-blue);
+    //     color: #fff;
+    //     font-weight: 700;
+    //     font-size: 14px;
+    //     line-height: 16px;
+    //     text-transform: uppercase;
+    //     text-align: center;
+    //     height: 220px;
+    //     width: 220px;
+    //     border-radius: 50%;
+    //     @include small-tablet{
+    //         width: 180px;
+    //         height: 180px;
+    //     }
+    //     @include mobile{
+    //         height: 140px;
+    //         width: 140px;
+    //         font-size: 12px;
+    //         &:nth-child(2){
+    //             width: 180px;
+    //             height: 180px;
+    //         }
+    //         &:not(:last-child){
+    //             margin-bottom: 25px;
+    //         }
+    //     }
+    //     // @for $i from 2 through 3 {
+    //     //     &:nth-child(3n + #{$i}) {
+    //     //       position: relative;
+    //     //       top: -25 * ($i - 1)+px;
+    //     //     }
+    //     //   }
+    // }
 }
 
 .collection {
     &__title {
         max-width: 800px;
         margin-top: 45px;
-        @include tablet{
+       
+        @include tablet {
             max-width: fit-content;
             text-align: left;
         }
-        @include mobile{
-           font-size: 24px;
-           margin-top: 35px;
+
+        @include mobile {
+            font-size: 24px;
+            margin-top: 35px;
         }
     }
 
@@ -178,21 +276,25 @@
         position: relative;
         top: -25px;
         flex-wrap: wrap;
+
         // margin-top: 85px;
-        @include tablet{
-            top:0;
+        @include tablet {
+            top: 0;
             margin-top: 50px;
             justify-content: center;
         }
-        @include mobile{
-            justify-content: flex-start;
-            margin-top: 25px;
+
+        @include mobile {
+            justify-content: center;
+            margin-top: 40px;
         }
     }
 
     &__list {
         margin-bottom: 20px;
-
+        @include mobile {
+            margin-top: 0px;
+        }
         li {
             font-family: 'Rounds';
             font-size: 28px;
@@ -205,6 +307,7 @@
             align-items: center;
             position: relative;
             padding-right: 20px;
+
             &:not(:last-child) {
                 margin-bottom: 42px;
             }
@@ -217,17 +320,21 @@
                 left: 0;
                 transform: translate(-100%);
             }
-            @include small-tablet{
+
+            @include small-tablet {
                 width: 100%;
                 font-size: 24px;
             }
-            @include mobile{
+
+            @include mobile {
                 font-size: 14px;
                 height: 30px;
+                padding-right: 30px;
+
                 &:not(:last-child) {
                     margin-bottom: 15px;
                 }
-             }
+            }
         }
     }
 
@@ -240,97 +347,99 @@
         padding: 11px 22px;
         margin-right: 30px;
         line-height: 38px;
-        @include small-tablet{
+
+        @include small-tablet {
             margin-right: 10px;
         }
-        @include mobile{
+
+        @include mobile {
             font-size: 16px;
             padding: 6px 10px;
             line-height: 19px;
-         }
-    }
-    &__img{
-        @include mobile{
-        img{
-            width: 300px;
-            height: auto;
         }
     }
-     
+
+    &__img {
+        position: relative;
+        overflow-y: clip;
+        img{
+            position: relative;
+            z-index: 10;
+        }
+        @include mobile {
+            img {
+                width: 230px;
+                height: auto;
+            }
+        }
+
     }
 }
 
 .flavour {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 0% 85%;
+   background-color: var(--color-pink);
     margin-top: 200px;
     min-height: 90vh;
-    @include tablet{
+    @include tablet {
         margin-top: 100px;
         background-size: cover;
         background-position: 33% 0%;
     }
-    
-    @media (min-width:1400px) {
-        background-position: 0% 0%;
+    @include mobile{
+        margin-top: 40px;
     }
-
     &__title {
-        margin-bottom: 135px;
-        @include small-tablet{
+        text-align: center;
+        margin-bottom: 100px;
+        @include small-tablet {
             margin-bottom: 80px;
-         }
-         @include mobile{
+        }
+
+        @include mobile {
             margin-bottom: 25px;
         }
     }
-
+    &__wrapper{
+        padding-top: 100px;
+        @include mobile{
+            padding-top: 45px;
+        }
+    }
     &__list {
         display: flex;
         justify-content: space-between;
-        @include small-tablet{
-           flex-wrap: wrap;
-           gap: 25px;
+        @include small-tablet {
+            flex-wrap: wrap;
         }
-        @include mobile{
+        @include mobile {
             flex-direction: column;
             align-items: center;
-            gap: 10px;
             margin-top: 35px;
         }
     }
-    &__image{
+
+    &__image {
         position: relative;
-        @include tablet{
-            img{
+
+        @include tablet {
+            img {
                 width: 230px;
                 height: 230px;
             }
         }
-        @include mobile{
-            img{
+
+        @include mobile {
+            img {
                 width: 180px;
                 height: 180px;
             }
         }
     }
+
     &__element {
-        @for $i from 2 through 3 {
-            &:nth-child(3n + #{$i}) {
-              position: relative;
-              top: -30 * ($i - 1)+px;
-            }
-          }
-        @include small-tablet{
-            @for $i from 2 through 3 {
-                &:nth-child(3n + #{$i}) {
-                  top: 0;
-                }
-              }
-        }
-        @include mobile{
-            &:not(:last-child){
+
+        @include mobile {
+            &:not(:last-child) {
                 margin-bottom: 20px;
             }
         }
@@ -342,10 +451,10 @@
         line-height: 65px;
         font-family: 'Rounds';
         text-transform: uppercase;
-        -webkit-text-stroke-width: 4px;
-        -webkit-text-stroke-color: #fff;
+        color: #fff;
         margin-top: 20px;
-        @include mobile{
+
+        @include mobile {
             font-size: 43px;
             margin-top: 5px;
         }
@@ -354,16 +463,20 @@
 
 .news {
     margin-top: 140px;
-    &__title{
+    @include mobile{
+        margin-top: 50px;
+    }
+    &__title {
         text-align: center;
         margin-top: 50px;
     }
+
     &__list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 40px;
         margin-top: 50px;
-        
+
     }
 
     &__new {
@@ -371,14 +484,16 @@
         border-radius: 30px;
         overflow: hidden;
         transition: all 0.3s;
-        &:hover{
+
+        &:hover {
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.45);
-            .news__image img{
+
+            .news__image img {
                 transform: scale(1.1);
             }
         }
     }
-  
+
     &__info {
         padding: 15px 40px;
         font-weight: 500;
@@ -393,31 +508,36 @@
         display: flex;
         justify-content: flex-end;
     }
-    &__image{
+
+    &__image {
         width: 100%;
         height: 180px;
         overflow: hidden;
         position: relative;
-        img{
+
+        img {
             object-fit: cover;
             transition: all 0.25s ease-out;
         }
-      
+
     }
+
     &__more {
         text-align: center;
         width: 100%;
         margin-top: 60px;
-        a{
+
+        a {
             font-weight: 500;
             font-size: 24px;
             line-height: 28px;
             color: #C7C7C7;
-            &:hover{
+
+            &:hover {
                 color: var(--color-pink);
                 transition: all 0.3s ease-out;
             }
         }
-        
+
     }
 }

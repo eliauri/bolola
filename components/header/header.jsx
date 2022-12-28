@@ -8,7 +8,7 @@ import Container from '../container/Container';
 import Navigation from './navigation';
 import AddBolik from './addBolik';
 
-import logo from '../../public/logo.png'
+import logo from '../../public/logo.svg'
 import auto from '../../public/authorization.svg'
 
 
@@ -29,7 +29,13 @@ const Header = () => {
     <header>
       <Container className='container--noIndex'>
         <div className={s.header}>
-          <Link href="/"> <Image src={logo} alt='logo' /></Link>
+          <Link href="/"> 
+          <Image 
+          src={logo} 
+          alt='logo'
+          width={140}
+          height={30} />
+          </Link>
           <Navigation />
           <div className={s.user}>
             <Link href="/">

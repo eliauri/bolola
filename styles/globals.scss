@@ -6,11 +6,13 @@
   --container-offset: 15px;
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
   --color-pink: #E62154;
+  --color-pinkOpacity: #e6215480;
   --color-green: #05AD69;
   --color-yellow: #FFED00;
   --color-blue: #4BBBFC;
-  --color-black: #000;
+  --color-black: #353434;
   --color-white: #fff;
+  --color-gray: #868686;
 }
 
 
@@ -71,6 +73,10 @@ a {
 
 header{
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
 }
 .container {
   margin: 0 auto;

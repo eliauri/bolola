@@ -34,7 +34,7 @@ const navigation = ({gamburgerActive, setGamburgerActive}) => {
     ]
 
     const closeGamburger = () => {
-        setGamburgerActive(!gamburgerActive);
+        if (gamburgerActive) setGamburgerActive(!gamburgerActive);
     }
     return (
         <nav className={s.navigation}>
