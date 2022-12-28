@@ -24,7 +24,7 @@ const Title = ({
   }
 
   return (
-    <h1  className={cl(s.title, className)} style={titleStyle}>
+    <h1 className={cl(s.title, className)} style={titleStyle}>
       {children}
     </h1>
   )
