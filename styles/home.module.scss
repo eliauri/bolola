@@ -115,7 +115,7 @@
 
 .about {
     position: relative;
-    overflow: clip;
+    overflow: hidden;
     min-height: 100vh;
     &__title {
         text-align: center;
