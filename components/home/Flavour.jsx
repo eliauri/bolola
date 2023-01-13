@@ -4,7 +4,7 @@ import cl from 'classnames'
 import { useEffect, useRef } from 'react'
 import { gsap } from "gsap";
 
-import s from '../../styles/home.module.scss'
+import s from './home.module.scss'
 import Container from '../container/Container'
 import Title from '../title/title'
 import Bubble from '../bubble/bubble'

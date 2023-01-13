@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import cl from 'classnames'
 import Image from 'next/image'
 import { gsap } from "gsap";
-import s from '../../styles/home.module.scss'
+import s from './home.module.scss'
 
 import bolikImg from '../../public/bolik.gif'
 
@@ -19,8 +19,9 @@ const First = () => {
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.current = gsap
-        .fromTo(".bubble", { marginTop: 1000, opacity: 0.5, }, { marginTop: 0, opacity: 1, ease: "power1.out", duration: 3 })
-      gsap.current = gsap.timeline()
+        // .fromTo(".bubble", { marginTop: 1000, opacity: 0.5, }, { marginTop: 0, opacity: 1, ease: "power1.out", duration: 3 })
+        .fromTo(".bubble", { y: 1000 }, { y: 0, duration: 2.5,  stagger: {each:0.1,from: "random", ease: "power1.out", }, })
+      gsap.current = gsap
         .fromTo(".bubble", { x: -25, }, { x: 0, ease: "power1.inOut", duration: 2,stagger: {each:0.1, from: "random", repeat:-1, yoyo: true} , })
     }, app)
 

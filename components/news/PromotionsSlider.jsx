@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, EffectCoverflow } from 'swiper';
+import { Pagination, Autoplay } from 'swiper';
 import Image from 'next/image'
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -9,8 +9,7 @@ import 'swiper/css/pagination';
 const Slider = ({posts}) => {
     return (
         <Swiper 
-            modules={[Pagination, Autoplay, EffectCoverflow]}
-            effect={"coverflow"}
+            modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
             slidesPerView={1}
             loop={true}
@@ -19,18 +18,16 @@ const Slider = ({posts}) => {
                 delay: 2500,
                 disableOnInteraction: false,
             }}
-            coverflowEffect={{
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false,
-              }}
         >
             {posts.map((post) =>
                 <SwiperSlide key={post.id}  className='news-slider__slide'>
-                    <Link href={`/news/${post.id}`}>
-                        <Image src={post.img} alt={'акция ' + post.id} />
+                    <Link href={{
+                        pathname: `/promotions/${post.slug ? post.slug : post.id}`,
+                        query: {
+                            id: post.id,
+                        }
+                    }}>
+                        <Image src={process.env.NEXT_PUBLIC_IMG_URL + post.thumbnail} width={1080} height={400} alt={'акция ' + post.id} />
                     </Link>
                 </SwiperSlide>
             )}

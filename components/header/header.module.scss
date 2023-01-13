@@ -6,6 +6,26 @@
     align-items: center;
     height: 80px;
 
+    &__user {
+        margin-right: 16px;
+        padding: 0 10px;
+        img{
+            cursor: pointer;
+        }
+        
+
+        @include mobile {
+            margin-right: 20px;
+        }
+    }
+
+    &__scanner {
+        margin-right: 26px;
+
+        @include mobile {
+            margin-right: 20px;
+        }
+    }
 }
 
 .logo {
@@ -37,7 +57,9 @@
             font-size: 16px;
             line-height: 18px;
             color: var(--color-gray);
-
+            &.active{
+                color: var(--color-pink);
+            }
             &:hover {
                 color: rgba(230, 33, 84, 0.83);
             }
@@ -49,20 +71,23 @@
     }
 }
 
-.user {
+
+
+.actions {
     margin-block-start: 1em;
     display: flex;
     align-items: center;
+    position: relative;
 
-    * {
-        &:not(:last-child) {
-            margin-right: 26px;
+    // * {
+    //     &:not(:last-child) {
+    //         margin-right: 26px;
 
-            @include mobile {
-                margin-right: 20px;
-            }
-        }
-    }
+    //         @include mobile {
+    //             margin-right: 20px;
+    //         }
+    //     }
+    // }
 
     button {
         border: none;
@@ -72,6 +97,73 @@
         &:hover {
             cursor: pointer;
         }
+    }
+}
+
+.miniProfile {
+    padding-top: 10px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    animation: menuFade ease 0.3s;
+    @include mobile{
+        right: 43px;
+    }
+    &.active {
+        display: block;
+    }
+
+    &__wrapper {
+
+        width: 250px;
+        background-color: #fff;
+        border: 1px solid #C8C8C8;
+        border-radius: 20px;
+        padding: 20px 24px;
+
+    }
+
+
+    &__name {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 23px;
+        color: var(--color-black);
+    }
+
+    &__mail {
+        color: var(--color-gray);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        margin-top: 4px;
+    }
+
+    &__user {}
+
+    &__link {
+        display: block;
+        background: #E62455;
+        border-radius: 20px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        padding: 16px 28px;
+        margin-top: 15px;
+        text-align: center;
+        transition: all ease  0.3s;
+        &:hover{
+            transform: scale(1.02);
+        }
+    }
+
+    &__unauthorized {
+        color: var(--color-gray);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
     }
 }
 
@@ -90,6 +182,7 @@
     cursor: pointer;
     margin-left: 13px;
     z-index: 200;
+
     @include small-tablet {
         display: block;
     }
@@ -125,13 +218,14 @@
     &:after {
         top: calc(100% - var(--burger-line-height));
     }
-    
+
 }
 
 
 .burgerActive {
-     color: var(--color-pink);
-    &  .burger__line {
+    color: var(--color-pink);
+
+    & .burger__line {
         transform: scale(0);
         transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
     }
@@ -151,7 +245,7 @@
     }
 }
 
-.menu{
+.menu {
     position: fixed;
     top: 0;
     right: 0;
@@ -161,14 +255,17 @@
     height: 100vh;
     overflow-y: auto;
     display: none;
-    animation: menuFade 0.3s ;
-    &.menuActive{
+    animation: menuFade 0.3s;
+
+    &.menuActive {
         display: block;
-        .menu__content{
+
+        .menu__content {
             transform: translateX(0%);
         }
     }
-    &__content{
+
+    &__content {
         background: #fff;
         width: 75%;
         height: 100vh;
@@ -177,21 +274,25 @@
         justify-content: center;
         align-items: center;
         transform: translateX(100%);
-        animation: menuSlide 0.3s ;
+        animation: menuSlide 0.3s;
     }
-    .navigation{
+
+    .navigation {
         display: block;
-        ul{
+
+        ul {
             display: flex;
             flex-direction: column;
         }
-        li{
-            &:not(:last-child){
+
+        li {
+            &:not(:last-child) {
                 margin-right: 0;
                 margin-bottom: 24px;
             }
         }
-        a{
+
+        a {
             display: block;
             font-weight: 500;
             font-size: 24px;
@@ -201,19 +302,21 @@
 }
 
 @keyframes menuFade {
-    0%{
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
 
 @keyframes menuSlide {
-    0%{
+    0% {
         transform: translateX(100%);
     }
-    100%{
+
+    100% {
         transform: translateX(0%);
     }
 }

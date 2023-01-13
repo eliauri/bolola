@@ -5,11 +5,15 @@ import cl from 'classnames'
 import s from './header.module.scss';
 
 import Container from '../container/Container';
-import Navigation from './navigation';
-import AddBolik from './addBolik';
+import Navigation from './Navigation';
+// import AddBolik from './addBolik';
+import User from './User';
 
 import logo from '../../public/logo.svg'
-import auto from '../../public/authorization.svg'
+import add from '../../public/add-bolik.svg'
+
+import HoverProfile from './User';
+
 
 
 
@@ -17,11 +21,11 @@ const Header = () => {
   const [gamburgerActive, setGamburgerActive] = useState(false);
 
   useEffect(() => {
-    gamburgerActive ? 
-    document.querySelector("body").classList.add("noscroll") :
-    document.querySelector("body").classList.remove("noscroll");
+    gamburgerActive ?
+      document.querySelector("body").classList.add("noscroll") :
+      document.querySelector("body").classList.remove("noscroll");
   }, [gamburgerActive])
-  
+
   const gamburgerToggle = () => {
     setGamburgerActive(!gamburgerActive)
   }
@@ -29,22 +33,22 @@ const Header = () => {
     <header>
       <Container className='container--noIndex'>
         <div className={s.header}>
-          <Link href="/"> 
-          <Image 
-          src={logo} 
-          alt='logo'
-          width={140}
-          height={30} />
+          <Link href="/">
+            <Image
+              src={logo}
+              alt='logo'
+              width={140}
+              height={30} />
           </Link>
           <Navigation />
-          <div className={s.user}>
-            <Link href="/">
+          <div className={s.actions}>
+            <User />
+            <Link href="/scaner" className={s.header__scanner}>
               <Image
-                src={auto}
-                alt="authorization icon"
+                src={add}
+                alt='add bolik'
               />
             </Link>
-            <AddBolik />
             <button
               className={cl(s.burger, { [s.burgerActive]: gamburgerActive })}
               onClick={gamburgerToggle}
@@ -53,7 +57,7 @@ const Header = () => {
             </button>
             <div className={cl(s.menu, { [s.menuActive]: gamburgerActive })}>
               <div className={s.menu__content}>
-                <Navigation gamburgerActive setGamburgerActive={setGamburgerActive}/>
+                <Navigation gamburgerActive setGamburgerActive={setGamburgerActive} />
               </div>
             </div>
           </div>

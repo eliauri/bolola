@@ -10,7 +10,7 @@ import News from '../components/home/News'
 
 
 
-export default function Home() {
+export default function Home({ news }) {
   return (
     <>
       <Head>
@@ -18,11 +18,30 @@ export default function Home() {
         <meta name="description" content="Шипучий лимонад Бололо" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <First/>
-      <About/>
-      <Collection/>
-      <Flavour/>
-      <News/>
+      <First />
+      <About />
+      <Collection />
+      <Flavour />
+      <News posts={news} />
     </>
   )
+
 }
+export async function getStaticProps() {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }
+  const res = await fetch(`${process.env.BASE_URL}api/news`, options)
+    .then((res) => res.json());
+
+  const news = res.slice(0, 3);
+  return {
+    props: {
+      news,
+    },
+  }
+}
+

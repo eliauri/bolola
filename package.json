@@ -20,5 +20,8 @@
     "reset-css": "^5.0.1",
     "sass": "^1.56.2",
     "swiper": "^8.4.5"
+  },
+  "devDependencies": {
+    "html5-qrcode": "^2.3.4"
   }
 }

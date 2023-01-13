@@ -1,10 +1,11 @@
 import React from 'react'
 import s from './header.module.scss';
-import Link from 'next/link';
+import Link, { LinkProps } from "next/link"
+import { useRouter } from "next/router"
+import { ActiveLink } from './ActiveLink';
 
+const Navigation = ({ gamburgerActive, setGamburgerActive }) => {
 
-const navigation = ({gamburgerActive, setGamburgerActive}) => {
- 
     const links = [
         {
             id: 1,
@@ -19,12 +20,12 @@ const navigation = ({gamburgerActive, setGamburgerActive}) => {
         {
             id: 3,
             title: 'Коллекции',
-            href: '/',
+            href: '/account/collection',
         },
         {
             id: 4,
             title: 'Продукции',
-            href: '/',
+            href: '/prod',
         },
         {
             id: 5,
@@ -36,15 +37,23 @@ const navigation = ({gamburgerActive, setGamburgerActive}) => {
     const closeGamburger = () => {
         if (gamburgerActive) setGamburgerActive(!gamburgerActive);
     }
+    const { asPath } = useRouter();
     return (
         <nav className={s.navigation}>
             <ul>
                 {links.map((link) => (
-                    <li key={link.id} onClick={closeGamburger}><Link href={link.href}>{link.title}</Link></li>
+                    <li key={link.id} onClick={closeGamburger}>
+                        <ActiveLink href={link.href} activeClassName={s.active}>
+                            {link.title}
+                        </ActiveLink>
+                        {/* <Link>
+                            {link.title}
+                        </Link> */}
+                    </li>
                 ))}
             </ul>
         </nav>
     )
 }
 
-export default navigation
+export default Navigation

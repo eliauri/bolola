@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import cl from 'classnames'
 
-import s from '../../styles/home.module.scss'
+import s from './home.module.scss'
 import Container from '../container/Container'
 import Title from '../title/title'
 import Bubble from '../bubble/bubble'
@@ -20,7 +20,7 @@ const Collection = () => {
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.current = gsap
-        .fromTo(".bubble", { y: 400,  opacity:1 }, { y: -500, opacity:0.5, duration: 2.5,  stagger: {each:0.1,ease: "none.none",repeat: -1,}, })
+        .fromTo(".bubble", { y: 400,  opacity:1 }, { y: -400, opacity:0.5, duration: 3,  stagger: {each:0.3,ease: "none.none",repeat: -1,}, })
       gsap.current = gsap
         .fromTo(".bubble", { x: -25, }, { x: 0, ease: "power1.inOut", duration: 0.8, stagger: {each:0.1, from: "random", repeat:-1, yoyo: true} , })
     }, app)
