@@ -46,9 +46,6 @@ const Navigation = ({ gamburgerActive, setGamburgerActive }) => {
                         <ActiveLink href={link.href} activeClassName={s.active}>
                             {link.title}
                         </ActiveLink>
-                        {/* <Link>
-                            {link.title}
-                        </Link> */}
                     </li>
                 ))}
             </ul>

@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import Container from '../../components/Container'
 import EmptyLayout from '../../components/layout/EmptyLayout'
 import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
-import ru from 'react-phone-number-input/locale/ru'
+ 
 
 
 import logo from '../../public/logoWhite.svg'
@@ -19,15 +19,9 @@ import cl from 'classnames'
 export default function Auth() {
   const { register, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onBlur' });
 
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-
-  const [mail, setMail] = useState('');
-
-  const [password, setPassword] = useState('');
   const [passwordVisible, setVisiblePassword] = useState(false);
 
-  console.log(errors);
+  // console.log(errors);
   const onSubmit = data => {
     console.log(data);
   }
@@ -46,15 +40,6 @@ export default function Auth() {
                 <label htmlFor="tel">
                   Телефон:
                 </label>
-                {/* <input
-                  type="tel"
-                  id="tel"
-                  className={cl({ [s.auth__inputError]: errors.tel })}
-                  {...register('tel', { required: true, minLength: { value: 11, message: 'Телефон введен некорректно' }, })}
-                  onChange={(e) => setTel(e.target.value)}
-                  value={tel}
-                />
-                {errors.tel && (<p className={s.auth__textError}>{errors.tel.message}</p>)} */}
                 <Controller
                   name="tel"
                   control={control}
@@ -90,8 +75,6 @@ export default function Auth() {
                         required: 'Это обязательное поле',
                         minLength: { value: 3, message: 'Имя слишком короткое' }
                       })}
-                    onChange={(e) => setFirstname(e.target.value)}
-                    value={firstname}
                   />
                   {errors.firstname && (<p className={s.auth__textError}>{errors.firstname.message}</p>)}
                 </div>
@@ -112,8 +95,6 @@ export default function Auth() {
                         },
                         minLength: { value: 3, message: 'Имя слишком короткое' }
                       })}
-                    onChange={(e) => setLastname(e.target.value)}
-                    value={lastname}
                   />
                   {errors.lastname && (<p className={s.auth__textError}>{errors.lastname.message}</p>)}
                 </div>
@@ -129,8 +110,6 @@ export default function Auth() {
                   {...register('mail',
                     { required: 'Введите вашу почту' },
                   )}
-                  onChange={(e) => setMail(e.target.value)}
-                  value={mail}
                 />
                 {errors.mail && (<p className={s.auth__textError}>{errors.mail.message}</p>)}
               </div>
@@ -152,8 +131,6 @@ export default function Auth() {
                       minLength: { value: 8, message: 'Пароль должен содержать минимум 8 символов' }
                     },
                   )}
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
                   autoComplete="on"
                 />
                 <Image src={passwordVisible ? eyeClose : eye} alt='Показать пароль' onClick={() => setVisiblePassword(!passwordVisible)} />

@@ -1,0 +1,105 @@
+@import "../../styles/breakpoint";
+
+.account {
+    &__title {
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 41px;
+        color: var(--color-black);
+    }
+    &__textError{
+        color:#E3000F;
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 5px;
+    }
+    &__form {
+        max-width: 620px;
+        
+    }
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+        column-gap: 100px;
+        row-gap: 30px;
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+    &__inputLine {
+        position: relative;
+        img{
+            position: absolute;
+            right: -50px;
+            top: 35px;
+            cursor: pointer;
+        }
+        @include small-tablet{
+            img{
+                right: 18px;
+            }
+        }
+       
+    }
+
+    label {
+        display: block;
+        font-size: 16px;
+        font-weight: 500;
+        color: #C8C8C8;
+    }
+
+    input {
+        border: none;
+        background-color: #F2F2F2;
+        width: 100%;
+        margin-top: 10px;
+        height: 50px;
+        border-radius: 10px;
+        font-family: 'Ubuntu';
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        color: #1E1E1E;
+        padding-left: 10px;
+        &:focus {
+            outline: none !important;
+            background-color: #ccc7c72b;
+        }
+        &.account__inputError {
+            border: 3px solid #e3000f82;
+        }
+    }
+
+    button {
+        background: #00B856;
+        width: 260px;
+        height: 50px;
+        border-radius: 10px;
+        border: none;
+        color: #fff;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        margin-top: 24px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.01);
+        }
+
+        &:active {
+            transform: translateY(3px);
+        }
+
+        &[disabled=disabled],
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            ;
+
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+}

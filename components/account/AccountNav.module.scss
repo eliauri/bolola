@@ -1,0 +1,20 @@
+.nav{
+    margin: 40px auto;
+    ul{
+        display: flex;
+    }
+    li{
+        &:not(:last-child){
+            margin-right: 20px;
+        }
+    }
+    a{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #C8C8C8;
+    }
+    .active{
+        color: var(--color-pink);
+    }
+}

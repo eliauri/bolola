@@ -19,7 +19,6 @@ import cl from 'classnames'
 export default function Auth() {
   const { register, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onBlur' });
 
-  const [password, setPassword] = useState('');
   const [passwordVisible, setVisiblePassword] = useState(false);
 
   // console.log(errors);
@@ -69,8 +68,6 @@ export default function Auth() {
                       required: 'Введите пароль',
                     },
                   )}
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
                   autoComplete="on"
                 />
                 <Image src={passwordVisible ? eyeClose : eye} alt='Показать пароль' onClick={() => setVisiblePassword(!passwordVisible)} />

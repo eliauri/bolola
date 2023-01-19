@@ -4,7 +4,6 @@
     background-color: var(--color-pink);
     color: #fff;
     height: 100vh;
-    min-height: 100vh;
     overflow: hidden;
     @include tablet {
         height: auto;
@@ -116,7 +115,7 @@
 .about {
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
+   
     &__title {
         text-align: center;
 
@@ -334,7 +333,6 @@
 .flavour {
    background-color: var(--color-pink);
     margin-top: 200px;
-    min-height: 90vh;
     @include tablet {
         margin-top: 100px;
         background-size: cover;
@@ -356,8 +354,10 @@
     }
     &__wrapper{
         padding-top: 100px;
+        padding-bottom: 150px;
         @include mobile{
             padding-top: 45px;
+            padding-bottom: 25px;
         }
     }
     &__list {
