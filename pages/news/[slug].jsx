@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 
 import s from './news.module.scss'
-import Container from '../../components/container/Container'
+import Container from '../../components/Container'
 import Title from '../../components/title/title'
 import newsImg from '../../public/news-post.jpg'
 

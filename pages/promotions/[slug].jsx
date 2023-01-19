@@ -1,10 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
 
-import s from '../../styles/news.module.scss'
-import Container from '../../components/container/Container'
-import Title from '../../components/title/title'
-import newsImg from '../../public/news-post.jpg'
+import s from '../news/news.module.scss'
+import Container from '../../components/Container'
+
 
 const Post = ({post}) => {
   console.log(post);
