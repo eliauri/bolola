@@ -8,7 +8,7 @@ import s from './header.module.scss';
 
 
 const User = () => {
-  const [userAuto, setUserAuto] = useState(true);
+  const [userAuto, setUserAuto] = useState(false);
   const [profileActive, setProfileActive] = useState(false);
 
   return (
@@ -38,7 +38,7 @@ const User = () => {
             :
             <>
             <p className={s.miniProfile__unauthorized}>Вы не авторизировались</p>
-            <Link href='/authorization' className={s.miniProfile__link}  onClick={()=> setProfileActive(false)}>
+            <Link href='/auth' className={s.miniProfile__link}  onClick={()=> setProfileActive(false)}>
               Вход/Регистрация
             </Link>
           </>

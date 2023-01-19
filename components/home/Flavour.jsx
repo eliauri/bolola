@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from "gsap";
 
 import s from './home.module.scss'
-import Container from '../container/Container'
+import Container from '../Container'
 import Title from '../title/title'
 import Bubble from '../bubble/bubble'
 import BubbleGroup from '../bubble/bubbleGroup'

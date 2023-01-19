@@ -34,7 +34,7 @@ export async function getServerSideProps  (context) {
   }
   const res = await fetch(`${process.env.BASE_URL}api/promotions/${context.query.id}`, options)
     .then((res) => res.json());
-  const post = res[0];
+  const post = res;
 
   return {
     props: {

@@ -35,9 +35,10 @@ export async function getStaticProps() {
     },
   }
   const res = await fetch(`${process.env.BASE_URL}api/news`, options)
-    .then((res) => res.json());
+    .then((res) => res.json())
+    .catch(err => console.log(err))
 
-  const news = res.slice(0, 3);
+  const news = res ? res.slice(0, 3) : [];
   return {
     props: {
       news,

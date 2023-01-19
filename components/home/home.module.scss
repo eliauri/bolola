@@ -90,9 +90,9 @@
     }
 
     &__button {
-        font-family: 'Rounds';
+        font-family: 'Ubuntu';
+        font-weight: 700;
         font-size: 24px;
-        text-transform: uppercase;
         background-color: var(--color-green);
         border: none;
         color: #fff;
@@ -204,56 +204,11 @@
         }
     }
 
-    // &__list {
-    //     display: flex;
-    //     justify-content: space-between;
-    //     @include mobile{
-    //         flex-direction: column;
-    //         align-items: center;
-    //         margin-top: 35px;
-    //     }
-    // }
-
-    // &__element {
-    //     display: flex;
-    //     align-items: center;
-    //     padding: 0 14px;
-    //     background-color: var(--color-blue);
-    //     color: #fff;
-    //     font-weight: 700;
-    //     font-size: 14px;
-    //     line-height: 16px;
-    //     text-transform: uppercase;
-    //     text-align: center;
-    //     height: 220px;
-    //     width: 220px;
-    //     border-radius: 50%;
-    //     @include small-tablet{
-    //         width: 180px;
-    //         height: 180px;
-    //     }
-    //     @include mobile{
-    //         height: 140px;
-    //         width: 140px;
-    //         font-size: 12px;
-    //         &:nth-child(2){
-    //             width: 180px;
-    //             height: 180px;
-    //         }
-    //         &:not(:last-child){
-    //             margin-bottom: 25px;
-    //         }
-    //     }
-    //     // @for $i from 2 through 3 {
-    //     //     &:nth-child(3n + #{$i}) {
-    //     //       position: relative;
-    //     //       top: -25 * ($i - 1)+px;
-    //     //     }
-    //     //   }
-    // }
+     
 }
 
 .collection {
+    overflow: hidden;
     &__title {
         max-width: 800px;
         margin-top: 45px;

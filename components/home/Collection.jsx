@@ -4,7 +4,7 @@ import Image from 'next/image'
 import cl from 'classnames'
 
 import s from './home.module.scss'
-import Container from '../container/Container'
+import Container from '../Container'
 import Title from '../title/title'
 import Bubble from '../bubble/bubble'
 import BubbleGroup from '../bubble/bubbleGroup'

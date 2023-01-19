@@ -1,4 +1,4 @@
-@import "breakpoint";
+@import "../../styles/breakpoint";
 
 .news {
     &__title {
@@ -45,10 +45,11 @@
     &__image {
         position: relative;
         width: 100%;
-        height: 340px;
+        height: 440px;
 
         img {
             object-fit: cover;
+            object-position: top left;
         }
     }
 }

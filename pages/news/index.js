@@ -1,16 +1,8 @@
 import React from 'react'
 
-
-import cl from 'classnames'
-
-
 import s from '../../components/home/home.module.scss'
-
-import newsImg from '../../public/news-post.jpg'
-import newsImg2 from '../../public/RjVGAt0I-Ks.jpg'
-import stokImg from '../../public/stock.jpg'
 import Title from '../../components/title/title'
-import Container from '../../components/container/Container'
+import Container from '../../components/Container'
 import NewsPost from '../../components/news/NewsPost'
 import Promotions from '../../components/news/PromotionsSlider'
 
@@ -40,10 +32,12 @@ export async function getStaticProps() {
     },
   }
   const news = await fetch(`${process.env.BASE_URL}api/news`, options)
-    .then((res) => res.json());
+    .then((res) => res.json())
+    .catch(err => console.log(err));
+
   const promotions = await fetch(`${process.env.BASE_URL}api/promotions`, options)
-  .then((res) => res.json());
- 
+  .then((res) => res.json())
+  .catch(err => console.log(err));
   return {
     props: {
       news,

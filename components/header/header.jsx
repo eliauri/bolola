@@ -4,15 +4,13 @@ import Link from 'next/link';
 import cl from 'classnames'
 import s from './header.module.scss';
 
-import Container from '../container/Container';
+import Container from '../Container';
 import Navigation from './Navigation';
-// import AddBolik from './addBolik';
 import User from './User';
 
 import logo from '../../public/logo.svg'
 import add from '../../public/add-bolik.svg'
 
-import HoverProfile from './User';
 
 
 

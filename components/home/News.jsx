@@ -1,35 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import cl from 'classnames'
 
 import s from './home.module.scss'
-import Container from '../container/Container'
+import Container from '../Container'
 import Title from '../title/title'
-import newsImg from '../../public/news-post.jpg'
 
 
 const News = ({ posts }) => {
-    // const news2 = [
-    //     {
-    //         id: 1,
-    //         title: 'Новый вкус “Апельсин” от Болола уже в продаже',
-    //         date: '10.12.2022',
-    //         img: newsImg
-    //     },
-    //     {
-    //         id: 2,
-    //         title: 'Новый вкус “Апельсин” от Болола уже в продаже',
-    //         date: '10.12.2022',
-    //         img: newsImg
-    //     },
-    //     {
-    //         id: 3,
-    //         title: 'Новый вкус “Апельсин” от Болола уже в продаже',
-    //         date: '10.12.2022',
-    //         img: newsImg
-    //     }
-    // ]
     return (
         <section className={cl(s.news, "news")}>
             <Container>

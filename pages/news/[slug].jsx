@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-import s from '../../styles/news.module.scss'
+import s from './news.module.scss'
 import Container from '../../components/container/Container'
 import Title from '../../components/title/title'
 import newsImg from '../../public/news-post.jpg'
@@ -34,7 +34,7 @@ export async function getServerSideProps  (context) {
   }
   const res = await fetch(`${process.env.BASE_URL}api/news/${context.query.id}`, options)
     .then((res) => res.json());
-  const post = res[0];
+  const post = res;
 
   return {
     props: {

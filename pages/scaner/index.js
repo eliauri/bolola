@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Html5Qrcode } from "html5-qrcode"
 import { useRouter } from 'next/router'
 
-import Container from '../../components/container/Container'
+import Container from '../../components/Container'
 import Title from '../../components/title/title'
 
 
