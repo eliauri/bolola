@@ -1,0 +1,24 @@
+.auth {
+    background-color: var(--color-pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    
+    &__logo {
+        display: flex;
+        justify-content: center;
+    }
+    &__wrapper {
+        max-width: 600px;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    &__window {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 37px 30px;
+        margin-top: 32px;
+    }
+}

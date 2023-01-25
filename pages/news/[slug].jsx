@@ -32,7 +32,7 @@ export async function getServerSideProps  (context) {
       'Content-Type': 'application/json',
     },
   }
-  const res = await fetch(`${process.env.BASE_URL}api/news/${context.query.id}`, options)
+  const res = await fetch(`${process.env.BASE_URL}/api/news/${context.query.id}`, options)
     .then((res) => res.json());
   const post = res;
 

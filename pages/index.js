@@ -34,11 +34,11 @@ export async function getStaticProps() {
       'Content-Type': 'application/json',
     },
   }
-  const res = await fetch(`${process.env.BASE_URL}api/news`, options)
+  const res = await fetch(`${process.env.BASE_URL}/api/news`, options)
     .then((res) => res.json())
     .catch(err => console.log(err))
-
   const news = res ? res.slice(0, 3) : [];
+  
   return {
     props: {
       news,

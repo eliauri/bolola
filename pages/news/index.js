@@ -31,11 +31,11 @@ export async function getStaticProps() {
       'Content-Type': 'application/json',
     },
   }
-  const news = await fetch(`${process.env.BASE_URL}api/news`, options)
+  const news = await fetch(`${process.env.BASE_URL}/api/news`, options)
     .then((res) => res.json())
     .catch(err => console.log(err));
 
-  const promotions = await fetch(`${process.env.BASE_URL}api/promotions`, options)
+  const promotions = await fetch(`${process.env.BASE_URL}/api/promotions`, options)
   .then((res) => res.json())
   .catch(err => console.log(err));
   return {
