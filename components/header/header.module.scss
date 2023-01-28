@@ -165,6 +165,26 @@
         font-size: 16px;
         line-height: 18px;
     }
+    &__nav{
+        margin-top: 15px;
+        li{
+            &:not(:last-child){
+                margin-bottom: 12px;
+            }
+        }
+        a {
+            padding: 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--color-black);
+        }
+        hr{
+            border-top: #e5e5e5;
+            border-width: 1px;
+            height: 1px; 
+           }
+    }
+   
 }
 
 .burger {

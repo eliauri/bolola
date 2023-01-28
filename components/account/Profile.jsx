@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
 import cl from 'classnames'
@@ -11,16 +11,36 @@ import s from './profile.module.scss'
 
 import eye from '../../public/eyeGreen.svg'
 import eyeClose from '../../public/eyeCloseGreen.svg'
+import useAxiosprivate from '../../hooks/useAxiosprivate';
 
 
 const Profile = () => {
+    const axiosPrivate = useAxiosprivate();
+    const [data, setData] = useState();
+    
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const response = await axiosPrivate.get('/user/current-user-info/');
+                setData(response.data);
+            } catch (err) {
+                console.error(err);
+            }
+            return () => {
+
+            }
+        }
+        getData();
+    }, []);
+
     const values = {
-        firstname: 'dasd',
-        lastname: 'dsad',
-        tel: '+79280681233',
-        mail: 'eliauri2000@mail.ru',
+        firstname: data?.last_name,
+        lastname: data?.first_name,
+        tel: data?.phone,
+        mail: data?.email,
         password: 'eliauri7895'
     }
+
 
     const { register, handleSubmit, control, formState: { errors } } = useForm({
         mode: 'onChange',
@@ -123,7 +143,7 @@ const Profile = () => {
                             />
                             {errors.tel && (<p className={s.account__textError}>{errors.tel.message}</p>)}
                         </div>
-                        <div className={s.account__inputLine}>
+                        {/* <div className={s.account__inputLine}>
                             <label htmlFor="password">
                                 Пароль:
                             </label>
@@ -146,7 +166,7 @@ const Profile = () => {
                             />
                             <Image src={passwordVisible ? eyeClose : eye} alt='Показать пароль' onClick={() => setVisiblePassword(!passwordVisible)} />
                             {errors.password && (<p className={s.account__textError}>{errors.password.message}</p>)}
-                        </div>
+                        </div> */}
                     </div>
                     <button disabled={false}>Сохранить</button>
                 </form>

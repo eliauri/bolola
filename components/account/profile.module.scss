@@ -24,6 +24,11 @@
         row-gap: 30px;
         margin-top: 40px;
         margin-bottom: 60px;
+        @include mobile{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            row-gap: 15px
+        }
     }
     &__inputLine {
         position: relative;

@@ -6,7 +6,7 @@ import s from './header.module.scss';
 
 import Container from '../Container';
 import Navigation from './Navigation';
-import User from './User';
+import MiniProfile from './MiniProfile';
 
 import logo from '../../public/logo.svg'
 import add from '../../public/add-bolik.svg'
@@ -40,7 +40,7 @@ const Header = () => {
           </Link>
           <Navigation />
           <div className={s.actions}>
-            <User />
+            <MiniProfile />
             <Link href="/scaner" className={s.header__scanner}>
               <Image
                 src={add}

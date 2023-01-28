@@ -27,6 +27,19 @@ export default function Home({ news }) {
   )
 
 }
+// export const getServerSideProps = async ({ req, res }) => {
+// 	const cookie = getCookie("token", { req, res });
+// 	if (!cookie) return { props: { isAuthenticated: false } };
+
+// 	try {
+//     const response = await axiosPrivate.post('user/login/verify-token/',{
+//       token: getCookie('accessToken'),
+//     });
+// 		return { props: { isAuthenticated: isAuthenticated } };
+// 	} catch (err) {
+// 		return { props: { isAuthenticated: false } };
+// 	}
+// };
 export async function getStaticProps() {
   const options = {
     method: 'GET',

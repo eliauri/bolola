@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -6,40 +6,63 @@ import { useForm, Controller } from 'react-hook-form'
 import cl from 'classnames'
 import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
 import s from './auth.module.scss'
-import { useDispatch } from 'react-redux'
-import { setCredetianals } from '../../store/authSlice'
-
-import { useLoginMutation } from '../../store/authApiSlice'
+import Cookie from "js-cookie";
+import { setCookie } from "cookies-next";
 
 import eye from '../../public/eye.svg'
 import eyeClose from '../../public/eyeClose.svg'
+import axios from '../../pages/api/axios'
+import UseAuth from '../../hooks/useAuth'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginUser } from '../../store/auth/action-creators'
 
 
 
 const Login = () => {
   const { register, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onBlur' });
-
+  // const { setAuth } = UseAuth();
   const [passwordVisible, setVisiblePassword] = useState(false);
   const [errMsg, setErrMsg] = useState('');
-
-  const [login, { isLoading }] = useLoginMutation();
   const dispatch = useDispatch();
   const router = useRouter();
+  const isLoggedIn = useSelector((state) => state.auth?.isLoggedIn);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push('/');
+    }
+  }, [isLoggedIn]);
+
 
   const onSubmit = async (data) => {
     console.log(data)
     try {
-      const userData = await login(data).unwrap();
-      dispatch(setCredetianals({ ...userData }))
+      const response = await axios.post('/user/login/',
+        JSON.stringify(data),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true
+        }
+      );
+      // const accessToken = response?.data?.access;
+      // setAuth({ accessToken });
+      dispatch(loginUser());
+      setCookie('accessToken', response?.data.access);
+      setCookie('refreshToken', response?.data.refresh);
+      
+      // Cookie.set('accessToken', response?.data.access);
+      // Cookie.set('refreshToken', response?.data.refresh);
+      // localStorage.setItem("refreshToken", response?.data.refresh);
+      
       router.push({
         pathname: '/account',
       })
     } catch (err) {
       console.log(err)
-      if (!err?.status) {
+      if (!err?.response.status) {
         setErrMsg('No Server Response');
-      } else if (err.status === 401) {
-        setErrMsg(err.data.detail);
+      } else if (err?.response.status === 401) {
+        setErrMsg(err.response.data.detail);
       } else {
         setErrMsg('Login Failed');
       }
@@ -79,7 +102,7 @@ const Login = () => {
           </label>
           <input
             type="mail"
-            id="mail"
+            id="email"
             className={cl({ [s.auth__inputError]: errors.mail })}
             {...register('email',
               { required: 'Введите вашу почту' },

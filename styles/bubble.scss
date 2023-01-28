@@ -356,8 +356,8 @@
                 left: 5%;
             }
 
-            @include mobile {
-                top: 82%;
+            @include small-tablet {
+                top: 84%;
                 left: 10%;
             }
 
@@ -383,8 +383,8 @@
                 // left: 84%;
             }
 
-            @include mobile {
-                top: 84%;
+            @include small-tablet {
+                top: 86%;
                 left: 81%;
             }
 

@@ -15,7 +15,7 @@ const News = ({ posts }) => {
                 <Title type='medium' color='black' >Новости</Title>
                 <div className={s.news__list}>
                     {
-                        posts.map((post) =>
+                        posts?.map((post) =>
                             <Link
                                 href={{
                                     pathname: `/news/${post.slug ? post.slug : post.id}`,

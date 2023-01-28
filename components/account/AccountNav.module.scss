@@ -1,5 +1,9 @@
+@import "../../styles/breakpoint";
 .nav{
     margin: 40px auto;
+    @include mobile{
+        margin: 20px auto;
+    }
     ul{
         display: flex;
     }
