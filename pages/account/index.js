@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
-import Profile from '../../components/account/profile';
+
 import { useSelector } from 'react-redux'
+import Profile from '../../components/account/profile/Profile';
+
 
 
 export default function Account() {
-  // const { auth } = UseAuth();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const router = useRouter();
   useEffect(() => {
@@ -15,7 +16,7 @@ export default function Account() {
   }, [isLoggedIn]);
     
   return (
-    <Profile /> 
+    <Profile/>
   )
 }
 

@@ -22,10 +22,7 @@ const Slider = ({posts}) => {
             {posts.map((post) =>
                 <SwiperSlide key={post.id}  className='news-slider__slide'>
                     <Link href={{
-                        pathname: `/promotions/${post.slug ? post.slug : post.id}`,
-                        query: {
-                            id: post.id,
-                        }
+                        pathname: `/promotions/${post.slug}/${post.id}`,
                     }}>
                         <Image src={process.env.NEXT_PUBLIC_IMG_URL + post.thumbnail} width={1080} height={400} alt={'акция ' + post.id} />
                     </Link>

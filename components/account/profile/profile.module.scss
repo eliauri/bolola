@@ -1,4 +1,4 @@
-@import "../../styles/breakpoint";
+@import "../../../styles/breakpoint";
 
 .account {
     &__title {
@@ -76,35 +76,11 @@
     }
 
     button {
-        background: #00B856;
         width: 260px;
         height: 50px;
-        border-radius: 10px;
-        border: none;
-        color: #fff;
-        font-weight: 500;
-        font-size: 20px;
-        cursor: pointer;
-        margin-top: 24px;
-        transition: all 0.3s ease;
-
-        &:hover {
-            transform: scale(1.01);
-        }
-
+        margin-top: 0px;
         &:active {
             transform: translateY(3px);
-        }
-
-        &[disabled=disabled],
-        &:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            ;
-
-            &:hover {
-                transform: none;
-            }
         }
     }
 }

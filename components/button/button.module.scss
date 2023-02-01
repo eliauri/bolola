@@ -1,0 +1,19 @@
+.button{
+    background-color: var(--color-green);
+    color: #fff;
+    margin-top: 60px;
+    border: none;
+    font-weight: 500;
+    font-size: 20px;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover{
+        transform: scale(1.01);
+    }
+    &:active {
+        transform: translateY(3px);
+    }
+}

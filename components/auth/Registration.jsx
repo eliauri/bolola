@@ -3,19 +3,44 @@ import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
 import Image from 'next/image'
 import Link from 'next/link'
 import { useForm, Controller } from 'react-hook-form'
-
+import { useRouter } from 'next/router'
 import s from './auth.module.scss'
 import axios from '../../pages/api/axios';
 import eye from '../../public/eye.svg'
 import eyeClose from '../../public/eyeClose.svg'
 import cl from 'classnames'
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../store/auth/action-creators';
+import { setCookie } from "cookies-next";
+import Button from '../button/Button';
 
 const Registration = () => {
   const { register, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onBlur' });
   const [errMsg, setErrMsg] = useState();
   const [passwordVisible, setVisiblePassword] = useState(false);
-
+  const dispatch = useDispatch();
+  const router = useRouter();
   // console.log(errors);
+  const login = async (data) => {
+    try {
+      const response = await axios.post('/user/login/',
+        JSON.stringify(data),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true
+        }
+      );
+      dispatch(loginUser());
+      setCookie('accessToken', response?.data.access);
+      setCookie('refreshToken', response?.data.refresh);
+      router.push({
+        pathname: '/account',
+      })
+    } catch (err) {
+      console.log(err)
+      setErrMsg('Login Failed');
+    }
+  }
   const onSubmit = async (data) => {
     console.log(data);
     try {
@@ -27,6 +52,7 @@ const Registration = () => {
         }
       );
       setErrMsg('');
+      login({email: data.mail, password: data.password});
     } catch (err) {
       console.log(err);
       if (err?.response?.data.email) {
@@ -147,8 +173,7 @@ const Registration = () => {
           <Image src={passwordVisible ? eyeClose : eye} alt='Показать пароль' onClick={() => setVisiblePassword(!passwordVisible)} />
           {errors.password && (<p className={s.auth__textError}>{errors.password.message}</p>)}
         </div>
-
-        <button disabled={false}>Зарегистрироваться</button>
+        <Button>Зарегистрироваться</Button>
       </form>
       <p className={s.auth__reference}>Уже есть аккаунт? {<Link href={'/auth/signin'} className={s.auth__blueLink}>Войти</Link>}</p>
     </>

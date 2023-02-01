@@ -2,39 +2,19 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import cl from 'classnames'
-import { getCookie } from "cookies-next";
-
 import auto from '../../public/authorization.svg'
 import s from './header.module.scss';
-import useAxiosprivate from '../../hooks/useAxiosprivate';
-import useLogout from '../../hooks/useLogout';
-import { useRouter } from 'next/router';
-import UseAuth from '../../hooks/useAuth';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from "../../store/auth/action-creators";
+import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 
 
 
 const MiniProfile = () => {
-  const axiosPrivate = useAxiosprivate();
-
-  // const logout = useLogout();
+  const axiosPrivate = useAxiosPrivate();
 
   const [user, setUser] = useState();
   const [profileVisible, setProfileVisible] = useState(false);
-
-
-
-  // const signOut = () => {
-  //   logout();
-  //   setUser();
-  //   router.push('/');
-  // }
-
-  // const isAuthenticated = () => {
-  //   const cookie = getCookie("accessToken");
-  //   if (!cookie) return false;
-  // }
 
   const dispatch = useDispatch();
 	const isLoggedIn = useSelector((state) => state.isLoggedIn);
@@ -49,17 +29,13 @@ const MiniProfile = () => {
   }
   
   useEffect(() => {
-   
-  }, [isLoggedIn])
-
-  useEffect(() => {
 		// rome-ignore lint/complexity/useSimplifiedLogicExpression: <explanation>
-    const cookie = getCookie("accessToken");
-		if (!cookie || !isLoggedIn) {
+		if (!isLoggedIn) {
 			dispatch(logoutUser());
-		}
-    getUser();
-	}, [isLoggedIn]);
+		} else {
+      getUser();
+    }
+	},[]);
 
  
 

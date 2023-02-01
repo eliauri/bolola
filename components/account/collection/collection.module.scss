@@ -1,0 +1,95 @@
+.collections {
+    .title {
+        font-weight: 500;
+        font-size: 36px;
+        color: var(--color-black);
+        margin-bottom: 20px;
+    }
+
+    .block {
+        background-color: var(--color-pink);
+        position: relative;
+        margin-top: 40px;
+        margin-right: max(15px, (100% - var(--content-width)) / 2);
+        border-radius: 0px 100px 100px 0px;
+        overflow: hidden;
+    }
+    .collected{
+        background-color: #00B856;
+    }
+    .list {
+        display: flex;
+        padding-left: max(15px, (100% - var(--content-width)));
+        padding-top: 77px;
+        padding-bottom: 77px;
+        overflow-x: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+      }
+    }
+    .opacity{
+        opacity: 0.4;
+        &:hover{
+            transform: scale(1)!important;
+        }
+    }
+    .absolute {
+        position: absolute;
+        right: 85px;
+        top: 25px;
+    }
+
+    .subtitle {
+        font-family: 'Rounds';
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+    .award{
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover{
+            transform: scale(1.02);
+        }
+    }
+
+    .bolik {
+        position: relative;
+        transition: all 0.3s;
+        &:hover{
+            transform: scale(1.02);
+        }
+        &:not(:last-child) {
+            margin-right: 55px;
+        }
+    }
+
+    .count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-family: 'Rounds';
+        font-weight: 400;
+        text-transform: lowercase;
+        font-size: 26px;
+        line-height: 29px;
+        color: var(--color-green);
+        // 
+        -webkit-text-stroke: 3px #fff;
+        // text-shadow: 
+        // 2px 0px 0px #fff,   /* Right shadow */
+        // -2px 0px 0px #fff,  /* Left shadow */
+        // 0px 2px 0px #fff,   /* Bottom shadow */
+        // 0px -2px 0px #fff;  /* Top shadow */ 
+        span{
+            font-size: 34px;
+            margin-left: -1px;
+            z-index: 1;
+        } 
+    }
+}

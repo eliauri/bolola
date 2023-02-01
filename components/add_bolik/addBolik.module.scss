@@ -1,0 +1,19 @@
+.addBolik{
+    background-color: var(--color-pink);
+    padding-bottom: 50px;
+    border-top: 1px solid transparent;
+    .title{
+        text-align: center;
+        margin: 30px 0;
+    }
+   .wrapper{
+    min-height: 70vh;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+   }
+  
+}

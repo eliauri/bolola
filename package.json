@@ -19,6 +19,7 @@
     "gsap": "^3.11.3",
     "js-cookie": "^3.0.1",
     "next": "13.0.6",
+    "query-string": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.42.1",

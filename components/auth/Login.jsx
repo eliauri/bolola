@@ -6,21 +6,19 @@ import { useForm, Controller } from 'react-hook-form'
 import cl from 'classnames'
 import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
 import s from './auth.module.scss'
-import Cookie from "js-cookie";
 import { setCookie } from "cookies-next";
-
 import eye from '../../public/eye.svg'
 import eyeClose from '../../public/eyeClose.svg'
 import axios from '../../pages/api/axios'
-import UseAuth from '../../hooks/useAuth'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../../store/auth/action-creators'
+import Button from '../button/Button'
 
 
 
 const Login = () => {
   const { register, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onBlur' });
-  // const { setAuth } = UseAuth();
   const [passwordVisible, setVisiblePassword] = useState(false);
   const [errMsg, setErrMsg] = useState('');
   const dispatch = useDispatch();
@@ -35,7 +33,7 @@ const Login = () => {
 
 
   const onSubmit = async (data) => {
-    console.log(data)
+    // console.log(data)
     try {
       const response = await axios.post('/user/login/',
         JSON.stringify(data),
@@ -44,16 +42,11 @@ const Login = () => {
           withCredentials: true
         }
       );
-      // const accessToken = response?.data?.access;
-      // setAuth({ accessToken });
+
       dispatch(loginUser());
       setCookie('accessToken', response?.data.access);
       setCookie('refreshToken', response?.data.refresh);
-      
-      // Cookie.set('accessToken', response?.data.access);
-      // Cookie.set('refreshToken', response?.data.refresh);
-      // localStorage.setItem("refreshToken", response?.data.refresh);
-      
+
       router.push({
         pathname: '/account',
       })
@@ -128,7 +121,7 @@ const Login = () => {
           <Image src={passwordVisible ? eyeClose : eye} alt='Показать пароль' onClick={() => setVisiblePassword(!passwordVisible)} />
           {errors.password && (<p className={s.auth__textError}>{errors.password.message}</p>)}
         </div>
-        <button disabled={false}>Войти</button>
+        <Button>Войти</Button>
       </form>
       <p className={s.auth__reference}>Нет аккаунта?{<Link href={'/auth/signup'} className={s.auth__blueLink}> Зарегистрироваться</Link>}</p>
       <p className={s.auth__reference}>{<Link href={'/auth'}>Забыли пароль?</Link>}</p>

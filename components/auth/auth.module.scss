@@ -77,31 +77,10 @@
         }
 
         button {
-            background: #00B856;
-            border-radius: 10px;
             width: 100%;
-            border: none;
-            color: #fff;
             height: 60px;
             font-weight: 500;
-            font-size: 20px;
-            cursor: pointer;
             margin-top: 24px;
-            transition: all 0.3s ease;
-            
-            &:hover{
-                transform: scale(1.01);
-            }
-            &:active{
-                transform: translateY(3px);
-            }
-            &[disabled=disabled], &:disabled {
-                opacity: 0.4;
-                cursor: not-allowed;;
-                &:hover{
-                    transform: none;
-                }
-            }
         }
     }
     &__blueLink{

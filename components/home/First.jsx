@@ -11,6 +11,7 @@ import bolikImg from '../../public/bolik.gif'
 import Bubble from '../bubble/bubble'
 import BubbleGroup from '../bubble/bubbleGroup'
 import Container from '../Container'
+import Link from 'next/link';
 
 
 const First = () => {
@@ -33,9 +34,8 @@ const First = () => {
           <div className={s.first__left}>
             <h1 className={s.first__title}>Шипучий лимонад <span>Болола</span></h1>
             <p className={s.first__description}>Собери свою коллекцию Боликов с твоими любимыми персонажами</p>
-            <button className={s.first__button}>
-              Добавить болик
-            </button>
+            <Link href='/add_bolik' className={s.first__button}> Добавить болик</Link>
+
           </div>
           <div className={s.first__right}>
             <Image src={bolikImg} alt='Фишка болик' priority />

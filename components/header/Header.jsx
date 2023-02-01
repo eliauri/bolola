@@ -41,10 +41,10 @@ const Header = () => {
           <Navigation />
           <div className={s.actions}>
             <MiniProfile />
-            <Link href="/scaner" className={s.header__scanner}>
+            <Link href="/addbolik" className={s.header__scanner}>
               <Image
                 src={add}
-                alt='add bolik'
+                alt='Добавить болик'
               />
             </Link>
             <button

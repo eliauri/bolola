@@ -16,10 +16,6 @@ export default function Auth() {
   return (
     <Login />
   )
-
-
-
-
 }
 
 Auth.getLayout = function getLayout(page) {

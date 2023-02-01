@@ -4,20 +4,23 @@ import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
 import cl from 'classnames'
 import Image from 'next/image'
 
-import AccountNav from './AccountNav'
-import Container from '../Container'
+import AccountNav from '../AccountNav'
+import Container from '../../Container'
 
 import s from './profile.module.scss'
+import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
+import Button from '../../button/Button';
 
-import eye from '../../public/eyeGreen.svg'
-import eyeClose from '../../public/eyeCloseGreen.svg'
-import useAxiosprivate from '../../hooks/useAxiosprivate';
+
+// import eye from '../../public/eyeGreen.svg'
+// import eyeClose from '../../public/eyeCloseGreen.svg'
+
 
 
 const Profile = () => {
-    const axiosPrivate = useAxiosprivate();
+    const axiosPrivate = useAxiosPrivate();
     const [data, setData] = useState();
-    
+   
     useEffect(() => {
         const getData = async () => {
             try {
@@ -31,14 +34,13 @@ const Profile = () => {
             }
         }
         getData();
-    }, []);
+    },[]);
 
     const values = {
-        firstname: data?.last_name,
-        lastname: data?.first_name,
+        firstname: data?.first_name,
+        lastname: data?.last_name,
         tel: data?.phone,
         mail: data?.email,
-        password: 'eliauri7895'
     }
 
 
@@ -49,15 +51,20 @@ const Profile = () => {
             lastname: '',
             tel: '',
             mail: '',
-            password: ''
         },
         values
     });
 
     const [passwordVisible, setVisiblePassword] = useState(false);
 
-    const onSubmit = data => {
+    const onSubmit = async (data) => {
         console.log(data);
+        try{
+            const responce = await axiosPrivate.put('/user/update/', data);
+        } catch (err)  {
+            console.log(err)
+        }
+        
     }
 
     return (
@@ -168,7 +175,8 @@ const Profile = () => {
                             {errors.password && (<p className={s.account__textError}>{errors.password.message}</p>)}
                         </div> */}
                     </div>
-                    <button disabled={false}>Сохранить</button>
+                    <Button> Сохранить</Button>
+                    {/* <button disabled={false}>Сохранить</button> */}
                 </form>
             </Container>
         </section>

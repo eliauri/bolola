@@ -1,14 +1,10 @@
 import { axiosPrivate } from "../pages/api/axios";
 import { useEffect } from "react";
 import useRefreshToken from "./useRefreshToken";
-import useAuth from "./useAuth";
-// import Cookie from "js-cookie";
 import { getCookie } from "cookies-next";
 
 const useAxiosPrivate = () => {
     const refresh = useRefreshToken();
-    // const { auth } = useAuth();
-
     useEffect(() => {
         const requestIntercept = axiosPrivate.interceptors.request.use(
             config => {

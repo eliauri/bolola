@@ -6,9 +6,12 @@ import cl from 'classnames'
 import s from './home.module.scss'
 import Container from '../Container'
 import Title from '../title/title'
+import useFormattedDate from '../../hooks/useFormattedDate'
+
 
 
 const News = ({ posts }) => {
+    const date = useFormattedDate;
     return (
         <section className={cl(s.news, "news")}>
             <Container>
@@ -18,17 +21,14 @@ const News = ({ posts }) => {
                         posts?.map((post) =>
                             <Link
                                 href={{
-                                    pathname: `/news/${post.slug ? post.slug : post.id}`,
-                                    query: {
-                                        id: post.id,
-                                    }
+                                    pathname: `/news/${post.slug}/${post.id}`,
                                 }}
                                 key={post.id}
                                 className={s.news__new}>
                                 <div className={s.news__image}><Image src={process.env.NEXT_PUBLIC_IMG_URL + post.thumbnail} alt={post.title} fill={true} /></div>
                                 <div className={s.news__info}>
                                     <h3 className={s.news__subtitle}> {post.title}</h3>
-                                    <div className={s.news__date}>{post.date}</div>
+                                    <div className={s.news__date}>{date(post.created_at)}</div>
                                 </div>
                             </Link>
                         )}
