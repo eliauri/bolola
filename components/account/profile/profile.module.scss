@@ -1,46 +1,49 @@
 @import "../../../styles/breakpoint";
 
 .account {
-    &__title {
+    .title {
         font-weight: 500;
         font-size: 36px;
         line-height: 41px;
         color: var(--color-black);
     }
-    &__textError{
+    .textError{
         color:#E3000F;
         font-size: 16px;
         font-weight: 500;
         margin-top: 5px;
     }
-    &__form {
+    .form {
         max-width: 620px;
-        
     }
-    &__grid{
+    .grid{
         display: grid;
-        grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+        grid-template-columns: repeat(auto-fill, 260px);
         column-gap: 100px;
         row-gap: 30px;
         margin-top: 40px;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
+        @include small-tablet{
+            column-gap: 40px;
+        }
         @include mobile{
+            grid-template-columns: repeat(auto-fill, 280px);
             margin-top: 20px;
             margin-bottom: 20px;
             row-gap: 15px
         }
     }
-    &__inputLine {
+    .inputLine {
         position: relative;
         img{
             position: absolute;
             right: -50px;
-            top: 35px;
+            top: 38px;
             cursor: pointer;
         }
         @include small-tablet{
             img{
-                right: 18px;
+                // right: 18px;
             }
         }
        
@@ -76,11 +79,25 @@
     }
 
     button {
-        width: 260px;
+        width: auto;
         height: 50px;
-        margin-top: 0px;
+        margin-top: 20px;
         &:active {
             transform: translateY(3px);
         }
     }
+}
+
+.passwordResst{
+  width: 280px;
+    margin-top: 60px;
+    .account__inputLine{
+        max-width: 260px;
+    }
+}
+
+.password{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

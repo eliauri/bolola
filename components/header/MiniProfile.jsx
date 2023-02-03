@@ -17,7 +17,7 @@ const MiniProfile = () => {
   const [profileVisible, setProfileVisible] = useState(false);
 
   const dispatch = useDispatch();
-	const isLoggedIn = useSelector((state) => state.isLoggedIn);
+	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 	
   const getUser = async () => {
     try {
@@ -30,11 +30,14 @@ const MiniProfile = () => {
   
   useEffect(() => {
 		// rome-ignore lint/complexity/useSimplifiedLogicExpression: <explanation>
-		if (!isLoggedIn) {
-			dispatch(logoutUser());
-		} else {
+		// if (!isLoggedIn) {
+		// 	dispatch(logoutUser());
+		// } else {
+    //   getUser();
+    // }
+    if (isLoggedIn && !user) {
       getUser();
-    }
+    } else {}
 	},[]);
 
  
@@ -66,9 +69,6 @@ const MiniProfile = () => {
                   <ul>
                     <li>
                       <Link href={'/'}>Мои данные</Link>
-                    </li>
-                    <li>
-                      <Link href={'/account'}>Смена пароля</Link>
                     </li>
                     <hr />
                     <li >

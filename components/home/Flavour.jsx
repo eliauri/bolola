@@ -48,13 +48,12 @@ const Flavour = () => {
   }, [])
   return (
     <section ref={app} className={cl(s.flavour, 'flavour')}>
-      <Container>
+      <Container className="container--Index">
         <div className={s.flavour__wrapper}>
           <Title type='medium' color='white' className={s.flavour__title}>ВЫБери свой вкус!</Title>
           <div className={s.flavour__list} >
             {flavours.map((flavour) =>
-            
-              <div key={flavour.id} className={s.flavour__element}>
+              <div key={flavour.id} className={s.flavour__element + ' flavour__element'}>
                 <div className={s.flavour__image}>
                   <Image
                     src={flavour.image}
@@ -63,15 +62,26 @@ const Flavour = () => {
                     height={300}
                   /></div>
                 <p className={s.flavour__text}>{flavour.text}</p>
-              </div>
-
+                <div className='bubbles'>
+                  <BubbleGroup>
+                    <Bubble size='tiny' color="white" />
+                    <Bubble size='medium' color="white" />
+                    <Bubble size='small' color="white" />
+                    <Bubble size='small' color="white" />
+                  </BubbleGroup>
+                  <BubbleGroup>
+                    <Bubble size='small' color="white" />
+                    <Bubble size='medium' color="white" />
+                  </BubbleGroup>
+                </div>
+                </div>
             )}
-          </div>
+              </div>
         </div>
 
       </Container>
       <div className='bubbles'>
-        <BubbleGroup>
+        {/* <BubbleGroup>
           <Bubble size='tiny' color="white" />
           <Bubble size='medium' color="white" />
           <Bubble size='small' color="white" />
@@ -80,8 +90,8 @@ const Flavour = () => {
         <BubbleGroup>
         <Bubble size='small' color="white" />
           <Bubble size='medium' color="white" />
-        </BubbleGroup>
-        <BubbleGroup>
+        </BubbleGroup> */}
+        {/* <BubbleGroup>
           <Bubble size='tiny' color="white" />
           <Bubble size='small' color="white" />
           <Bubble size='medium' color="white" />
@@ -100,7 +110,7 @@ const Flavour = () => {
           <Bubble size='tiny' color="white" />
           <Bubble size='small' color="white" />
           <Bubble size='tiny' color="white" />
-        </BubbleGroup>
+        </BubbleGroup> */}
       </div>
 
     </section>

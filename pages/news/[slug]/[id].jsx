@@ -8,14 +8,13 @@ const Post = ({post}) => {
     <NewsPage data={post}/>
   )
 }
+
 export async function getStaticPaths() {
   const news = await axios.get('/news')
     .then(promotions => promotions.data);
-
   const paths = news.map((post) => ({
     params: { id: post.id.toString(), slug: post.slug },
   }))
-
   return {
     paths,
     fallback: false,

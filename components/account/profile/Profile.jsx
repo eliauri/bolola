@@ -3,24 +3,17 @@ import { useForm, Controller } from 'react-hook-form'
 import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
 import cl from 'classnames'
 import Image from 'next/image'
-
-import AccountNav from '../AccountNav'
+import AccountNav from '../AccountNav/AccountNav'
 import Container from '../../Container'
-
 import s from './profile.module.scss'
 import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 import Button from '../../button/Button';
-
-
-// import eye from '../../public/eyeGreen.svg'
-// import eyeClose from '../../public/eyeCloseGreen.svg'
-
-
+import Password from './Password';
 
 const Profile = () => {
     const axiosPrivate = useAxiosPrivate();
     const [data, setData] = useState();
-   
+
     useEffect(() => {
         const getData = async () => {
             try {
@@ -29,12 +22,9 @@ const Profile = () => {
             } catch (err) {
                 console.error(err);
             }
-            return () => {
-
-            }
         }
         getData();
-    },[]);
+    }, []);
 
     const values = {
         firstname: data?.first_name,
@@ -42,8 +32,6 @@ const Profile = () => {
         tel: data?.phone,
         mail: data?.email,
     }
-
-
     const { register, handleSubmit, control, formState: { errors } } = useForm({
         mode: 'onChange',
         defaultValues: {
@@ -55,33 +43,32 @@ const Profile = () => {
         values
     });
 
-    const [passwordVisible, setVisiblePassword] = useState(false);
+    // const [passwordVisible, setVisiblePassword] = useState(false);
 
     const onSubmit = async (data) => {
-        console.log(data);
-        try{
+        try {
             const responce = await axiosPrivate.put('/user/update/', data);
-        } catch (err)  {
+        } catch (err) {
             console.log(err)
         }
-        
+
     }
 
     return (
         <section className={s.account} >
-            <Container>
+            <Container >
                 <AccountNav />
-                <h1 className={s.account__title}>Мои данные</h1>
-                <form className={s.account__form} onSubmit={handleSubmit(onSubmit)}>
-                    <div className={s.account__grid}>
-                        <div className={s.account__inputLine}>
+                <h1 className={s.title}>Мои данные</h1>
+                <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+                    <div className={s.grid}>
+                        <div className={s.inputLine}>
                             <label htmlFor="firstname">
                                 Имя:
                             </label>
                             <input
                                 type="text"
                                 id="firstname"
-                                className={cl({ [s.account__inputError]: errors.firstname })}
+                                className={cl({ [s.inputError]: errors.firstname })}
                                 {...register('firstname',
                                     {
                                         required: 'Это обязательное поле',
@@ -89,16 +76,16 @@ const Profile = () => {
                                     })}
 
                             />
-                            {errors.firstname && (<p className={s.account__textError}>{errors.firstname.message}</p>)}
+                            {errors.firstname && (<p className={s.textError}>{errors.firstname.message}</p>)}
                         </div>
-                        <div className={s.account__inputLine}>
+                        <div className={s.inputLine}>
                             <label htmlFor="lastname">
                                 Фамилия:
                             </label>
                             <input
                                 type="text"
                                 id="lastname"
-                                className={cl({ [s.account__inputError]: errors.lastname })}
+                                className={cl({ [s.inputError]: errors.lastname })}
                                 {...register('lastname',
                                     {
                                         required: 'Это обязательное поле',
@@ -109,23 +96,23 @@ const Profile = () => {
                                         minLength: { value: 3, message: 'Имя слишком короткое' }
                                     })}
                             />
-                            {errors.lastname && (<p className={s.account__textError}>{errors.lastname.message}</p>)}
+                            {errors.lastname && (<p className={s.textError}>{errors.lastname.message}</p>)}
                         </div>
-                        <div className={s.account__inputLine}>
+                        <div className={s.inputLine}>
                             <label htmlFor="mail">
                                 Почта:
                             </label>
                             <input
                                 type="email"
                                 id="mail"
-                                className={cl({ [s.account__inputError]: errors.mail })}
+                                className={cl({ [s.inputError]: errors.mail })}
                                 {...register('mail',
                                     { required: 'Введите вашу почту' },
                                 )}
                             />
-                            {errors.mail && (<p className={s.account__textError}>{errors.mail.message}</p>)}
+                            {errors.mail && (<p className={s.textError}>{errors.mail.message}</p>)}
                         </div>
-                        <div className={s.account__inputLine}>
+                        <div className={s.inputLine}>
                             <label htmlFor="tel">
                                 Телефон:
                             </label>
@@ -144,40 +131,17 @@ const Profile = () => {
                                         }}
                                         defaultCountry='RU'
                                         id="tel"
-                                        className={cl({ [s.account__inputError]: errors.tel })}
+                                        className={cl({ [s.inputError]: errors.tel })}
                                     />
                                 )}
                             />
-                            {errors.tel && (<p className={s.account__textError}>{errors.tel.message}</p>)}
+                            {errors.tel && (<p className={s.textError}>{errors.tel.message}</p>)}
                         </div>
-                        {/* <div className={s.account__inputLine}>
-                            <label htmlFor="password">
-                                Пароль:
-                            </label>
-                            <input
-                                type={passwordVisible ? "text" : "password"}
-                                id="password"
-                                className={cl({ [s.account__inputError]: errors.password })}
-                                {...register('password',
-                                    {
-                                        required: 'Введите пароль',
-                                        pattern: {
-                                            value: /(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*]/,
-                                            message: 'Пароль не может состоять только из цифр и символов'
-                                        },
-                                        minLength: { value: 8, message: 'Пароль должен содержать минимум 8 символов' }
-                                    },
-                                )}
-
-                                autoComplete="on"
-                            />
-                            <Image src={passwordVisible ? eyeClose : eye} alt='Показать пароль' onClick={() => setVisiblePassword(!passwordVisible)} />
-                            {errors.password && (<p className={s.account__textError}>{errors.password.message}</p>)}
-                        </div> */}
+                        <Button>Сохранить</Button>
                     </div>
-                    <Button> Сохранить</Button>
-                    {/* <button disabled={false}>Сохранить</button> */}
+                    
                 </form>
+               <Password/>
             </Container>
         </section>
     )

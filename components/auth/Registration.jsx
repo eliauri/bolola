@@ -110,7 +110,7 @@ const Registration = () => {
               {...register('firstname',
                 {
                   required: 'Это обязательное поле',
-                  minLength: { value: 3, message: 'Имя слишком короткое' }
+                  minLength: { value: 2, message: 'Имя слишком короткое' }
                 })}
             />
             {errors.firstname && (<p className={s.auth__textError}>{errors.firstname.message}</p>)}
@@ -130,7 +130,7 @@ const Registration = () => {
                     value: /[а-яА-ЯёЁa-zA-Z0-9]/,
                     message: 'Не используйте числа и символы в имени'
                   },
-                  minLength: { value: 3, message: 'Имя слишком короткое' }
+                  minLength: { value: 2, message: 'Имя слишком короткое' }
                 })}
             />
             {errors.lastname && (<p className={s.auth__textError}>{errors.lastname.message}</p>)}

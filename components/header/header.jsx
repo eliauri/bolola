@@ -29,7 +29,7 @@ const Header = () => {
   }
   return (
     <header>
-      <Container className='container--noIndex'>
+      <Container className='container--Index'>
         <div className={s.header}>
           <Link href="/">
             <Image

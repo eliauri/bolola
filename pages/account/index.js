@@ -7,7 +7,7 @@ import Profile from '../../components/account/profile/Profile';
 
 
 export default function Account() {
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const router = useRouter();
   useEffect(() => {
     if (!isLoggedIn) {

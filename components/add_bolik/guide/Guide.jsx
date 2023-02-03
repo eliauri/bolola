@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react'
 import Button from '../../button/Button'
 import s from './guide.module.scss'
+import { useDispatch } from 'react-redux'
+import { setActiveStep } from '../../../store/bolik/addbolik-slice';
 
-const Guide = ({setActiveStep}) => {
+const Guide = () => {
+    const dispatch = useDispatch();
+
     const list = [
         { id: 1, name: 'Наведите камеру на qr-код с обратной стороны болика' },
         { id: 2, name: 'Добавьте болик в коллекцию' },
@@ -23,7 +27,7 @@ const Guide = ({setActiveStep}) => {
                     ))
                 }
             </ul>
-            <Button onClick={() => { setActiveStep(1); }}>
+            <Button onClick={() => {dispatch(setActiveStep(1))}}>
                 Добавить болик</Button>
         </section>
     )

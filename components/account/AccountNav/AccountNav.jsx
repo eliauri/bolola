@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActiveLink } from '../header/ActiveLink'
+import { ActiveLink } from '../../header/ActiveLink'
 import s from './AccountNav.module.scss'
 
 const AccountNav = () => {

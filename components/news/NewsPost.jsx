@@ -14,7 +14,7 @@ const NewsPost = ({ post }) => {
         }}
         className={s.news__new}>
             <div className={s.news__image}>
-                <Image src={process.env.NEXT_PUBLIC_IMG_URL +   post.thumbnail} alt={post.title} fill={true} />
+                <Image src={process.env.NEXT_PUBLIC_IMG_URL +  post.thumbnail} alt={post.title} fill={true} />
             </div>
             <div className={s.news__info}>
                 <h3 className={s.news__subtitle}> {post.title}</h3>

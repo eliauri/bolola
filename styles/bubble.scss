@@ -6,11 +6,7 @@
 
 .bubble {
     position: relative;
-    // animation: animateBubble 4s ease-out, sideWays 2s ease-in-out infinite alternate;
-    // opacity: 0;
 }
-
-
 
 .first {
     .bubbles {
@@ -379,8 +375,7 @@
             left: 88%;
 
             @include big-desktop {
-                // top: 94%;
-                // left: 84%;
+                
             }
 
             @include small-tablet {
@@ -415,189 +410,39 @@
 
 .flavour {
     position: relative;
-
-    .bubbles {
-        .bubbleGroup:nth-child(1) {
-            top: 41%;
-            left: 10%;
-
-            @include big-desktop {
-                top: 51%;
-                left: 3%;
+    .flavour__element{
+        .bubbles {
+            .bubbleGroup:nth-child(1) {
+                top: 31%;
+                left: -11%;
+                @include mobile{
+                    top: 15%;
+                    left: -24%;
+                }
+                .bubble:nth-child(2) {
+                    left: 30px;
+                    top: -15px;
+                }
+    
+                .bubble:nth-child(3) {
+                    top: -15px;
+                }
+    
+                .bubble:nth-child(4) {
+                    left: 50px;
+                    top: -29px;
+                }
             }
-
-            @include tablet {
-                top: 41%;
-            }
-
-            @include mobile {
-                top: 17%;
-                left: 16%;
-            }
-
-            .bubble:nth-child(2) {
-                left: 30px;
-                top: -15px;
-            }
-
-            .bubble:nth-child(3) {
-                top: -15px;
-            }
-
-            .bubble:nth-child(4) {
-                left: 50px;
-                top: -29px;
-            }
-        }
-
-        .bubbleGroup:nth-child(2) {
-            top: 41%;
-            left: 30%;
-
-            @include big-desktop {
-                top: 54%;
-            }
-
-            @include tablet {
-                top: 41%;
-            }
-
-            @include mobile {
-                top: 19%;
-                left: 67%;
-            }
-
-            .bubble:nth-child(1) {
-                left: 45px;
-            }
-
-            .bubble:nth-child(3) {}
-        }
-
-        .bubbleGroup:nth-child(3) {
-            top: 41%;
-            left: 38%;
-
-            @include big-desktop {
-                top: 54%;
-            }
-
-            @include tablet {
-                top: 41%;
-            }
-
-            @include mobile {
-                top: 47%;
-                left: 19%;
-            }
-
-            .bubble:nth-child(1) {}
-
-            .bubble:nth-child(2) {
-                top: 15px;
-                left: -10px;
-            }
-
-            .bubble:nth-child(3) {
-                left: 30px;
-                top: 5px;
-            }
-
-        }
-
-        .bubbleGroup:nth-child(4) {
-            top: 41%;
-            left: 59%;
-
-            @include big-desktop {
-                top: 54%;
-            }
-
-            @include tablet {
-                top: 41%;
-            }
-
-            @include mobile {
-                top: 52%;
-                left: 73%;
-            }
-
-            .bubble:nth-child(1) {}
-
-            .bubble:nth-child(2) {
-                top: 30px;
-                left: -5px;
-            }
-        }
-
-        .bubbleGroup:nth-child(5) {
-            top: 41%;
-            left: 67%;
-
-            @include big-desktop {
-                top: 54%;
-            }
-
-            @include tablet {
-                top: 41%;
-            }
-
-            @include mobile {
-                top: 78%;
-                left: 17%;
-            }
-
-            .bubble:nth-child(1) {
-                left: 30px;
-            }
-
-            .bubble:nth-child(2) {
-                left: -20px;
-            }
-
-            .bubble:nth-child(3) {
-                left: 40px;
-            }
-
-            @media (min-width:1400px) {}
-
-        }
-
-        .bubbleGroup:nth-child(6) {
-            top: 41%;
-            left: 87%;
-            ;
-
-            @include big-desktop {
-                top: 54%;
-                left: 90%;
-            }
-
-            @include tablet {
-                top: 41%;
-            }
-
-            @include mobile {
-                top: 77%;
-                left: 72%;
-            }
-
-            .bubble:nth-child(1) {}
-
-            .bubble:nth-child(2) {
-                left: 35px;
-                top: -10px;
-            }
-
-            .bubble:nth-child(3) {
-                left: 23px;
-            }
-
-            .bubble:nth-child(4) {
-                left: -15px;
-                top: -20px;
+    
+            .bubbleGroup:nth-child(2) {
+                top: 31%;
+                left: 97%;
+                .bubble:nth-child(1) {
+                    left: 45px;
+                }
+    
+                .bubble:nth-child(3) {}
             }
         }
     }
-
 }

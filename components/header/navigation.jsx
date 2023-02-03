@@ -37,7 +37,6 @@ const Navigation = ({ gamburgerActive, setGamburgerActive }) => {
     const closeGamburger = () => {
         if (gamburgerActive) setGamburgerActive(!gamburgerActive);
     }
-    const { asPath } = useRouter();
     return (
         <nav className={s.navigation}>
             <ul>

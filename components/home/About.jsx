@@ -41,7 +41,7 @@ const About = () => {
   ]
   return (
     <section ref={app} className={cl(s.about, `about`)}>
-      <Container>
+      <Container className='container--Index'>
         <div className={s.about__wrapper}>
           <Title type='medium' color='black' className={s.about__title}>что такое болола?</Title>
           <div className={s.about__numbers}>

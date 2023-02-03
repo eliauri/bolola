@@ -29,7 +29,7 @@ const Collection = () => {
 
   return (
     <section className={cl(s.collection, 'collection')} ref={app} >
-      <Container>
+      <Container className='container--Index'>
         <Title className={s.collection__title} type='medium' color='black'>Собери полную коллекцию боликов и получи приз!</Title>
         <div className={s.collection__wrapper}>
           <ul className={s.collection__list}>

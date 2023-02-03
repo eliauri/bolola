@@ -1,19 +1,28 @@
-.addBolik{
+@import "../../styles/breakpoint";
+.addBolik {
     background-color: var(--color-pink);
     padding-bottom: 50px;
     border-top: 1px solid transparent;
-    .title{
+    min-height: 91.4vh;
+
+    .title {
         text-align: center;
         margin: 30px 0;
+        font-size: 28px;
     }
-   .wrapper{
-    min-height: 70vh;
-    background-color: #fff;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-   }
-  
+
+    .wrapper {
+        min-height: 70vh;
+        background-color: #fff;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+        @include mobile{
+            padding: 35px 15px;
+            min-height: 60vh;
+        }
+    }
+
 }

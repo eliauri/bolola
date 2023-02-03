@@ -23,17 +23,10 @@ const Login = () => {
   const [errMsg, setErrMsg] = useState('');
   const dispatch = useDispatch();
   const router = useRouter();
-  const isLoggedIn = useSelector((state) => state.auth?.isLoggedIn);
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      router.push('/');
-    }
-  }, [isLoggedIn]);
+ 
 
 
   const onSubmit = async (data) => {
-    // console.log(data)
     try {
       const response = await axios.post('/user/login/',
         JSON.stringify(data),
@@ -42,14 +35,10 @@ const Login = () => {
           withCredentials: true
         }
       );
-
       dispatch(loginUser());
       setCookie('accessToken', response?.data.access);
       setCookie('refreshToken', response?.data.refresh);
-
-      router.push({
-        pathname: '/account',
-      })
+      router.back()
     } catch (err) {
       console.log(err)
       if (!err?.response.status) {

@@ -78,16 +78,16 @@ header{
   top: 0;
   z-index: 10;
   background-color: #fff;
+  
 }
 .container {
   margin: 0 auto;
   padding: 0 var(--container-offset);
   max-width: var(--container-width);
-  position: relative;
-  z-index: 1;
+
 }
 
-.container--noIndex{
-  position: initial;
-  z-index: auto;
+.container--Index{
+  position: relative;
+  z-index: 1;
 }

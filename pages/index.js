@@ -1,7 +1,4 @@
 import Head from 'next/head'
-
-// import s from '../styles/home.module.scss'
-
 import First from '../components/home/First'
 import About from '../components/home/About'
 import Collection from '../components/home/Collection'
@@ -33,7 +30,6 @@ export async function getStaticProps() {
   const res = await axios.get('/news')
   .then(res => res.data)
   .catch(err => console.log(err))
-
   const news = res ? res.slice(0, 3) : [];
   
   return {

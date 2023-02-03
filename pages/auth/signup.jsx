@@ -8,7 +8,7 @@ import Registration from '../../components/auth/Registration'
  
 
 export default function Auth() {
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const router = useRouter();
 
   useEffect(() => {

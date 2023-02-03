@@ -9,12 +9,12 @@ const NewsPage = ({data}) => {
   return (
     <section className={s.news}>
       <Container>
-        <div className={s.news__image}>
+        <div className={s.image}>
           <Image src={process.env.NEXT_PUBLIC_IMG_URL + data.thumbnail} alt='' fill={true} />
         </div>
-        <div className={s.news__info}>
-          <h1 className={s.news__title}>{data.title}</h1>
-          <div className={s.news__date}>
+        <div className={s.info}>
+          <h1 className={s.title}>{data.title}</h1>
+          <div className={s.date}>
             {date(data.updated_at)}
           </div>
           <p>{data.content}</p>

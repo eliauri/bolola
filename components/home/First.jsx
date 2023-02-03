@@ -29,7 +29,7 @@ const First = () => {
 
   return (
     <section ref={app} className={cl(s.first, 'first')}>
-      <Container className={s.container}>
+      <Container className={s.container + ' container--Index'}>
         <div className={s.first__wrapper}>
           <div className={s.first__left}>
             <h1 className={s.first__title}>Шипучий лимонад <span>Болола</span></h1>
