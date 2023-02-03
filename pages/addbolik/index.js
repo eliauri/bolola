@@ -18,7 +18,8 @@ export default function Skaner() {
   }, [isLoggedIn]);
 
   return (
-    <AddBolik/>
+    <></>
+    // <AddBolik/>
   )
 
 }

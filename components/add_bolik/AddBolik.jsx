@@ -10,12 +10,9 @@ import Guide from './guide/Guide'
 import Scanner from './scanner/Scanner'
 import { setActiveStep, setBolik} from '../../store/bolik/addbolik-slice';
 
-
 const AddBolik = () => {
     const activestep = useSelector(state => state.bolik.activeStep)
     const dispatch = useDispatch();
-
-
     const components = [
         <Guide key={0} />,
         <Scanner key={1} />,
@@ -24,7 +21,6 @@ const AddBolik = () => {
     ]
 
     const router = useRouter();
-
     useEffect(() => {
         if (!router.isReady) return;
         if (router.query.bolik) {
