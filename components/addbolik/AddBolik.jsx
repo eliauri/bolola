@@ -4,11 +4,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import Container from '../Container'
 import Title from '../title/title'
 import s from './addBolik.module.scss'
-import BolikSave from './BolikSave/bolikSave'
-import BolickCheck from './bolikСheck/bolickCheck'
+
 import Guide from './guide/Guide'
 import Scanner from './scanner/Scanner'
 import { setActiveStep, setBolik} from '../../store/bolik/addbolik-slice';
+import BolickCheck from './bolikСheck/bolickCheck'
+import BolikSave from './bolikSave/BolikSave'
 
 const AddBolik = () => {
     const activestep = useSelector(state => state.bolik.activeStep)
