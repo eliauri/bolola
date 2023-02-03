@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Html5Qrcode } from "html5-qrcode"
-
-
 import Container from '../../components/Container'
 import AddBolik from '../../components/add_bolik/addBolik'
 
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
-import HeaderLayout from '../../components/layout/headerLayout'
+import HeaderLayout from '../../components/layout/HeaderLayout'
+
 
 export default function Skaner() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -21,6 +20,7 @@ export default function Skaner() {
   return (
    <AddBolik/>
   )
+
 }
 
 Skaner.getLayout = function getLayout(page) {
