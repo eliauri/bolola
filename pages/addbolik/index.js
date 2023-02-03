@@ -4,7 +4,7 @@ import Container from '../../components/Container'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
 import HeaderLayout from '../../components/layout/HeaderLayout'
-import AddBolik from '../../components/add_bolik/addBolik';
+// import AddBolik from '../../components/add_bolik/addBolik';
 
 
 
