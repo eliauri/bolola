@@ -129,8 +129,8 @@
                 left: 85%;
             }
 
-            @media (max-height:750px) {
-                top: 116%;
+            @media (max-height:700px) {
+                display: none;
             }
         }
 
@@ -142,12 +142,8 @@
                 top: 89%;
                 left: 10%;
             }
-
-            @include small-tablet {}
-
-            @media (max-height:750px) {
-                top: 112%;
-                left: 10%;
+            @media (max-height:700px) {
+                display: none;
             }
           
             .bubble:nth-child(1) {
