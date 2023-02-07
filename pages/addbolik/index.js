@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { Html5Qrcode } from "html5-qrcode"
 import Container from '../../components/Container'

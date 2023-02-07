@@ -18,11 +18,6 @@ const Navigation = ({ gamburgerActive, setGamburgerActive }) => {
             href: '/news',
         },
         {
-            id: 3,
-            title: 'Коллекции',
-            href: '/account/collection',
-        },
-        {
             id: 4,
             title: 'Продукции',
             href: '/prod',

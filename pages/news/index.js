@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from '../../components/home/home.module.scss'
+import s from '../../components/news/news.module.scss'
 import Title from '../../components/title/title'
 import Container from '../../components/Container'
 
@@ -12,7 +12,7 @@ export default function News({news, promotions}) {
   return (
     <>
       <Container>
-        <Title color='black' className={s.news__title}>Новости компании</Title>
+        <Title color='black' className={s.titleMain}>Новости компании</Title>
         <Promotions posts = {promotions}/>
         <NewsList posts = {news}/>
       </Container>

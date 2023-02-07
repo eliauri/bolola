@@ -23,6 +23,10 @@
         font-weight: 500;
         font-size: 20px;
         line-height: 23px;
+        text-align: center;
+        @include mobile {
+            font-size: 18px;
+        }
     }
 
     hr {
@@ -41,6 +45,7 @@
         @include mobile {
             align-items: flex-start;
             justify-content: space-evenly;
+            column-gap: 10px;
         }
 
         li {
@@ -54,7 +59,9 @@
             font-weight: 500;
             font-size: 20px;
             transition: all 0.3s;
-
+            @include mobile {
+                font-size: 16px;
+            }
             &:hover {
                 color: #fff;
             }
@@ -93,7 +100,8 @@
 
     .adress {
         @include mobile {
-            margin-top: 15px;
+            margin-top: 20px;
+            font-size: 17px;
         }
 
         margin-top: 40px;

@@ -8,5 +8,6 @@
     overflow: hidden;
     @include mobile{
         min-height:  auto;
+        width: 100%;
     }
 }

@@ -30,14 +30,9 @@ const MiniProfile = () => {
   
   useEffect(() => {
 		// rome-ignore lint/complexity/useSimplifiedLogicExpression: <explanation>
-		// if (!isLoggedIn) {
-		// 	dispatch(logoutUser());
-		// } else {
-    //   getUser();
-    // }
     if (isLoggedIn && !user) {
       getUser();
-    } else {}
+    } 
 	},[]);
 
  
@@ -68,7 +63,7 @@ const MiniProfile = () => {
                 <nav className={s.miniProfile__nav}>
                   <ul>
                     <li>
-                      <Link href={'/'}>Мои данные</Link>
+                      <Link href={'/account'}>Мои данные</Link>
                     </li>
                     <hr />
                     <li >

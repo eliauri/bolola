@@ -3,10 +3,10 @@ import s from './footer.module.scss'
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../../public/logo.svg'
-import vk from '../../public/social/vk.png'
-import instgram from '../../public/social/instagram.png'
-import whatsapp from '../../public/social/whatsapp.png'
-import telegram from '../../public/social/telegram.png'
+import vk from '../../public/social/vk.svg'
+import instgram from '../../public/social/instagram.svg'
+import whatsapp from '../../public/social/whatsapp.svg'
+import telegram from '../../public/social/telegram.svg'
 import Container from '../Container';
 
 const footer = () => {
@@ -28,11 +28,6 @@ const footer = () => {
       href: '/news',
     },
     {
-      id: 3,
-      title: 'Коллекции',
-      href: '/account/collection',
-    },
-    {
       id: 4,
       title: 'Продукции',
       href: '/prod',
@@ -48,6 +43,11 @@ const footer = () => {
       id: 1,
       title: 'Личный кабинет',
       href: '/account',
+    },
+    {
+      id: 3,
+      title: 'Моя коллекция',
+      href: '/account/collection',
     },
     {
       id: 2,

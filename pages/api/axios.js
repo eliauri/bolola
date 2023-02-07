@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASE_URL =  'http://62.217.182.125/api';
+const BASE_URL =  'https://boliki.ru/api';
 
 export default axios.create({
     baseURL: BASE_URL

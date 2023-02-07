@@ -14,7 +14,7 @@
             align-items: center;
             gap: 10px;
             @include mobile{
-                font-size: 18px;
+                font-size: 15px;
             }
             &:not(:last-child) {
                 margin-bottom: 40px;
@@ -41,7 +41,7 @@
         max-width: 500px;
     }
 
-    .button {
+    button {
         @include mobile{
             margin-top: 45px;
         }

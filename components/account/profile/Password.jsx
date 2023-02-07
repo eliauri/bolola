@@ -33,7 +33,7 @@ const Password = () => {
     }
     return (
         <div className={s.passwordResst}>
-            <div className={s.account__inputLine}>
+            <div className={s.inputLine}>
                 <label htmlFor="pas">
                     Пароль:
                 </label>

@@ -2,7 +2,6 @@ import axios from '../pages/api/axios';
 import { getCookie, setCookie } from "cookies-next";
 
 const useRefreshToken = () => {
-    // const { setAuth } = UseAuth();
     const refresh = async () => {
         const response = await axios.post('/user/refresh-token/',
         {

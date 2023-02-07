@@ -3,7 +3,7 @@
     --content-width: 1080px;
   }
   --content-width: 1380px;
-  --container-offset: 15px;
+  --container-offset: 26px;
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
   --color-pink: #E62154;
   --color-pinkOpacity: #e6215480;
@@ -70,7 +70,9 @@ a {
   box-sizing: border-box;
   
 }
-
+main{
+  overflow: hidden;
+}
 header{
   // box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid #CCCCCC;

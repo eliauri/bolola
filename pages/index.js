@@ -15,7 +15,7 @@ export default function Home({ news }) {
         <title>Bolola</title>
         <meta name="description" content="Шипучий лимонад Бололо" />
         <link rel="icon" href="/favicon.ico" />
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        {/* <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> */}
       </Head>
       <First />
       <About />

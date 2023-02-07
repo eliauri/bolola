@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../../Container'
 import s from './collection.module.scss'
 import AccountNav from '../AccountNav/AccountNav'
@@ -40,7 +40,6 @@ const Collection = () => {
     setModal(true);
     setCollectedId(id);
   }
-
   return (
     <article className={s.collections}>
      <Container >
@@ -75,7 +74,6 @@ const Collection = () => {
                 ))
               }
             </HorizontalScroll>
-
           </section>
         ))
       }

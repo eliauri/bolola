@@ -3,7 +3,6 @@ import '../styles/globals.scss'
 import '../styles/bubble.scss'
 import '../styles/swiper.scss'
 import Layout from '../components/layout/layout'
-// import { AuthProvider } from '../context/AuthProvider';
 import { Provider } from 'react-redux';
 import store from '../store/store';
 

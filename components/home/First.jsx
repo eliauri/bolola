@@ -34,7 +34,7 @@ const First = () => {
           <div className={s.first__left}>
             <h1 className={s.first__title}>Шипучий лимонад <span>Болола</span></h1>
             <p className={s.first__description}>Собери свою коллекцию Боликов с твоими любимыми персонажами</p>
-            <Link href='/add_bolik' className={s.first__button}> Добавить болик</Link>
+            <Link href='/addbolik' className={s.first__button}> Добавить болик</Link>
 
           </div>
           <div className={s.first__right}>

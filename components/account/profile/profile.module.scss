@@ -6,6 +6,16 @@
         font-size: 36px;
         line-height: 41px;
         color: var(--color-black);
+        @include mobile{
+            position: absolute;
+            overflow: hidden;
+            margin: -1px;
+            border: 0;
+            padding: 0;
+            width: 1px;
+            height: 1px;
+            clip: rect(0 0 0 0);
+        }
     }
     .textError{
         color:#E3000F;
@@ -40,13 +50,7 @@
             right: -50px;
             top: 38px;
             cursor: pointer;
-        }
-        @include small-tablet{
-            img{
-                // right: 18px;
-            }
-        }
-       
+        }  
     }
 
     label {

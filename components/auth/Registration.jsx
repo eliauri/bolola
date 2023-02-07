@@ -20,7 +20,6 @@ const Registration = () => {
   const [passwordVisible, setVisiblePassword] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
-  // console.log(errors);
   const login = async (data) => {
     try {
       const response = await axios.post('/user/login/',
@@ -31,8 +30,8 @@ const Registration = () => {
         }
       );
       dispatch(loginUser());
-      setCookie('accessToken', response?.data.access);
-      setCookie('refreshToken', response?.data.refresh);
+      setCookie('accessToken', response?.data.access, {maxAge: 2629743});
+      setCookie('refreshToken', response?.data.refresh,{maxAge: 2629743});
       router.push({
         pathname: '/account',
       })
@@ -44,7 +43,7 @@ const Registration = () => {
   const onSubmit = async (data) => {
     console.log(data);
     try {
-      const response = await axios.post('/user/create/',
+      const response = await axios.post('/user/create',
         JSON.stringify(data),
         {
           headers: { 'Content-Type': 'application/json' },

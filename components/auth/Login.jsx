@@ -36,8 +36,8 @@ const Login = () => {
         }
       );
       dispatch(loginUser());
-      setCookie('accessToken', response?.data.access);
-      setCookie('refreshToken', response?.data.refresh);
+      setCookie('accessToken', response?.data.access, {maxAge: 2629743});
+      setCookie('refreshToken', response?.data.refresh, {maxAge: 2629743});
       router.back()
     } catch (err) {
       console.log(err)
@@ -58,12 +58,12 @@ const Login = () => {
         errMsg ? <p className={s.auth__serverError}>{errMsg}</p> : ''
       }
       <form className={s.auth__form} onSubmit={handleSubmit(onSubmit)}>
-        {/* <div className={s.auth__inputLine}>
-        <label htmlFor="tel">
+        <div className={s.auth__inputLine}>
+        <label htmlFor="phone">
           Телефон:
         </label>
         <Controller
-          name="tel"
+          name="phone"
           control={control}
           render={({ field: { onChange, value } }) => (
             <Input
@@ -73,12 +73,12 @@ const Login = () => {
                 validate: (value) => isValidPhoneNumber(value),
               }}
               defaultCountry='RU'
-              id="tel"
+              id="phone"
             />
           )}
         />
-      </div> */}
-        <div className={s.auth__inputLine}>
+      </div>
+        {/* <div className={s.auth__inputLine}>
           <label htmlFor="email">
             Почта:
           </label>
@@ -91,7 +91,7 @@ const Login = () => {
             )}
           />
           {errors.mail && (<p className={s.auth__textError}>{errors.mail.message}</p>)}
-        </div>
+        </div> */}
         <div className={s.auth__inputLine}>
           <label htmlFor="password">
             Пароль:

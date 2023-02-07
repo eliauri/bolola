@@ -1,9 +1,21 @@
+@import "../../../styles/breakpoint";
+
 .collections {
     .title {
         font-weight: 500;
         font-size: 36px;
         color: var(--color-black);
         margin-bottom: 20px;
+        @include mobile{
+            position: absolute;
+            overflow: hidden;
+            margin: -1px;
+            border: 0;
+            padding: 0;
+            width: 1px;
+            height: 1px;
+            clip: rect(0 0 0 0);
+        }
     }
 
     .block {
@@ -14,18 +26,27 @@
         margin-right: max(15px, (100% - var(--content-width)) / 2);
         border-radius: 0px 100px 100px 0px;
         overflow: hidden;
+        @include mobile{
+            margin-right: 0;
+            border-radius: 0;
+            padding: 15px 0;
+            margin-top: 25px;
+        }
     }
     .collected{
         background-color: #00B856;
     }
     .list {
         display: flex;
-        padding: 32px 0;
-        padding-left: max(15px, (100% - var(--content-width)));
-       
+        padding: 50px 0;
+        padding-left: max(var(--container-offset), (100% - var(--content-width)));
         overflow-x: scroll;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        @include mobile{
+            padding-top: 29px;
+            padding-bottom: 29px;
+        }
         &::-webkit-scrollbar {
             width: 0;
             height: 0;
@@ -41,6 +62,10 @@
         position: absolute;
         right: 85px;
         top: 25px;
+        @include mobile{
+            position: initial;
+            text-align: center;
+        }
     }
 
     .subtitle {
@@ -67,6 +92,12 @@
         }
         &:not(:last-child) {
             margin-right: 55px;
+        }
+        @include mobile{
+            img{
+                width: 100px;
+                height: 100px;
+            }
         }
     }
 
