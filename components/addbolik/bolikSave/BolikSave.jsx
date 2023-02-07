@@ -14,7 +14,7 @@ const BolikSave = () => {
     const axiosPrivate = useAxiosPrivate();
     const dispatch = useDispatch();
     const bolik = useSelector(state => state.bolik.bolik);
-    console.log(bolik)
+
     const getResponse = async () => {
         try {
             const response = await axiosPrivate.post(`/bolik/submit/${bolik.hash}`)

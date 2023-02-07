@@ -20,6 +20,7 @@ const Registration = () => {
   const [passwordVisible, setVisiblePassword] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
+
   const login = async (data) => {
     try {
       const response = await axios.post('/user/login/',
@@ -37,11 +38,11 @@ const Registration = () => {
       })
     } catch (err) {
       console.log(err)
-      setErrMsg('Login Failed');
+      setErrMsg('Ошибка сервера');
     }
   }
+
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       const response = await axios.post('/user/create',
         JSON.stringify(data),
@@ -51,7 +52,7 @@ const Registration = () => {
         }
       );
       setErrMsg('');
-      login({email: data.mail, password: data.password});
+      login({phone: data.tel, password: data.password});
     } catch (err) {
       console.log(err);
       if (err?.response?.data.email) {
@@ -64,6 +65,7 @@ const Registration = () => {
 
     }
   }
+
   return (
     <>
       <h1 className={s.auth__title}>Зарегистрируйте личный аккаунт

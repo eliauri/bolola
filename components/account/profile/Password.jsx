@@ -11,24 +11,26 @@ import { axiosPrivate } from '../../../pages/api/axios'
 const Password = () => {
     const [modal, setModal] = useState(false);
     const [err, setError] = useState('');
+    
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         mode: 'onBlur',
     });
+
     const onSubmit = async (data) => {
         try {
             const response = await axiosPrivate.post('/new-pass/', {
                 new: data.new,
                 old: data.old
-            }).then((res) =>{
-                if(res.status== 201){
+            }).then((res) => {
+                if (res.status == 201) {
                     setError();
                     setModal(false);
                 }
             })
         } catch (err) {
             console.log(err)
-            if(err.response.status == 409)
-            setError('Старый пароль введен неверно')
+            if (err.response.status == 409)
+                setError('Старый пароль введен неверно')
         }
     }
     return (
