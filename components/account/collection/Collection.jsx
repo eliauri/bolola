@@ -42,7 +42,7 @@ const Collection = () => {
   }
   return (
     <article className={s.collections}>
-     <Container >
+      <Container >
         <AccountNav />
         <h1 className={s.title}>Коллекция боликов</h1>
       </Container>
@@ -55,7 +55,7 @@ const Collection = () => {
                   <h2 className={s.subtitle}>{collection.nameCollection}</h2>
                   :
                   <h2 className={cl(s.subtitle, s.award)}
-                    onClick={ () => finishCollection(collection.idCollection)}>Забрать награду</h2>
+                    onClick={() => finishCollection(collection.idCollection)}>Забрать награду</h2>
               }
             </div>
             <HorizontalScroll className={s.list}>
@@ -78,7 +78,7 @@ const Collection = () => {
         ))
       }
       <Modal onClose={() => setModal(false)} modal={modal} >
-        <CollectionForm id={collectedId} />
+        <CollectionForm id={collectedId} refresh={getBoliks}/>
       </Modal>
     </article>
   )

@@ -111,13 +111,7 @@
         font-size: 26px;
         line-height: 29px;
         color: var(--color-green);
-        // 
         -webkit-text-stroke: 3px #fff;
-        // text-shadow: 
-        // 2px 0px 0px #fff,   /* Right shadow */
-        // -2px 0px 0px #fff,  /* Left shadow */
-        // 0px 2px 0px #fff,   /* Bottom shadow */
-        // 0px -2px 0px #fff;  /* Top shadow */ 
         span{
             font-size: 34px;
             margin-left: -1px;
@@ -126,12 +120,13 @@
     }
 }
 .form{
+
 .formTitle{
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     font-weight: 500;
     margin-bottom: 20px;
-    color: var(--color-pink);
+    color: var(--color-black);
 }
 
     display: flex;

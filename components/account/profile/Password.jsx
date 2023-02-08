@@ -11,7 +11,7 @@ import { axiosPrivate } from '../../../pages/api/axios'
 const Password = () => {
     const [modal, setModal] = useState(false);
     const [err, setError] = useState('');
-    
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         mode: 'onBlur',
     });
@@ -61,11 +61,11 @@ const Password = () => {
                             className={cl({ [s.account__inputError]: errors.old })}
                             {...register('old',
                                 {
-                                    required: 'Введите пароль',
+                                    required: 'Введите старый пароль',
                                 },
                             )}
-                            autoComplete="off"
                         />
+                        {errors.old && (<p className={s.textError}>{errors.old.message}</p>)}
                     </div>
                     <div className={s.account__inputLine}>
                         <label htmlFor="new">
@@ -85,9 +85,9 @@ const Password = () => {
                                     minLength: { value: 8, message: 'Пароль должен содержать минимум 8 символов' }
                                 },
                             )}
-                            autoComplete="off"
+
                         />
-                        {errors.new && (<p className={s.account__textError}>{errors.new.message}</p>)}
+                        {errors.new && (<p className={s.textError}>{errors.new.message}</p>)}
                     </div>
                     <div className={s.account__inputLine}>
                         <label htmlFor="confirm_password">
@@ -108,9 +108,9 @@ const Password = () => {
                                     minLength: { value: 8, message: 'Пароль должен содержать минимум 8 символов' }
                                 },
                             )}
-                            autoComplete="off"
+
                         />
-                        {errors.confirm_password && (<p className={s.account__textError}>{errors.confirm_password.message}</p>)}
+                        {errors.confirm_password && (<p className={s.textError}>{errors.confirm_password.message}</p>)}
                     </div>
                     <Button>Сохранить</Button>
                 </form>

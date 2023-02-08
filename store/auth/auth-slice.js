@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getCookie } from 'cookies-next';
 
-const initialState = getCookie('accessToken') ? {
+const initialState = getCookie('refreshToken') ? {
   isLoggedIn: true,
 } : {
   isLoggedIn: false,

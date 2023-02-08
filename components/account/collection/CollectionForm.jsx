@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../../button/Button'
 import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
 import { useForm, Controller } from 'react-hook-form'
@@ -7,24 +7,26 @@ import cl from 'classnames'
 import { axiosPrivate } from '../../../pages/api/axios';
 
 const CollectionForm = props => {
+    const [message, setMessage] = useState();
     const { register, handleSubmit, control, formState: { errors } } = useForm({
         mode: 'onBlur',
     });
+
     const onSubmit = async (data) => {
-        console.log({
-            data: data,
-            collection_id: props.id
-        })
-        
+        data['collection'] = props.id;
         try {
-            const response = await axiosPrivate.post('/finish/', { data: data, collection_id: props.id })
+            const response = await axiosPrivate.post('/finish/', data)
+            .then((res) => {
+                if (res.status == 200) setMessage(<p className='successMsg'>Поздравляем со сборобом коллекции. <br/>Ожидайте получения суперболика</p>)
+            })            
         } catch (err) {
-            console.log(err)
+            console.log(err);
+            if (err.response.status == 406) setMessage(<p className='errMsg'>Произошла ошибка, попробуйте позже</p>)
         }
+        props.refresh();
     }
     return (
-
-
+        !message ? 
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
             <h2 className={s.formTitle}>Введите данные получатели посылки и заберите суперболик</h2>
             <div className={s.inputLine}>
@@ -45,11 +47,11 @@ const CollectionForm = props => {
             </div>
 
             <div className={s.auth__inputLine}>
-                <label htmlFor="tel">
+                <label htmlFor="phone">
                     Телефон:
                 </label>
                 <Controller
-                    name="tel"
+                    name="phone"
                     control={control}
                     rules={{
                         validate: value => isValidPhoneNumber(String(value)) || 'Некорректный номер телефона'
@@ -62,12 +64,12 @@ const CollectionForm = props => {
                                 validate: (value) => isValidPhoneNumber(value),
                             }}
                             defaultCountry='RU'
-                            id="tel"
-                            className={cl({ [s.auth__inputError]: errors.tel })}
+                            id="phone"
+                            className={cl({ [s.auth__inputError]: errors.phone })}
                         />
                     )}
                 />
-                {errors.tel && (<p className={s.textError}>{errors.tel.message}</p>)}
+                {errors.phone && (<p className={s.textError}>{errors.phone.message}</p>)}
             </div>
             <div className={s.inputLine}>
                 <label htmlFor="city">
@@ -87,24 +89,25 @@ const CollectionForm = props => {
                 {errors.city && (<p className={s.textError}>{errors.city.message}</p>)}
             </div>
             <div className={s.inputLine}>
-                <label htmlFor="adress">
+                <label htmlFor="address">
                     Адрес:
                 </label>
                 <input
                     type={"text"}
-                    id="adress"
+                    id="address"
                     className={cl({ [s.inputError]: errors.city })}
-                    {...register('adress',
+                    {...register('address',
                         {
                             required: 'Это обязательное поле',
 
                         },
                     )}
                 />
-                {errors.adress && (<p className={s.textError}>{errors.adress.message}</p>)}
+                {errors.address && (<p className={s.textError}>{errors.address.message}</p>)}
             </div>
             <Button>Отправить</Button>
-        </form>
+        </form> :
+        message
     )
 }
 

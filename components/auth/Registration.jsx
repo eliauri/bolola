@@ -13,11 +13,16 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../store/auth/action-creators';
 import { setCookie } from "cookies-next";
 import Button from '../button/Button';
+import Modal from '../modal/Modal'
+import VerificationCall from './VerificationCall';
 
 const Registration = () => {
   const { register, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onBlur' });
   const [errMsg, setErrMsg] = useState();
+  const [code, setCode] = useState(7895);
+  const [data, setData] = useState();
   const [passwordVisible, setVisiblePassword] = useState(false);
+  const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -25,14 +30,10 @@ const Registration = () => {
     try {
       const response = await axios.post('/user/login/',
         JSON.stringify(data),
-        {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true
-        }
       );
       dispatch(loginUser());
-      setCookie('accessToken', response?.data.access, {maxAge: 2629743});
-      setCookie('refreshToken', response?.data.refresh,{maxAge: 2629743});
+      setCookie('accessToken', response?.data.access, { maxAge: 2629743 });
+      setCookie('refreshToken', response?.data.refresh, { maxAge: 2629743 });
       router.push({
         pathname: '/account',
       })
@@ -41,18 +42,13 @@ const Registration = () => {
       setErrMsg('Ошибка сервера');
     }
   }
-
-  const onSubmit = async (data) => {
+  const registration = async () => {
     try {
       const response = await axios.post('/user/create',
         JSON.stringify(data),
-        {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true
-        }
       );
       setErrMsg('');
-      login({phone: data.tel, password: data.password});
+      login({ phone: data.tel, password: data.password });
     } catch (err) {
       console.log(err);
       if (err?.response?.data.email) {
@@ -62,7 +58,27 @@ const Registration = () => {
           setErrMsg(err.response.data.phone);
         }
       }
-
+    }
+  }
+  const onSubmit = (data) => {
+    setModal(true);
+    setData(data);
+    try {
+      const verification = fetch(`https://api.ucaller.ru/v1.0/initCall?phone=${data.tel}&key=YyrR9NlY1BUxUTlMETE4l6ZcRoVpVBYb&service_id=727740`,
+      {
+        mode: 'no-cors',
+        method: "get",
+        headers: {
+             "Content-Type": "application/json"
+        },
+      })
+        .then(res => {
+          console.log(res);
+          setCode(res.body.code)
+        })
+    }
+    catch (err) {
+      console.log(err);
     }
   }
 
@@ -148,6 +164,7 @@ const Registration = () => {
             {...register('mail',
               { required: 'Введите вашу почту' },
             )}
+            autoComplete="off"
           />
           {errors.mail && (<p className={s.auth__textError}>{errors.mail.message}</p>)}
         </div>
@@ -169,7 +186,7 @@ const Registration = () => {
                 minLength: { value: 8, message: 'Пароль должен содержать минимум 8 символов' }
               },
             )}
-            autoComplete="on"
+            autoComplete="off"
           />
           <Image src={passwordVisible ? eyeClose : eye} alt='Показать пароль' onClick={() => setVisiblePassword(!passwordVisible)} />
           {errors.password && (<p className={s.auth__textError}>{errors.password.message}</p>)}
@@ -177,6 +194,12 @@ const Registration = () => {
         <Button>Зарегистрироваться</Button>
       </form>
       <p className={s.auth__reference}>Уже есть аккаунт? {<Link href={'/auth/signin'} className={s.auth__blueLink}>Войти</Link>}</p>
+      <Modal onClose={() => setModal(false)} modal={modal}>
+        <VerificationCall
+          onClose={() => setModal(false)}
+          code={code}
+          registration={registration} />
+      </Modal>
     </>
   )
 }

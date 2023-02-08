@@ -10,7 +10,6 @@ import { setCookie } from "cookies-next";
 import eye from '../../public/eye.svg'
 import eyeClose from '../../public/eyeClose.svg'
 import axios from '../../pages/api/axios'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../../store/auth/action-creators'
 import Button from '../button/Button'

@@ -139,7 +139,6 @@ const Profile = () => {
                         </div>
                         <Button>Сохранить</Button>
                     </div>
-                    
                 </form>
                <Password/>
             </Container>

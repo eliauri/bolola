@@ -50,13 +50,8 @@
                 left: 79%;
             }
 
-            @include small-tablet {
-                top: 40%;
-                left: 77%;
-            }
-
             @include mobile {
-                top: 41%;
+                top: 38%;
                 left: 65%;
             }
 
@@ -89,11 +84,11 @@
                 top: 41%;
                 left: 13%;
             }
-
-            @include small-tablet {
-                top: 47%;
-                left: 0%;
+            @include mobile {
+                top: 40%;
+    left: 0%;
             }
+           
 
             .bubble:nth-child(1) {
                 left: -20px;
@@ -129,7 +124,7 @@
                 left: 85%;
             }
 
-            @media (max-height:700px) {
+            @media (max-height:670px) {
                 display: none;
             }
         }
@@ -142,7 +137,7 @@
                 top: 89%;
                 left: 10%;
             }
-            @media (max-height:700px) {
+            @media (max-height:670px) {
                 display: none;
             }
           

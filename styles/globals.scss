@@ -93,3 +93,14 @@ header{
   position: relative;
   z-index: 1;
 }
+
+.successMsg{
+ color: var(--color-green);
+ font-size: 20px;
+ font-weight: 500;
+}
+.errMsg{
+  color: var(--color-pink);
+  font-size: 20px;
+  font-weight: 500;
+}
