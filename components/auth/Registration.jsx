@@ -19,7 +19,7 @@ import VerificationCall from './VerificationCall';
 const Registration = () => {
   const { register, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onBlur' });
   const [errMsg, setErrMsg] = useState();
-  const [code, setCode] = useState(7895);
+  const [code, setCode] = useState();
   const [data, setData] = useState();
   const [passwordVisible, setVisiblePassword] = useState(false);
   const [modal, setModal] = useState(false);
@@ -60,27 +60,37 @@ const Registration = () => {
       }
     }
   }
-  const onSubmit = (data) => {
-    setModal(true);
+
+  const onSubmit = async (data) => {
     setData(data);
-    try {
-      const verification = fetch(`https://api.ucaller.ru/v1.0/initCall?phone=${data.tel}&key=YyrR9NlY1BUxUTlMETE4l6ZcRoVpVBYb&service_id=727740`,
+
+    const verification = await fetch(`https://api.ucaller.ru/v1.0/initCall`,
       {
-        mode: 'no-cors',
-        method: "get",
+        method: "POST",
         headers: {
-             "Content-Type": "application/json"
+          "Content-Type": "application/json"
         },
+        data: {
+          key: "YyrR9NlY1BUxUTlMETE4l6ZcRoVpVBYb",
+          service_id: "727740",
+          phone: data.tel.substring(1),
+
+        }
       })
-        .then(res => {
-          console.log(res);
-          setCode(res.body.code)
-        })
-    }
-    catch (err) {
-      console.log(err);
-    }
+      .then(res => {
+        console.log(res);
+        setModal(true);
+        setCode(res.body.code)
+      })
+      .catch(err => {
+        console.log(err);
+        setErrMsg('Произошла ошибка, попробуйте позже')
+      }
+      )
   }
+
+
+
 
   return (
     <>

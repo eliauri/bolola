@@ -20,7 +20,7 @@ export default function News({news, promotions}) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const news = await axios.get('/news')
   .then(news => news.data)
   .catch(err => console.log(err));

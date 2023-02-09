@@ -8,6 +8,7 @@ const VerificationCall = (props) => {
     const [completed, setCompleted] = useState(false);
     const [errorMsg, setErrMsg] = useState();
     useEffect(() => {
+        console.log(code, props.code)
         if (completed) {
             if (props.code == code) {
                 props.registration();

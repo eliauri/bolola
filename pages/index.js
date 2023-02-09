@@ -14,8 +14,6 @@ export default function Home({ news }) {
       <Head>
         <title>Bolola</title>
         <meta name="description" content="Шипучий лимонад Бололо" />
-        <link rel="icon" href="/favicon.svg" />
-        {/* <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> */}
       </Head>
       <First />
       <About />
@@ -27,7 +25,7 @@ export default function Home({ news }) {
 
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await axios.get('/news')
   .then(res => res.data)
   .catch(err => console.log(err))
