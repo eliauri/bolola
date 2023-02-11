@@ -12,8 +12,8 @@ export default function Home({ news }) {
   return (
     <>
       <Head>
-        <title>Bolola</title>
-        <meta name="description" content="Шипучий лимонад Бололо" />
+        <title>Болола - шипучий лимонад в таблетках</title>
+        <meta name="description" content="Добавьте таблетки в воду и получите вкусный лимонад Бололо. В комплекте идет фишка болик, отсканируйте ее на нашем сайте и получите орден" />
       </Head>
       <First />
       <About />

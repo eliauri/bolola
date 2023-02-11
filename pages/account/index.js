@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 
@@ -16,7 +17,13 @@ export default function Account() {
   }, [isLoggedIn]);
     
   return (
+    <>
+    <Head>
+        <title>Личный кабинет - Болола</title>
+        <meta name="description" content="" />
+      </Head>
     <Profile/>
+    </>
   )
 }
 

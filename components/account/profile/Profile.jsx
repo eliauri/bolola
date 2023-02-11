@@ -126,6 +126,7 @@ const Profile = () => {
                                     <Input
                                         value={value}
                                         onChange={onChange}
+                                        disabled={true}
                                         rules={{
                                             validate: (value) => isValidPhoneNumber(value),
                                         }}

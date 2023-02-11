@@ -7,10 +7,15 @@ import Container from '../../components/Container'
 import Promotions from '../../components/news/PromotionsSlider'
 import NewsList from '../../components/news/NewsList'
 import axios from '../api/axios'
+import Head from 'next/head'
 
 export default function News({news, promotions}) {
   return (
     <>
+     <Head>
+        <title>Новости - Болола</title>
+        <meta name="description" content="Следите за новостями и акциями компании Болола" />
+      </Head>
       <Container>
         <Title color='black' className={s.titleMain}>Новости компании</Title>
         <Promotions posts = {promotions}/>

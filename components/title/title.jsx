@@ -1,10 +1,6 @@
 import React from 'react'
-import { useRef, useEffect } from 'react';
 import s from './title.module.scss'
 import cl from 'classnames'
-import { gsap } from "gsap";
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// gsap.registerPlugin(ScrollTrigger);
 
 const Title = ({
   children, type, color, className
@@ -13,7 +9,6 @@ const Title = ({
   const titleStyle = {
     color: `var(--color-${color})`,
   }
-
 
   if (type == 'medium') {
     return (

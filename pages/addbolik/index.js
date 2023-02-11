@@ -6,9 +6,7 @@ import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
 import HeaderLayout from '../../components/layout/HeaderLayout'
 import AddBolik from '../../components/addbolik/AddBolik';
-
-
-
+import Head from 'next/head';
 
 export default function Skaner() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -20,9 +18,14 @@ export default function Skaner() {
   }, [isLoggedIn]);
 
   return (
-   <AddBolik/>
+    <>
+    <Head>
+        <title>Добавление болика - Болола</title>
+        <meta name="description" content="Отсканируй полученный болик и добавь его в коллекцию" />
+      </Head>
+    <AddBolik />
+    </>
   )
-
 }
 
 Skaner.getLayout = function getLayout(page) {

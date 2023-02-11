@@ -1,5 +1,5 @@
 import axios from '../pages/api/axios';
-import { getCookie, setCookie } from "cookies-next";
+// import { getCookie, setCookie } from "cookies-next";
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../store/auth/action-creators';
 
@@ -9,7 +9,7 @@ const useRefreshToken = () => {
     const refresh = async () => {
         const response = await axios.post('/user/refresh-token/',
         {
-            refresh: getCookie('refreshToken'),
+            refresh: localStorage.getItem('refreshToken'),
         },
         {
             withCredentials: true
@@ -17,7 +17,7 @@ const useRefreshToken = () => {
         .catch( function (error){
             dispatch(logoutUser());
         });
-        setCookie('accessToken', response.data.access );
+        localStorage.setItem('accessToken', response.data.access );
         return response.data.access;
     }
     return refresh;

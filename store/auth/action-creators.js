@@ -1,4 +1,3 @@
-import { deleteCookie } from 'cookies-next';
 import { authenticate, deAuthenticate } from './auth-slice';
 
 export const loginUser = () => async (dispatch) => {
@@ -6,8 +5,8 @@ export const loginUser = () => async (dispatch) => {
 };
 
 export const logoutUser = () => async (dispatch) => {
-  deleteCookie('accessToken');
-  deleteCookie('refreshToken');
+  localStorage.removeItem('accessToken');
+  localStorage.removeItem('refreshToken');
   dispatch(deAuthenticate());
 };
 

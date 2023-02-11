@@ -19,23 +19,19 @@ const MiniProfile = () => {
   const dispatch = useDispatch();
 	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 	
-  const getUser = async () => {
-    try {
-      const response = await axiosPrivate.get('/user/current-user-info/');
-      setUser(response.data);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-  
   useEffect(() => {
-		// rome-ignore lint/complexity/useSimplifiedLogicExpression: <explanation>
+    const getUser = async () => {
+      try {
+        const response = await axiosPrivate.get('/user/current-user-info/');
+        setUser(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
     if (isLoggedIn && !user) {
       getUser();
     } 
-	},[]);
-
- 
+	},[isLoggedIn, user, axiosPrivate]);
 
   return (
     <div
@@ -51,7 +47,7 @@ const MiniProfile = () => {
       <div className={cl(s.miniProfile, { [s.active]: profileVisible })}>
         <div className={s.miniProfile__wrapper}>
           <div className={s.miniProfile__user}>
-            {user && isLoggedIn?
+            {user && isLoggedIn ?
               <>
                 <Link href="/account">
                   <div className={s.miniProfile__name}>{`${user.first_name} ${user.last_name}`}</div>

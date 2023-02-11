@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux'
 
 import AuthLayout from '../../components/layout/AuthLayout'
 import Registration from '../../components/auth/Registration'
-
- 
+import Head from 'next/head';
 
 export default function Auth() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -13,11 +12,18 @@ export default function Auth() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.push('/');
+      router.push('/account');
     }
   }, [isLoggedIn]);
+
   return (
-  <Registration/>
+    <>
+      <Head>
+        <title>Регистрация - Болола</title>
+        <meta name="description" content="Авторизируйтесь в личном кабинете Bolola" />
+      </Head>
+      <Registration />
+    </>
   )
 }
 

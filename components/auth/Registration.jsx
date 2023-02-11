@@ -11,7 +11,6 @@ import eyeClose from '../../public/eyeClose.svg'
 import cl from 'classnames'
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../store/auth/action-creators';
-import { setCookie } from "cookies-next";
 import Button from '../button/Button';
 import Modal from '../modal/Modal'
 import VerificationCall from './VerificationCall';
@@ -19,78 +18,58 @@ import VerificationCall from './VerificationCall';
 const Registration = () => {
   const { register, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onBlur' });
   const [errMsg, setErrMsg] = useState();
-  const [code, setCode] = useState();
   const [data, setData] = useState();
   const [passwordVisible, setVisiblePassword] = useState(false);
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
-  const router = useRouter();
-
+  
   const login = async (data) => {
     try {
       const response = await axios.post('/user/login/',
         JSON.stringify(data),
       );
       dispatch(loginUser());
-      setCookie('accessToken', response?.data.access, { maxAge: 2629743 });
-      setCookie('refreshToken', response?.data.refresh, { maxAge: 2629743 });
-      router.push({
-        pathname: '/account',
-      })
+      localStorage.setItem('accessToken', response?.data.access);
+      localStorage.setItem('refreshToken', response?.data.refresh);
+   
     } catch (err) {
       console.log(err)
       setErrMsg('Ошибка сервера');
     }
   }
+
   const registration = async () => {
     try {
       const response = await axios.post('/user/create',
         JSON.stringify(data),
       );
-      setErrMsg('');
+      setModal(true);
+      setErrMsg();
       login({ phone: data.tel, password: data.password });
     } catch (err) {
       console.log(err);
-      if (err?.response?.data.email) {
-        setErrMsg(err.response.data?.email);
-      } else {
-        if (err?.response?.data?.phone) {
-          setErrMsg(err.response.data.phone);
-        }
-      }
+      if (err?.response?.data?.message)
+        setErrMsg(err.response.data.message)
     }
   }
 
-  const onSubmit = async (data) => {
-    setData(data);
-
-    const verification = await fetch(`https://api.ucaller.ru/v1.0/initCall`,
+  const verify = async (data) => {
+    const response = await axios.post('/call/',
       {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        data: {
-          key: "YyrR9NlY1BUxUTlMETE4l6ZcRoVpVBYb",
-          service_id: "727740",
-          phone: data.tel.substring(1),
-
-        }
+        phone: data.tel, mail: data.mail
       })
-      .then(res => {
-        console.log(res);
+      .then((res) => {
+        setErrMsg('');
         setModal(true);
-        setCode(res.body.code)
-      })
-      .catch(err => {
+      }).catch((err) => {
         console.log(err);
-        setErrMsg('Произошла ошибка, попробуйте позже')
-      }
-      )
+        setErrMsg(err.response.data.message);
+      })
   }
-
-
-
+  const onSubmit = async (data) => {
+    verify(data);
+    setData(data);
+  }
 
   return (
     <>
@@ -113,6 +92,7 @@ const Registration = () => {
             render={({ field: { onChange, value } }) => (
               <Input
                 value={value}
+
                 onChange={onChange}
                 rules={{
                   validate: (value) => isValidPhoneNumber(value),
@@ -205,10 +185,12 @@ const Registration = () => {
       </form>
       <p className={s.auth__reference}>Уже есть аккаунт? {<Link href={'/auth/signin'} className={s.auth__blueLink}>Войти</Link>}</p>
       <Modal onClose={() => setModal(false)} modal={modal}>
+
         <VerificationCall
           onClose={() => setModal(false)}
-          code={code}
-          registration={registration} />
+          request={registration}
+          setData={setData}
+        />
       </Modal>
     </>
   )

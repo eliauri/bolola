@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react'
 import NewsPage from '../../../components/news/NewsPage'
 import axios from '../../api/axios';
@@ -5,7 +6,13 @@ import axios from '../../api/axios';
 
 const Post = ({post}) => {
   return (
-    <NewsPage data={post}/>
+    <>
+    <Head>
+        <title>{post.title} - Болола</title>
+    </Head>
+      <NewsPage data={post}/>
+    </>
+
   )
 }
 

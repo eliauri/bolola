@@ -19,8 +19,8 @@ const Navigation = ({ gamburgerActive, setGamburgerActive }) => {
         },
         {
             id: 4,
-            title: 'Продукции',
-            href: '/prod',
+            title: 'Продукция',
+            href: '/products',
         },
         {
             id: 5,

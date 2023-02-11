@@ -3,12 +3,12 @@ import React from 'react'
 import Container from '../../components/Container'
 import Title from '../../components/title/title'
 
-export default function About() {
+export default function Products() {
   return (
     <>
-      <Head>
-        <title>О компании Болола</title>
-        <meta name="description" content="" />
+    <Head>
+        <title>Продукция - Болола</title>
+        <meta name="description" content="Продукция компании Болола" />
       </Head>
       <Container>
       <Title>Страница находится в стадии наполнения</Title>

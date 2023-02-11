@@ -1,7 +1,7 @@
 import { axiosPrivate } from "../pages/api/axios";
 import { useEffect } from "react";
 import useRefreshToken from "./useRefreshToken";
-import { getCookie } from "cookies-next";
+
 
 const useAxiosPrivate = () => {
     const refresh = useRefreshToken();
@@ -9,8 +9,7 @@ const useAxiosPrivate = () => {
         const requestIntercept = axiosPrivate.interceptors.request.use(
             config => {
                 if (!config.headers['Authorization']) {
-                    
-                    config.headers['Authorization'] = `Bearer ${getCookie('accessToken')}`;
+                    config.headers['Authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
                 }
                 return config;
             }, (error) => Promise.reject(error)

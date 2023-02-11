@@ -7,26 +7,25 @@ const VerificationCall = (props) => {
     const [code, setCode] = useState();
     const [completed, setCompleted] = useState(false);
     const [errorMsg, setErrMsg] = useState();
+
     useEffect(() => {
-        console.log(code, props.code)
+        console.log(code)
         if (completed) {
-            if (props.code == code) {
-                props.registration();
+            props.setData((prev) => prev['code'] = code);
+            props.request().then(()=> {
                 props.onClose();
-            }
-            else {
-                setErrMsg(<p className={s.errMsg}>Неверный пин-код</p>)
-                ref && ref.current && ref.current.forEach(input => (input.value = ""))
+            }).catch((err)=> {
+                console.log(err);
+                setErrMsg(<p className={s.errMsg}>Неверный пин-код</p>);
+                ref && ref.current && ref.current.forEach(input => (input.value = ""));
                 setCompleted(false);
-            }
+            })
         }
     }, [completed])
 
     return (
         <div className={s.verification}>
-            {/* <h2 className={s.title}>Для подверждения номера телефона вам поступит звонок, <br/>введите последнии 4 цифры номера.</h2> */}
-            <h2 className={s.title}>Мы вам звоним! Для завершения регистрации введите последние четыре цифры номера телефона.</h2>
-            
+            <h2 className={s.title}>Мы вам звоним! Для подверждения номера телефона введите последнии 4 цифры номера.</h2>
             {errorMsg ? errorMsg : ''}
             <form className={s.form}>
                 <PinField

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
@@ -10,11 +11,18 @@ export default function Auth() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.push('/');
+      router.back();
     }
   }, [isLoggedIn]);
+  
   return (
+    <>
+     <Head>
+        <title>Авторизация - Болола</title>
+        <meta name="description" content="Авторизируйтесь в личном кабинете Bolola" />
+      </Head>
     <Login />
+    </>
   )
 }
 
