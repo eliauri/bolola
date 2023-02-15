@@ -9,7 +9,7 @@ import useAxiosPrivate from '../../../hooks/useAxiosPrivate'
 import HorizontalScroll from './HorizontalScroll'
 import Modal from '../../modal/Modal'
 import CollectionForm from './CollectionForm'
-import Bolik from './bolik'
+import Bolik from './Bolik'
 
 
 const Collection = () => {
