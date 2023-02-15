@@ -127,3 +127,45 @@ footer{
   flex-direction: column;
   min-height: 100vh;
 }
+
+.policy{
+  color: var(--color-black);
+  margin-top: 50px;
+  h1{
+    font-size: 26px;
+    font-weight: 700;
+    margin: 50px 0;
+  }
+  h2{
+    font-size: 20px;
+    font-weight: 700;
+    margin: 15px 0;
+  }
+  p{
+    margin: 15px 0;
+    line-height: 24px;
+    // color: #212121;
+    font-family: "Montserrat",serif;
+  }
+  table{
+    margin-bottom: 24px;
+    li{
+      margin: 5px 0;
+    }
+    .purpose-table li::before {
+      content: "●";
+      display: inline-block;
+      font-size: 10px;
+      line-height: 24px;
+      margin-right: 5px;
+  }
+  }
+  .purpose-table, .purpose-table td, .purpose-table th{
+    border: 1px solid #d8d8d8;
+    text-align: left;
+  }
+  .purpose-table th, .purpose-table td {
+    vertical-align: top;
+    padding: 0.5em 0.75em;
+}
+}

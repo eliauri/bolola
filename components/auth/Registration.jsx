@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,13 +16,13 @@ import Modal from '../modal/Modal'
 import VerificationCall from './VerificationCall';
 
 const Registration = () => {
-  const { register, handleSubmit, control, formState: { errors } } = useForm({ mode: 'onBlur' });
+  const { register, handleSubmit, control, formState: { errors, isValid } } = useForm({ mode: 'onBlur' });
   const [errMsg, setErrMsg] = useState();
   const [data, setData] = useState();
   const [passwordVisible, setVisiblePassword] = useState(false);
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
-  
+
   const login = async (data) => {
     try {
       const response = await axios.post('/user/login/',
@@ -31,7 +31,7 @@ const Registration = () => {
       dispatch(loginUser());
       localStorage.setItem('accessToken', response?.data.access);
       localStorage.setItem('refreshToken', response?.data.refresh);
-   
+
     } catch (err) {
       console.log(err)
       setErrMsg('Ошибка сервера');
@@ -70,7 +70,6 @@ const Registration = () => {
     verify(data);
     setData(data);
   }
-
   return (
     <>
       <h1 className={s.auth__title}>Зарегистрируйте личный аккаунт
@@ -89,10 +88,10 @@ const Registration = () => {
             rules={{
               validate: value => isValidPhoneNumber(String(value)) || 'Некорректный номер телефона'
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onBlur, onChange, value } }) => (
               <Input
                 value={value}
-
+                onBlur={onBlur}
                 onChange={onChange}
                 rules={{
                   validate: (value) => isValidPhoneNumber(value),
@@ -154,7 +153,6 @@ const Registration = () => {
             {...register('mail',
               { required: 'Введите вашу почту' },
             )}
-            autoComplete="off"
           />
           {errors.mail && (<p className={s.auth__textError}>{errors.mail.message}</p>)}
         </div>
@@ -176,12 +174,27 @@ const Registration = () => {
                 minLength: { value: 8, message: 'Пароль должен содержать минимум 8 символов' }
               },
             )}
-            autoComplete="off"
           />
           <Image src={passwordVisible ? eyeClose : eye} alt='Показать пароль' onClick={() => setVisiblePassword(!passwordVisible)} />
           {errors.password && (<p className={s.auth__textError}>{errors.password.message}</p>)}
         </div>
-        <Button>Зарегистрироваться</Button>
+        <div className={s.auth__inputLine}>
+          <input
+            type="checkbox"
+            id="checkbox"
+            className={cl({ [s.auth__inputError]: errors.checkbox })}
+            {...register('checkbox',
+              {
+                required: true,
+              },
+            )}
+          />
+          <span>Я ознакомлен(-а) с  <Link href={'/privacy'}>Политикой конфиденциальности</Link></span>
+        </div>
+        <Button
+          disabled={!isValid}>
+          Зарегистрироваться
+        </Button>
       </form>
       <p className={s.auth__reference}>Уже есть аккаунт? {<Link href={'/auth/signin'} className={s.auth__blueLink}>Войти</Link>}</p>
       <Modal onClose={() => setModal(false)} modal={modal}>

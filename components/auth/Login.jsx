@@ -22,7 +22,7 @@ const Login = () => {
   const [errMsg, setErrMsg] = useState('');
   const dispatch = useDispatch();
   const router = useRouter();
- 
+
   const onSubmit = async (data) => {
     try {
       const response = await axios.post('/user/login/',
@@ -35,9 +35,6 @@ const Login = () => {
       dispatch(loginUser());
       localStorage.setItem('accessToken', response?.data.access);
       localStorage.setItem('refreshToken', response?.data.refresh);
-      // setCookie('accessToken', response?.data.access, {maxAge: 2629743});
-      // setCookie('refreshToken', response?.data.refresh, {maxAge: 2629743});
-      // router.back()
     } catch (err) {
       console.log(err)
       if (!err?.response.status) {
@@ -57,27 +54,33 @@ const Login = () => {
         errMsg ? <p className={s.auth__serverError}>{errMsg}</p> : ''
       }
       <form className={s.auth__form} onSubmit={handleSubmit(onSubmit)}>
-        <div className={s.auth__inputLine}>
-        <label htmlFor="phone">
-          Телефон:
-        </label>
-        <Controller
-          name="phone"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <Input
-              value={value}
-              onChange={onChange}
-              rules={{
-                validate: (value) => isValidPhoneNumber(value),
-              }}
-              defaultCountry='RU'
-              id="phone"
-            />
-          )}
-        />
-      </div>
 
+        <div className={s.auth__inputLine}>
+          <label htmlFor="phone">
+            Телефон:
+          </label>
+          <Controller
+            name="phone"
+            control={control}
+            rules={{
+              validate: value => isValidPhoneNumber(String(value)) || 'Некорректный номер телефона'
+            }}
+            render={({ field: {onBlur, onChange, value } }) => (
+              <Input
+                value={value}
+                onBlur={onBlur}
+                onChange={onChange}
+                rules={{
+                  validate: (value) => isValidPhoneNumber(value),
+                }}
+                defaultCountry='RU'
+                id="phone"
+                className={cl({ [s.auth__inputError]: errors.phone })}
+              />
+            )}
+          />
+          {errors.tel && (<p className={s.auth__textError}>{errors.tel.message}</p>)}
+        </div>
         <div className={s.auth__inputLine}>
           <label htmlFor="password">
             Пароль:

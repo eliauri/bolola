@@ -24,10 +24,6 @@ export default function Password() {
 }
 
 
-
-
-
-
 Password.getLayout = function getLayout(page) {
     return (
         <AuthLayout>

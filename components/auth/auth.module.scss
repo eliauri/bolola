@@ -12,11 +12,13 @@
         font-weight: 500;
         margin-top: 5px;
     }
-    &__success{
+
+    &__success {
         color: var(--color-green);
         font-size: 16px;
         font-weight: 500;
     }
+
     &__serverError {
         color: #E3000F;
         font-size: 16px;
@@ -48,6 +50,13 @@
                 top: 35px;
                 cursor: pointer;
             }
+            span {
+                font-size: 16px;
+                color: var(--color-black);
+                a {
+                    color: var(--color-blue);
+                }
+            }
         }
 
         .auth_flexLine {
@@ -57,6 +66,7 @@
             @include mobile {
                 gap: 5px;
             }
+
         }
 
         label {
@@ -91,6 +101,41 @@
             }
         }
 
+        input[type='checkbox'] {
+            position: relative;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: #e1e1e1;
+            }
+
+            &:checked:before {
+                background-color: var(--color-green);
+            }
+
+            &:checked:after {
+                content: "";
+                display: block;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+                position: absolute;
+                top: 2px;
+                left: 6px;
+            }
+        }
+
         button {
             width: 100%;
             height: 60px;
@@ -114,18 +159,21 @@
 
 .verification {
     max-width: 500px;
-    .form{
+
+    .form {
         display: flex;
         justify-content: center;
-       margin-top: 10px;
+        margin-top: 10px;
     }
-    .title{
+
+    .title {
         font-size: 24px;
         font-weight: 500;
         text-align: center;
         margin-bottom: 30px;
         color: var(--color-black);
-        @include mobile{
+
+        @include mobile {
             font-size: 20px;
         }
     }
@@ -139,17 +187,19 @@
         outline: none;
         text-align: center;
         transition-duration: .25s;
-        &:first-child{
+
+        &:first-child {
             border-radius: 0.5rem 0 0 0.5rem;
         }
-        &:last-child{
+
+        &:last-child {
             border-radius: 0 0.5rem 0.5rem 0;
-    border-right: 1px solid #d3d3d3;
+            border-right: 1px solid #d3d3d3;
         }
     }
 }
 
-.errMsg{
+.errMsg {
     text-align: center;
     color: var(--color-pink);
     margin-top: 10px;

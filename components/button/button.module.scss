@@ -16,4 +16,12 @@
     &:active {
         transform: translateY(3px);
     }
+    &:disabled{
+        background-color: rgb(194 194 194);
+        opacity: 0.5;
+        cursor: initial;
+        &:hover{
+            transform: scale(1);
+        }
+    }
 }

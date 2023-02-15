@@ -13,12 +13,14 @@ import Password from './Password';
 const Profile = () => {
     const axiosPrivate = useAxiosPrivate();
     const [data, setData] = useState();
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const getData = async () => {
             try {
                 const response = await axiosPrivate.get('/user/current-user-info/');
                 setData(response.data);
+                setIsLoading(false);
             } catch (err) {
                 console.error(err);
             }
@@ -42,9 +44,6 @@ const Profile = () => {
         },
         values
     });
-
-    // const [passwordVisible, setVisiblePassword] = useState(false);
-
     const onSubmit = async (data) => {
         try {
             const responce = await axiosPrivate.put('/user/update/', data);
@@ -59,6 +58,8 @@ const Profile = () => {
             <Container >
                 <AccountNav />
                 <h1 className={s.title}>Мои данные</h1>
+                {!isLoading ?
+                <>
                 <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
                     <div className={s.grid}>
                         <div className={s.inputLine}>
@@ -141,7 +142,9 @@ const Profile = () => {
                         <Button>Сохранить</Button>
                     </div>
                 </form>
-               <Password/>
+                <Password /> 
+                </>
+                : <p>Загрузка данных...</p> }
             </Container>
         </section>
     )

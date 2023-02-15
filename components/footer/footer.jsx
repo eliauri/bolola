@@ -112,7 +112,7 @@ const footer = () => {
         </div>
         <hr />
         <div className={s.bottomLine}>
-          <Link href={'/'}>Политика конфиденциальности</Link>
+          <Link href={'/privacy'}>Политика конфиденциальности</Link>
           <p>Сайт разработали <Link href={''}>мы</Link>:)</p>
         </div>
       </Container>

@@ -38,6 +38,7 @@
     }
     .list {
         display: flex;
+        gap: 55px;
         padding: 50px 0;
         padding-left: max(var(--container-offset), (100% - var(--content-width)));
         overflow-x: scroll;
@@ -46,6 +47,7 @@
         @include mobile{
             padding-top: 29px;
             padding-bottom: 29px;
+            gap: 50px;
         }
         &::-webkit-scrollbar {
             width: 0;
@@ -87,17 +89,17 @@
     .bolik {
         position: relative;
         transition: all 0.3s;
+        width: 150px;
+        height: 150px;
+        flex-shrink: 0;
         &:hover{
             transform: scale(1.02);
         }
-        &:not(:last-child) {
-            margin-right: 55px;
-        }
+       
         @include mobile{
-            img{
                 width: 100px;
                 height: 100px;
-            }
+
         }
     }
 

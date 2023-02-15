@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import Container from '../../Container'
 import s from './collection.module.scss'
@@ -10,6 +9,7 @@ import useAxiosPrivate from '../../../hooks/useAxiosPrivate'
 import HorizontalScroll from './HorizontalScroll'
 import Modal from '../../modal/Modal'
 import CollectionForm from './CollectionForm'
+import Bolik from './bolik'
 
 
 const Collection = () => {
@@ -60,17 +60,8 @@ const Collection = () => {
             </div>
             <HorizontalScroll className={s.list}>
               {
-                collection.collection.map((col) => (
-                  <div className={cl(s.bolik, { [s.opacity]: !col.count })} key={col.id}>
-                    <Image src={process.env.NEXT_PUBLIC_IMG_URL + col.image} alt={`bolik ${col.bolik}`} height={150} width={150} />
-                    {
-                      col.count > 1 ?
-                        <div className={s.count}>
-                          x<span>{col.count}</span>
-                        </div>
-                        : ''
-                    }
-                  </div>
+                collection.collection.map((item) => (
+                  <Bolik data={item} key={item.id}/>
                 ))
               }
             </HorizontalScroll>
@@ -78,7 +69,7 @@ const Collection = () => {
         ))
       }
       <Modal onClose={() => setModal(false)} modal={modal} >
-        <CollectionForm id={collectedId} refresh={getBoliks}/>
+        <CollectionForm id={collectedId} refresh={getBoliks} />
       </Modal>
     </article>
   )

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Html5Qrcode } from "html5-qrcode"
 import Container from '../../components/Container'
 import { useSelector } from 'react-redux'
@@ -11,6 +11,7 @@ import Head from 'next/head';
 export default function Skaner() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const router = useRouter();
+
   useEffect(() => {
     if (!isLoggedIn) {
       router.push('/auth/signin');
@@ -23,7 +24,7 @@ export default function Skaner() {
         <title>Добавление болика - Болола</title>
         <meta name="description" content="Отсканируй полученный болик и добавь его в коллекцию" />
       </Head>
-    <AddBolik />
+       <AddBolik />
     </>
   )
 }

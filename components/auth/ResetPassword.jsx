@@ -66,9 +66,10 @@ const ResetPassword = () => {
                                 rules={{
                                     validate: value => isValidPhoneNumber(String(value)) || 'Некорректный номер телефона'
                                 }}
-                                render={({ field: { onChange, value } }) => (
+                                render={({ field: { onBlur, onChange, value } }) => (
                                     <Input
                                         value={value}
+                                        onBlur={onBlur}
                                         onChange={onChange}
                                         rules={{
                                             validate: (value) => isValidPhoneNumber(value),
@@ -83,7 +84,7 @@ const ResetPassword = () => {
                         </div>
                         <div className={s.auth__inputLine}>
                             <label htmlFor="password">
-                                Пароль:
+                                Новый пароль:
                             </label>
                             <input
                                 id="password"

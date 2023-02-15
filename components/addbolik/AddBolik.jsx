@@ -7,21 +7,21 @@ import s from './addBolik.module.scss'
 
 import Guide from './guide/Guide'
 import Scanner from './scanner/Scanner'
-import { setActiveStep, setBolik} from '../../store/bolik/addbolik-slice';
+import { setActiveStep, setBolik } from '../../store/bolik/addbolik-slice';
 import BolickCheck from './bolikСheck/BolickCheck'
 import BolikSave from './bolikSave/BolikSave'
 
 const AddBolik = () => {
     const activestep = useSelector(state => state.bolik.activeStep)
     const dispatch = useDispatch();
+    const router = useRouter();
     const components = [
         <Guide key={0} />,
         <Scanner key={1} />,
         <BolickCheck key={2} />,
         <BolikSave key={3} />
-    ]
+    ];
 
-    const router = useRouter();
     useEffect(() => {
         if (!router.isReady) return;
         if (router.query.bolik) {
