@@ -108,10 +108,13 @@ footer{
   z-index: 1;
 }
 
-.successMsg {
-  color: var(--color-green);
+.collectionSucces {
+  color: #000000;
   font-size: 20px;
   font-weight: 500;
+  font-family: 'Rounds';
+  line-height: 30px;
+  text-align: center;
 }
 
 .errMsg {
@@ -168,4 +171,10 @@ footer{
     vertical-align: top;
     padding: 0.5em 0.75em;
 }
+}
+
+.borderImg{
+  border-radius: 50%;
+  border: 5px solid #fff;
+  object-fit: cover;
 }

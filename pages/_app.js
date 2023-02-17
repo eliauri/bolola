@@ -15,7 +15,7 @@ export default function MyApp({
 
   return (
     <Provider store={store}>
-       <SkeletonTheme baseColor="#cdcdcd" highlightColor="#dfdddd66">
+       <SkeletonTheme baseColor="#cdcdcd" highlightColor="#dfdddd">
         {getLayout(<Component {...pageProps} />)}
        </SkeletonTheme>
     </Provider>

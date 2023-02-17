@@ -28,6 +28,9 @@ const AddBolik = () => {
             dispatch(setBolik(router.query.bolik))
             dispatch(setActiveStep(2));
         }
+        return () => {
+            dispatch(setActiveStep(0));
+        }
     }, [router.isReady]);
 
     return (

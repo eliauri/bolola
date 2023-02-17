@@ -46,16 +46,17 @@ const BolickCheck = () => {
     <section className={s.bolik}>
       {data ?
         <>
-        <div className={s.image}>
-        {!isImageReady && (<Skeleton circle width={'100%'} height={'100%'} />)}
-          <Image
-            src={process.env.NEXT_PUBLIC_IMG_URL + data.image}
-            fill
-            alt=""
-            style={{ opacity: !isImageReady ? '0' : '' }}
-            className={cl({ [s.opacity]: errMsg })}
-            onLoadingComplete={onLoadCallBack}
-          />
+          <div className={s.image}>
+            {!isImageReady && (<Skeleton circle width={'100%'} height={'100%'} />)}
+            <Image
+              src={process.env.NEXT_PUBLIC_IMG_URL + data.image}
+              fill
+              alt=""
+              style={{ opacity: !isImageReady ? '0' : '' }}
+              className={cl({ [s.opacity]: errMsg }, "borderImg")}
+              onLoadingComplete={onLoadCallBack}
+              sizes="300px"
+            />
           </div>
           <p className={cl({ [s.access]: successMsg }, { [s.error]: errMsg })}>
             {

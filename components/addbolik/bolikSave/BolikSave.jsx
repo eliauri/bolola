@@ -30,10 +30,13 @@ const BolikSave = () => {
     useEffect(() => {
         let ctx = gsap.context(() => {
             gsap.current = gsap.timeline()
-                .to(el.current, { scale: 1.5, })
-                .to(el.current, { scale: 1, duration: 0.3})
+                .to(el.current, { scale: 1.5, duration: 0.5 })
+                .to(el.current, { scale: 0.85, duration: 0.3})
+                .to(el.current, {x: -7,  duration: 0.09})
+                .to(el.current, { repeat: 7, x: 7, yoyo: true, duration: 0.09})
+                .to(el.current, { x: 0, scale: 1, delay: 0, ease: "power4.out", duration: 0.5})
         })
-    }, [isLoading])
+    }, [])
 
     useEffect(() => {
         const getResponse = async () => {
@@ -57,12 +60,12 @@ const BolikSave = () => {
                     <div className={s.image} ref={el}>
                         <Image
                             src={process.env.NEXT_PUBLIC_IMG_URL + bolik.img}
-                            width={300}
-                            height={300}
+                            fill
                             alt=""
-                            className={cl({ [s.opacity]: errMsg })}
+                            className={cl({ [s.opacity]: errMsg }, "borderImg")}
                             style={{ opacity: !isImageReady ? '0' : '' }}
                             onLoadingComplete={onLoadCallBack}
+                            sizes="300px"
                         />
                         {!isImageReady && (<Skeleton circle width={300} height={300} />)}
                     </div>

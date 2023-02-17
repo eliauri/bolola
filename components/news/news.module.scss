@@ -60,7 +60,7 @@ h1.titleMain{
         }
         img {
             object-fit: cover;
-            object-position: top left;
+            object-position: center;
             @include mobile{
                 object-position: center;
             }

@@ -9,7 +9,6 @@ const VerificationCall = (props) => {
     const [errorMsg, setErrMsg] = useState();
 
     useEffect(() => {
-        console.log(code)
         if (completed) {
             props.setData((prev) => prev['code'] = code);
             props.request().then(()=> {

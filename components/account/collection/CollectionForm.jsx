@@ -17,7 +17,7 @@ const CollectionForm = props => {
         try {
             const response = await axiosPrivate.post('/finish/', data)
             .then((res) => {
-                if (res.status == 200) setMessage(<p className='successMsg'>Поздравляем со сборобом коллекции. <br/>Ожидайте получения суперболика</p>)
+                if (res.status == 200) setMessage(<p className='collectionSucces'>Поздравляем со сборобом коллекции. <br/>Мы с вами свяжемся для отрпавки ордена Болола</p>)
             })            
         } catch (err) {
             console.log(err);

@@ -94,20 +94,16 @@ const footer = () => {
             </ul>
           </nav>
           <div className={s.contact}>
-            <Link className={s.number} href={'tel:+78672403163'}>+7 (8672) 403-163</Link>
-            <Link href={'mailto:bolola@mail.ru'}>bolola@mail.ru</Link>
           </div>
           <div className={s.contact}>
             <div className={s.socialnet}>
               {social.map((el) => (
                 <Link key={el.id} href={el.link} >
-                 
                   <Image src={el.img} alt='' width={50} height={50} />
-    
                 </Link>
               ))}
             </div>
-            <p className={s.adress}>г. Владикавказ,ул. Весенняя 7/6</p>
+            <Link className={s.mail} href={'mailto:bolola@mail.ru'}>bolola@mail.ru</Link>
           </div>
         </div>
         <hr />

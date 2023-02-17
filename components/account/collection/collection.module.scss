@@ -114,11 +114,16 @@
         line-height: 29px;
         color: var(--color-green);
         -webkit-text-stroke: 3px #fff;
+        z-index: 10;
         span{
             font-size: 34px;
             margin-left: -1px;
             z-index: 1;
         } 
+        @include mobile{
+            top: -8px;
+            right: -5px
+        }
     }
 }
 .form{
