@@ -8,7 +8,8 @@ import useAxiosPrivate from '../../../hooks/useAxiosPrivate'
 import { useDispatch, useSelector } from 'react-redux'
 import { setActiveStep, setBolikImg, clearBolik } from '../../../store/bolik/addbolik-slice';
 import Skeleton from 'react-loading-skeleton'
-
+import { gsap } from "gsap";
+import { useRef } from 'react'
 
 
 const BolickCheck = () => {
@@ -19,6 +20,8 @@ const BolickCheck = () => {
   const axiosPrivate = useAxiosPrivate();
   const dispatch = useDispatch();
   const bolik = useSelector(state => state.bolik.bolik);
+
+  const el = useRef(null);
 
   const onLoadCallBack = (e) => {
     setIsImageReady(true)
@@ -41,9 +44,14 @@ const BolickCheck = () => {
     }
     getResponse()
   }, [])
-
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.current = gsap.timeline()
+      .fromTo(el.current, {opacity: 0, y: 50}, {opacity:1, y: 0, duration: 0.6})
+    })
+  }, [data])
   return (
-    <section className={s.bolik}>
+    <section className={s.bolik} ref={el}>
       {data ?
         <>
           <div className={s.image}>

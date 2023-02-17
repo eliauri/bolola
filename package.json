@@ -12,9 +12,6 @@
     "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.4",
     "classnames": "^2.3.2",
-    "cookies-next": "^2.1.1",
-    "eslint": "8.29.0",
-    "eslint-config-next": "13.0.6",
     "gsap": "^3.11.3",
     "next": "13.0.6",
     "query-string": "^8.1.0",
@@ -26,10 +23,12 @@
     "react-pin-field": "^3.1.2",
     "react-redux": "^8.0.5",
     "reset-css": "^5.0.1",
-    "sass": "^1.57.1",
     "swiper": "^8.4.5"
   },
   "devDependencies": {
-    "html5-qrcode": "^2.3.4"
+    "html5-qrcode": "^2.3.4",
+    "eslint": "8.29.0",
+    "sass": "^1.57.1",
+    "eslint-config-next": "13.0.6"
   }
 }

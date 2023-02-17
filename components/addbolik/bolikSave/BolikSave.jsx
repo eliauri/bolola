@@ -19,20 +19,23 @@ const BolikSave = () => {
     const axiosPrivate = useAxiosPrivate();
     const dispatch = useDispatch();
     const bolik = useSelector(state => state.bolik.bolik);
-    const el = useRef(null);
+    const img = useRef(null);
+    const message = useRef(null);
 
     const onLoadCallBack = (e) => {
         setIsImageReady(true)
     }
-  
+
     useEffect(() => {
         let ctx = gsap.context(() => {
             gsap.current = gsap.timeline()
-                .to(el.current, { opacity: 1, scale: 1.5, duration: 0.5 })
-                .to(el.current, { x: -7, duration: 0.09 })
-                .to(el.current, { repeat: 7, x: 7, yoyo: true, duration: 0.09 })
-                .to(el.current, { scale: 0.85, duration: 0.3 })
-                .to(el.current, { x: 0, scale: 1, delay: 0, ease: "power4.out", duration: 0.5 })
+                .to(img.current, { scale: 1.2, duration: 0.5 })
+                .to(img.current, { x: -10, duration: 0.1 })
+                .to(img.current, { repeat: 5, x: 10, yoyo: true, duration: 0.1 })
+                .to(img.current, {x:0, duration:0.05})
+                .to(img.current, { scale: 0.85, duration: 0.4})
+                .to(img.current, { scale: 1, duration: 0.5})
+                .fromTo(message.current, {opacity: 0, y: 50}, {opacity:1, y:0,ease: "power1.out", duration: 0.6})
         })
     }, [isLoading])
 
@@ -55,7 +58,7 @@ const BolikSave = () => {
         <section className={s.bolik} >
             {isLoading ?
                 <>
-                    <div className={s.image} ref={el}>
+                    <div className={s.image} ref={img}>
                         <Image
                             src={process.env.NEXT_PUBLIC_IMG_URL + bolik.img}
                             fill
@@ -67,18 +70,20 @@ const BolikSave = () => {
                         />
                         {!isImageReady && (<Skeleton circle width={300} height={300} />)}
                     </div>
-                    <p className={cl({ [s.access]: successMsg }, { [s.error]: errMsg })}>
-                        {
-                            successMsg ? successMsg : errMsg
-                        }
-                    </p>
-                    <Button className={s.button}
-                        onClick={() => {
-                            dispatch(clearBolik())
-                            dispatch(setActiveStep(1));
-                        }}>
-                        Добавить другой
-                    </Button>
+                    <div className={s.info} ref={message}>
+                        <p className={cl({ [s.access]: successMsg }, { [s.error]: errMsg })} >
+                            {
+                                successMsg ? successMsg : errMsg
+                            }
+                        </p>
+                        <Button className={s.button}
+                            onClick={() => {
+                                dispatch(clearBolik())
+                                dispatch(setActiveStep(1));
+                            }}>
+                            Добавить другой
+                        </Button>
+                    </div>
                 </> : <p>Добавляем ваш болик в коллекцию</p>}
         </section>
     )

@@ -39,7 +39,8 @@ const VerificationCall = (props) => {
                         ref={ref}
                         length={4}
                         validate={/^[0-9]$/}
-                        type="tel"
+                        type="number"
+                        inputmode="number"
                         onComplete={() => setCompleted(true)}
                         onChange={setCode}
                         className={s.input}
