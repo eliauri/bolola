@@ -39,18 +39,13 @@ const Registration = () => {
   }
 
   const registration = async () => {
-    try {
       const response = await axios.post('/user/create',
         JSON.stringify(data),
-      );
-      setModal(true);
-      setErrMsg();
-      login({ phone: data.tel, password: data.password });
-    } catch (err) {
-      console.log(err);
-      if (err?.response?.data?.message)
-        setErrMsg(err.response.data.message)
-    }
+      ).then(() => {
+        setModal(true);
+        setErrMsg();
+        login({ phone: data.tel, password: data.password });
+      })
   }
 
   const verify = async (data) => {
@@ -66,6 +61,7 @@ const Registration = () => {
         setErrMsg(err.response.data.message);
       })
   }
+
   const onSubmit = async (data) => {
     verify(data);
     setData(data);

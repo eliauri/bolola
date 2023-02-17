@@ -17,7 +17,7 @@ const NewsPage = ({data}) => {
           <div className={s.date}>
             {date(data.updated_at)}
           </div>
-          <p>{data.content}</p>
+          <div className={s.content} dangerouslySetInnerHTML={{__html: data.content}}></div>
         </div>
       </Container>
     </section>

@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import Login from '../../components/auth/Login'
 import ResetPassword from '../../components/auth/ResetPassword';
 import AuthLayout from '../../components/layout/AuthLayout'
 
@@ -18,7 +17,11 @@ export default function Password() {
 
     return (
         <>
-        <ResetPassword/>
+            <Head>
+                <title>Смена пароля - Болола</title>
+                <meta name="description" content="Авторизируйтесь в личном кабинете Bolola" />
+            </Head>
+            <ResetPassword />
         </>
     )
 }

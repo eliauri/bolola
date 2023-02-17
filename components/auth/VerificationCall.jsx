@@ -9,15 +9,22 @@ const VerificationCall = (props) => {
     const [errorMsg, setErrMsg] = useState();
 
     useEffect(() => {
+        ref.current[0].focus();
+    }, [])
+
+    useEffect(() => {
         if (completed) {
-            props.setData((prev) => prev['code'] = code);
-            props.request().then(()=> {
+            props.setData((prev) => prev['code'] = String(code));
+            props.request()
+            .then(() => {
                 props.onClose();
-            }).catch((err)=> {
-                console.log(err);
-                setErrMsg(<p className={s.errMsg}>Неверный пин-код</p>);
+            }).catch((err) => {
+                if (err?.response?.data?.message) {
+                    setErrMsg(<p className={s.errMsg}>{err.response.data.message}</p>)
+                }
                 ref && ref.current && ref.current.forEach(input => (input.value = ""));
                 setCompleted(false);
+                ref.current[0].focus();
             })
         }
     }, [completed])
@@ -31,6 +38,7 @@ const VerificationCall = (props) => {
                     ref={ref}
                     length={4}
                     validate={/^[0-9]$/}
+                    type="number"
                     onComplete={() => setCompleted(true)}
                     onChange={setCode}
                     className={s.input}

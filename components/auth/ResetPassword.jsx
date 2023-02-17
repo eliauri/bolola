@@ -27,33 +27,30 @@ const ResetPassword = () => {
                 setErrMsg(err.response.data.message);
             })
     }
+
     const reset = async () => {
-        try {
-            const response = await axios.post('/forget-password/',
-                {
-                    code: data.code,
-                    phone: data.tel,
-                    password: data.password
-                }
-            );
-            setErrMsg('');
+      
+        const response = await axios.post('/forget-password/',
+            {
+                code: data.code,
+                phone: data.tel,
+                password: data.password
+            }
+        ).then(() => {
             setSuccess(true)
-        } catch (err) {
-            console.log(err);
-            if (err?.response?.data?.message)
-                setErrMsg(err.response.data.message)
-        }
+        })
     }
 
     const onSubmit = async (data) => {
         verify(data);
         setData(data);
     }
+
     return (
         <>
             {!success ?
                 <>
-                 <h1 className={s.auth__title}>Сменить пароль</h1>
+                    <h1 className={s.auth__title}>Сменить пароль</h1>
                     {errMsg && <p className={s.auth__serverError}>{errMsg}</p>}
                     <form className={s.auth__form} onSubmit={handleSubmit(onSubmit)}>
                         <div className={s.auth__inputLine}>
@@ -123,15 +120,15 @@ const ResetPassword = () => {
                                         },
                                     },
                                 )}
-
+                                autoComplete="off"
                             />
                             {errors.confirm_password && (<p className={s.auth__textError}>{errors.confirm_password.message}</p>)}
                         </div>
                         <Button>Отправить</Button>
-                    </form> 
+                    </form>
                     <p className={s.auth__reference}>Нет аккаунта?{<Link href={'/auth/signup'} className={s.auth__blueLink}> Зарегистрироваться</Link>}</p>
-                    </> : 
-                    <p className={s.auth__success}>Пароль успешно изменен</p>
+                </> :
+                <p className={s.auth__success}>Пароль успешно изменен</p>
             }
             <p className={s.auth__reference}>{<Link href={'/auth/signin'}>Вернуться к авторизации</Link>}</p>
             <Modal onClose={() => setModal(false)} modal={modal}>
