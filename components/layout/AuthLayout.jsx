@@ -15,9 +15,9 @@ export default function AuthLayout({ children }) {
 
     return (
         <main className={s.auth}>
-            <section>
+            <section ref={el}>
                 <Container>
-                    <div className={s.auth__wrapper} ref={el}>
+                    <div className={s.auth__wrapper} >
                         <Link href={'/'} className={s.auth__logo}>
                             <Image src={logo} alt="логотип" height={35} width={162} />
                         </Link>
