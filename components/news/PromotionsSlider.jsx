@@ -7,7 +7,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 const Slider = ({posts}) => {
+    console.log(posts)
     return (
+        posts.length ?
         <Swiper 
             modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
@@ -28,7 +30,7 @@ const Slider = ({posts}) => {
                     </Link>
                 </SwiperSlide>
             )}
-        </Swiper>
+        </Swiper> : <></>
     )
 }
 

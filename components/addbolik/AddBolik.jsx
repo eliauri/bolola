@@ -21,7 +21,7 @@ const AddBolik = () => {
         <BolickCheck key={2} />,
         <BolikSave key={3} />
     ];
-
+   
     useEffect(() => {
         if (!router.isReady) return;
         if (router.query.bolik) {

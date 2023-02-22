@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from '../../pages/api/axios';
+
 const ISSERVER = typeof window === "undefined";
+
 const initialState = !ISSERVER && localStorage.getItem('refreshToken') ? {
   isLoggedIn: true,
 } : {
@@ -9,27 +11,24 @@ const initialState = !ISSERVER && localStorage.getItem('refreshToken') ? {
 
 export const login = createAsyncThunk(
   'auth/login',
-  async function (data, { rejectWithValue }) {
-    console.log(data)
+  async function (data, thunkAPI) {
     try {
       const response = await axios.post('/user/login/', JSON.stringify(data),
-      {
-              headers: { 'Content-Type': 'application/json' },
-              withCredentials: true
-      });
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true
+        });
       localStorage.setItem('accessToken', response?.data.access);
       localStorage.setItem('refreshToken', response?.data.refresh);
-      router.back();
-      if (!response.ok) {
-        throw new Error('Server Error!');
-      }
+      return data;
     } catch (err) {
+      thunkAPI.rejectWithValue(err)
       if (!err?.response.status) {
-        return rejectWithValue('No Server Response');
+        return thunkAPI.rejectWithValue('Нет ответа от сервера');
       } else if (err?.response.status === 401) {
-        return rejectWithValue(err.response.data.detail);
+        return thunkAPI.rejectWithValue(err.response.data.detail);
       } else {
-        return rejectWithValue('Login Failed');
+        return thunkAPI.rejectWithValue('Ошибка авторизации');
       }
     }
   }
@@ -46,13 +45,14 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
     },
   },
-  extraReducers: {
-    [login.fulfilled]: (state) => {
+  extraReducers: (builder) => {
+    builder
+    .addCase(login.fulfilled, (state, action) => {
       state.isLoggedIn = true;
-    },
-    [login.rejected]: (state, action) => {
+    })
+    .addCase(login.rejected, (state, action) => {
       state.error = action.payload;
-    },
+    })
   }
 });
 

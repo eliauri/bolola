@@ -44,7 +44,6 @@
         .bubbleGroup:nth-child(2) {
             top: 25%;
             left: 35%;
-
             @include tablet {
                 top: 40%;
                 left: 79%;
@@ -54,7 +53,6 @@
                 top: 38%;
                 left: 65%;
             }
-
             .bubble:nth-child(1) {
                 left: 20%;
                 top: 20px;
@@ -84,11 +82,11 @@
                 top: 41%;
                 left: 13%;
             }
+
             @include mobile {
                 top: 40%;
-    left: 0%;
+                left: 0%;
             }
-           
 
             .bubble:nth-child(1) {
                 left: -20px;
@@ -124,9 +122,9 @@
                 left: 85%;
             }
 
-            @media (max-height:670px) {
-                display: none;
-            }
+            // @media (max-height:670px) {
+            //     display: none;
+            // }
         }
 
         .bubbleGroup:nth-child(5) {
@@ -137,10 +135,11 @@
                 top: 89%;
                 left: 10%;
             }
-            @media (max-height:670px) {
-                display: none;
-            }
-          
+
+            // @media (max-height:670px) {
+            //     display: none;
+            // }
+
             .bubble:nth-child(1) {
                 left: 50px;
 
@@ -245,6 +244,7 @@
                 left: 27px;
             }
         }
+
         .bubbleGroup:nth-child(8) {
             top: 100%;
             left: 33%;
@@ -320,7 +320,7 @@
                 display: none;
             }
 
-            .bubble:nth-child(1) {}
+           
 
             .bubble:nth-child(2) {
                 top: -26px;
@@ -348,7 +348,7 @@
                 left: 10%;
             }
 
-            .bubble:nth-child(1) {}
+            
 
             .bubble:nth-child(2) {
                 left: -40px;
@@ -397,38 +397,42 @@
 
 .flavour {
     position: relative;
-    .flavour__element{
+
+    .flavour__element {
         .bubbles {
             .bubbleGroup:nth-child(1) {
                 top: 31%;
                 left: -11%;
-                @include mobile{
+
+                @include mobile {
                     top: 15%;
                     left: -24%;
                 }
+
                 .bubble:nth-child(2) {
                     left: 30px;
                     top: -15px;
                 }
-    
+
                 .bubble:nth-child(3) {
                     top: -15px;
                 }
-    
+
                 .bubble:nth-child(4) {
                     left: 50px;
                     top: -29px;
                 }
             }
-    
+
             .bubbleGroup:nth-child(2) {
                 top: 31%;
                 left: 97%;
+
                 .bubble:nth-child(1) {
                     left: 45px;
                 }
-    
-                .bubble:nth-child(3) {}
+
+           
             }
         }
     }

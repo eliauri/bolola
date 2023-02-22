@@ -40,7 +40,7 @@ const VerificationCall = (props) => {
                         length={4}
                         validate={/^[0-9]$/}
                         type="number"
-                        inputmode="number"
+                        inputMode="number"
                         onComplete={() => setCompleted(true)}
                         onChange={setCode}
                         className={s.input}

@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import newsImg from '../../public/news-post.jpg'
 import useFormattedDate from '../../hooks/useFormattedDate'
 import s from '../home/home.module.scss'
 

@@ -10,7 +10,7 @@ import eye from '../../public/eye.svg'
 import eyeClose from '../../public/eyeClose.svg'
 import cl from 'classnames'
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../store/auth/action-creators';
+import { login } from '../../store/auth/auth-slice'
 import Button from '../button/Button';
 import Modal from '../modal/Modal'
 import VerificationCall from './VerificationCall';
@@ -23,28 +23,13 @@ const Registration = () => {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
 
-  const login = async (data) => {
-    try {
-      const response = await axios.post('/user/login/',
-        JSON.stringify(data),
-      );
-      dispatch(loginUser());
-      localStorage.setItem('accessToken', response?.data.access);
-      localStorage.setItem('refreshToken', response?.data.refresh);
-
-    } catch (err) {
-      console.log(err)
-      setErrMsg('Ошибка сервера');
-    }
-  }
-
   const registration = async () => {
       const response = await axios.post('/user/create',
         JSON.stringify(data),
       ).then(() => {
         setModal(true);
         setErrMsg();
-        login({ phone: data.tel, password: data.password });
+        dispatch(login({ phone: data.tel, password: data.password }));
       })
   }
 

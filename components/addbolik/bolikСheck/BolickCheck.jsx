@@ -44,12 +44,14 @@ const BolickCheck = () => {
     }
     getResponse()
   }, [])
+  
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.current = gsap.timeline()
       .fromTo(el.current, {opacity: 0, y: 50}, {opacity:1, y: 0, duration: 0.6})
     })
   }, [data])
+
   return (
     <section className={s.bolik} ref={el}>
       {data ?
