@@ -44,7 +44,6 @@ h1.titleMain{
 
     .date {
         margin-bottom: 30px;
-        // font-weight: 500;
         font-size: 20px;
         @include mobile{
             font-size: 16px;
@@ -59,6 +58,15 @@ h1.titleMain{
             font-size: 26px;
             margin-bottom: 20px;
         }
+        menu, ol, ul {
+            list-style: auto;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+        
     }
     .image {
         position: relative;

@@ -15,14 +15,14 @@ import Link from 'next/link';
 
 
 const First = () => {
-  const app = useRef();
+  const app = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.current = gsap
         .fromTo(".bubble", { y: 1000 }, { y: 0, duration: 2.5,  stagger: {each:0.1,from: "random", ease: "power1.out", }, })
       gsap.current = gsap
-        .fromTo(".bubble", { x: -25, }, { x: 0, ease: "power1.inOut", duration: 2,stagger: {each:0.1, from: "random", repeat:-1, yoyo: true} , })
+        .fromTo(".bubble", { x: -25, }, { x: 0, ease: "power1.inOut", duration: 2,stagger: {each:0.1, from: "random", repeat:-1, yoyo: true}})
     }, app)
 
   }, [])

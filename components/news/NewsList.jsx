@@ -4,10 +4,12 @@ import NewsPost from './NewsPost'
 
 const NewsList = ({posts}) => {
     return (
-        <div className={s.news__list}>
+        <div className={s.newsPage}>
+        <div className={s.list}>
             {posts.map((post) =>
                 <NewsPost post={post} key={post.id} />
             )}
+        </div>
         </div>
     )
 }
