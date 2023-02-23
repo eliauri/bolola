@@ -4,7 +4,8 @@ export default function Document() {
     return (
         <Html>
             <Head>
-            <link rel="icon" href="/favicon.svg" />
+                <link rel="icon" href="/favicon.svg" />
+                <meta name="yandex-verification" content="be795ecdfbd6495b" />
             </Head>
             <body>
                 <Main />
