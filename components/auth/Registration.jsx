@@ -24,13 +24,13 @@ const Registration = () => {
   const dispatch = useDispatch();
 
   const registration = async () => {
-      const response = await axios.post('/user/create',
-        JSON.stringify(data),
-      ).then(() => {
-        setModal(true);
-        setErrMsg();
-        dispatch(login({ phone: data.tel, password: data.password }));
-      })
+    const response = await axios.post('/user/create',
+      JSON.stringify(data),
+    ).then(() => {
+      setModal(true);
+      setErrMsg();
+      dispatch(login({ phone: data.tel, password: data.password }));
+    })
   }
 
   const verify = async (data) => {
@@ -159,7 +159,7 @@ const Registration = () => {
           <Image src={passwordVisible ? eyeClose : eye} alt='Показать пароль' onClick={() => setVisiblePassword(!passwordVisible)} />
           {errors.password && (<p className={s.auth__textError}>{errors.password.message}</p>)}
         </div>
-        <div className={s.auth__inputLine}>
+        <div className={s.auth__privacy}>
           <input
             type="checkbox"
             id="checkbox"

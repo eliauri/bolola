@@ -40,6 +40,12 @@
     &__form {
         margin-top: 30px;
 
+        .auth__privacy {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .auth__inputLine {
             position: relative;
             margin: 10px 0;
@@ -50,9 +56,11 @@
                 top: 35px;
                 cursor: pointer;
             }
+
             span {
                 font-size: 16px;
                 color: var(--color-black);
+                display: block;
                 a {
                     color: var(--color-blue);
                 }
@@ -107,6 +115,18 @@
             width: 20px;
             height: 20px;
             margin-right: 5px;
+            flex-shrink: 0;
+            margin-top: 0;
+
+            @include mobile {
+                &:checked:after {
+                    top: 4px;
+                    left: 8px;
+                    width: 3px;
+                    height: 8px;
+                }
+            }
+
             &::before {
                 content: "";
                 display: block;
@@ -187,10 +207,12 @@
         outline: none;
         text-align: center;
         transition-duration: .25s;
+
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
             -webkit-appearance: none;
         }
+
         &:first-child {
             border-radius: 0.5rem 0 0 0.5rem;
         }

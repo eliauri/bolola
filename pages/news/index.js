@@ -14,7 +14,7 @@ export default function News({news, promotions}) {
     <>
      <Head>
         <title>Новости - Болола</title>
-        <meta name="description" content="Следите за новостями и акциями компании Болола" />
+        <meta name="description" content="Следите за последними новостями и акциями компании Болола" />
       </Head>
       <Container>
         <Title color='black' className={s.titleMain}>Новости компании</Title>
