@@ -44,6 +44,16 @@
             display: flex;
             align-items: center;
             gap: 10px;
+
+            span {
+                font-size: 16px;
+                color: var(--color-black);
+                display: block;
+
+                a {
+                    color: var(--color-blue);
+                }
+            }
         }
 
         .auth__inputLine {
@@ -57,14 +67,7 @@
                 cursor: pointer;
             }
 
-            span {
-                font-size: 16px;
-                color: var(--color-black);
-                display: block;
-                a {
-                    color: var(--color-blue);
-                }
-            }
+
         }
 
         .auth_flexLine {
