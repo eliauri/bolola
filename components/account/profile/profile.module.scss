@@ -1,6 +1,6 @@
 @import "../../../styles/breakpoint";
 
-.account {
+.account, .password {
     .title {
         font-weight: 500;
         font-size: 36px;
@@ -92,7 +92,7 @@
     }
 }
 
-.passwordResst{
+.passwordReset{
   width: 280px;
     margin-top: 60px;
     .account__inputLine{

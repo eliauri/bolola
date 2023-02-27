@@ -34,7 +34,7 @@ const Password = () => {
         }
     }
     return (
-        <div className={s.passwordResst}>
+        <div className={s.passwordReset}>
             <div className={s.inputLine}>
                 <label htmlFor="pas">
                     Пароль:
@@ -50,15 +50,15 @@ const Password = () => {
             </div>
             <Modal onClose={() => setModal(false)} modal={modal}>
                 <form className={s.password} onSubmit={handleSubmit(onSubmit)}>
-                    {err ? <p className={s.account__textError}>{err}</p> : ''}
-                    <div className={s.account__inputLine}>
+                    {err ? <p className={s.textError}>{err}</p> : ''}
+                    <div className={s.inputLine}>
                         <label htmlFor="old">
                             Старый пароль:
                         </label>
                         <input
                             type={"password"}
                             id="old"
-                            className={cl({ [s.account__inputError]: errors.old })}
+                            className={cl({ [s.inputError]: errors.old })}
                             {...register('old',
                                 {
                                     required: 'Введите старый пароль',
@@ -67,14 +67,14 @@ const Password = () => {
                         />
                         {errors.old && (<p className={s.textError}>{errors.old.message}</p>)}
                     </div>
-                    <div className={s.account__inputLine}>
+                    <div className={s.inputLine}>
                         <label htmlFor="new">
                             Новый пароль:
                         </label>
                         <input
                             type={"password"}
                             id="new"
-                            className={cl({ [s.account__inputError]: errors.new })}
+                            className={cl({ [s.inputError]: errors.new })}
                             {...register('new',
                                 {
                                     required: 'Введите пароль',
@@ -89,14 +89,14 @@ const Password = () => {
                         />
                         {errors.new && (<p className={s.textError}>{errors.new.message}</p>)}
                     </div>
-                    <div className={s.account__inputLine}>
+                    <div className={s.inputLine}>
                         <label htmlFor="confirm_password">
                             Подтвердите пароль:
                         </label>
                         <input
                             type={"password"}
                             id="confirm_password"
-                            className={cl({ [s.account__inputError]: errors.confirm_password })}
+                            className={cl({ [s.inputError]: errors.confirm_password })}
                             {...register('confirm_password',
                                 {
                                     required: 'Введите пароль',

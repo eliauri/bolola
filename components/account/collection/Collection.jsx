@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import Container from '../../Container'
 import s from './collection.module.scss'
@@ -34,7 +35,7 @@ const Collection = () => {
     } else {
       getBoliks();
     }
-  }, []);
+  }, [isLoggedIn]);
 
   const finishCollection = (id) => {
     setModal(true);

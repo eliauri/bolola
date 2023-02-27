@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import Collection from '../../../components/account/collection/Collection';
 import { useSelector } from 'react-redux'
