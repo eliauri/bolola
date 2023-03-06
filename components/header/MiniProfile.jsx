@@ -8,17 +8,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from "../../store/auth/action-creators";
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 
-
-
 const MiniProfile = () => {
   const axiosPrivate = useAxiosPrivate();
-
   const [user, setUser] = useState();
   const [profileVisible, setProfileVisible] = useState(false);
-
   const dispatch = useDispatch();
-	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-	
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -30,8 +26,8 @@ const MiniProfile = () => {
     }
     if (isLoggedIn && !user) {
       getUser();
-    } 
-	},[isLoggedIn, user, axiosPrivate]);
+    }
+  }, [isLoggedIn, user, axiosPrivate]);
 
   return (
     <div

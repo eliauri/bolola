@@ -1,55 +1,66 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import Input, { isValidPhoneNumber } from "react-phone-number-input/input";
 import Image from 'next/image'
 import Link from 'next/link'
 import { useForm, Controller } from 'react-hook-form'
-import { useRouter } from 'next/router'
 import s from './auth.module.scss'
 import axios from '../../pages/api/axios';
 import eye from '../../public/eye.svg'
 import eyeClose from '../../public/eyeClose.svg'
 import cl from 'classnames'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/auth/auth-slice'
 import Button from '../button/Button';
 import Modal from '../modal/Modal'
 import VerificationCall from './VerificationCall';
+import { setData, setErrMsg } from '../../store/registration/registation-slice';
+import { setVerificationError } from '../../store/verification/verification-slice';
 
 const Registration = () => {
   const { register, handleSubmit, control, formState: { errors, isValid } } = useForm({ mode: 'onBlur' });
-  const [errMsg, setErrMsg] = useState();
-  const [data, setData] = useState();
+  const { data, errMsg } = useSelector(state => state.registration);
+  const { completed, code } = useSelector(state => state.verification);
   const [passwordVisible, setVisiblePassword] = useState(false);
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
 
   const registration = async () => {
-    const response = await axios.post('/user/create',
-      JSON.stringify(data),
-    ).then(() => {
-      setModal(true);
-      setErrMsg();
-      dispatch(login({ phone: data.tel, password: data.password }));
-    })
+    const response = await axios.post('/user/create', {...data, 'code': code})
+      .then(() => {
+        setModal(false);
+        dispatch(setErrMsg(''))
+        dispatch(login({ phone: data.tel, password: data.password }));
+      })
+      .catch((err) => {
+        if (err?.response?.data?.message) {
+              dispatch(setVerificationError(err.response.data.message));
+          }
+      })
   }
-
+  useEffect(() => {
+    if (data) {
+      registration();
+    }
+  }, [completed])
+  
   const verify = async (data) => {
     const response = await axios.post('/call/',
       {
         phone: data.tel, mail: data.mail
       })
       .then((res) => {
-        setErrMsg('');
+        dispatch(setErrMsg(''))
         setModal(true);
       }).catch((err) => {
         console.log(err);
-        setErrMsg(err.response.data.message);
+        dispatch(setErrMsg(err.response.data.message))
       })
   }
 
   const onSubmit = async (data) => {
     verify(data);
-    setData(data);
+    dispatch(setData(data))
   }
   return (
     <>
@@ -179,12 +190,7 @@ const Registration = () => {
       </form>
       <p className={s.auth__reference}>Уже есть аккаунт? {<Link href={'/auth/signin'} className={s.auth__blueLink}>Войти</Link>}</p>
       <Modal onClose={() => setModal(false)} modal={modal}>
-
-        <VerificationCall
-          onClose={() => setModal(false)}
-          request={registration}
-          setData={setData}
-        />
+        <VerificationCall />
       </Modal>
     </>
   )

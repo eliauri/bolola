@@ -1,6 +1,0 @@
-User-agent: *
-Crawl-delay: 1
-Host: https://bolola.ru/
-Disallow: /auth/
-Disallow: /privacy
-Sitemap: https://bolola.ru/sitemap.xml
